@@ -1,5 +1,6 @@
 "use client";
 
+import {useState} from "react";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
 
@@ -11,12 +12,16 @@ const navItems = [
 ];
 
 export default function Navbar() {
+    const [open, setOpen] = useState(false);
+
     return (
         <header className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur border-b border-border">
             <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
                 <div className="text-primary font-semibold text-lg">
                     AM
                 </div>
+
                 <nav className="hidden md:flex items-center gap-8">
                     {navItems.map((item) => (
                         <Link
@@ -28,10 +33,34 @@ export default function Navbar() {
                         </Link>
                     ))}
                 </nav>
-                <Button size="sm">
-                    Get in touch
-                </Button>
+
+                <div className="flex items-center gap-3">
+                    <Button size="sm">
+                        Get in touch
+                    </Button>
+                    <button
+                        className="md:hidden text-foreground"
+                        onClick={() => setOpen(!open)}
+                    >
+                        ☰
+                    </button>
+                </div>
             </div>
+
+            {open && (
+                <div className="md:hidden px-6 pb-4 space-y-4 bg-background border-t border-border">
+                    {navItems.map((item) => (
+                        <Link
+                            key={item.label}
+                            href={item.href}
+                            onClick={() => setOpen(false)}
+                            className="block text-muted-foreground hover:text-primary"
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </div>
+            )}
         </header>
     );
 }
