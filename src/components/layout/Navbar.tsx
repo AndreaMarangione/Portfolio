@@ -16,7 +16,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
 
     const handleScroll = (e: React.MouseEvent, href: string) => {
-        const currentHash = window.location.hash;
+        const currentHash: string = window.location.hash;
 
         if (currentHash === href) {
             e.preventDefault();
