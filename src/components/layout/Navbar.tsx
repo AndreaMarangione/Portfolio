@@ -7,12 +7,30 @@ import {Button} from "@/components/ui/button";
 const navItems = [
     {label: "Home", href: "#home"},
     {label: "About", href: "#about"},
+    {label: "Skills", href: "#skills"},
     {label: "Projects", href: "#projects"},
     {label: "Contact", href: "#contact"},
 ];
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
+
+    const handleScroll = (e: React.MouseEvent, href: string) => {
+        const currentHash = window.location.hash;
+
+        if (currentHash === href) {
+            e.preventDefault();
+
+            const id = href.replace("#", "");
+            const element = document.getElementById(id);
+
+            if (element) {
+                element.scrollIntoView({
+                    behavior: "smooth",
+                });
+            }
+        }
+    };
 
     return (
         <header className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur border-b border-border">
@@ -27,6 +45,9 @@ export default function Navbar() {
                         <Link
                             key={item.label}
                             href={item.href}
+                            onClick={(e) => {
+                                handleScroll(e, item.href)
+                            }}
                             className="text-muted-foreground hover:text-primary transition-colors"
                         >
                             {item.label}
@@ -38,6 +59,7 @@ export default function Navbar() {
                     <Button size="sm">
                         Get in touch
                     </Button>
+
                     <button
                         className="md:hidden text-foreground"
                         onClick={() => setOpen(!open)}
@@ -53,7 +75,10 @@ export default function Navbar() {
                         <Link
                             key={item.label}
                             href={item.href}
-                            onClick={() => setOpen(false)}
+                            onClick={(e) => {
+                                handleScroll(e, item.href);
+                                setOpen(false);
+                            }}
                             className="block text-muted-foreground hover:text-primary"
                         >
                             {item.label}
