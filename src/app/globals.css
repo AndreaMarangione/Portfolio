@@ -118,6 +118,35 @@
     --sidebar-ring: oklch(0.75 0.18 60);
 }
 
+.ubuntu {
+    --background: #1E1E1E;
+    --foreground: #F5F5F5;
+    --card: #262626;
+    --card-foreground: #F5F5F5;
+    --popover: #262626;
+    --popover-foreground: #F5F5F5;
+    --primary: #E95420;
+    --primary-foreground: #ffffff;
+    --secondary: #2A2A2A;
+    --secondary-foreground: #F5F5F5;
+    --muted: #2A2A2A;
+    --muted-foreground: #B3B3B3;
+    --accent: #FF6A33;
+    --accent-foreground: #ffffff;
+    --destructive: #ef4444;
+    --border: #3A3A3A;
+    --input: #3A3A3A;
+    --ring: #E95420;
+    --sidebar: #242424;
+    --sidebar-foreground: #F5F5F5;
+    --sidebar-primary: #E95420;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #2A2A2A;
+    --sidebar-accent-foreground: #F5F5F5;
+    --sidebar-border: #3A3A3A;
+    --sidebar-ring: #E95420;
+}
+
 @layer base {
     * {
         @apply border-border outline-ring/50;
