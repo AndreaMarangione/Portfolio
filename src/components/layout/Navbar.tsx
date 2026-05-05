@@ -56,10 +56,12 @@ const Navbar = () => {
                 </nav>
 
                 <div className="flex items-center gap-3">
+                    <Button variant="outline" size="sm">
+                        Download CV
+                    </Button>
                     <Button size="sm">
                         Get in touch
                     </Button>
-
                     <button
                         className="md:hidden text-foreground"
                         onClick={() => setOpen(!open)}
