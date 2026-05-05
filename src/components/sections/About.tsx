@@ -1,6 +1,8 @@
+import WorldMap from "@/components/sections/WorldMap";
+
 const About = () => {
     return (
-        <h1>About</h1>
+        <WorldMap/>
     )
 }
 
