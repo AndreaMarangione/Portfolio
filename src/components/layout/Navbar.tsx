@@ -16,7 +16,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
 
     const handleScroll = (e: React.MouseEvent, href: string) => {
-        const currentHash = window.location.hash;
+        const currentHash: string = window.location.hash;
 
         if (currentHash === href) {
             e.preventDefault();
@@ -56,10 +56,12 @@ const Navbar = () => {
                 </nav>
 
                 <div className="flex items-center gap-3">
+                    <Button variant="outline" size="sm">
+                        Download CV
+                    </Button>
                     <Button size="sm">
                         Get in touch
                     </Button>
-
                     <button
                         className="md:hidden text-foreground"
                         onClick={() => setOpen(!open)}
