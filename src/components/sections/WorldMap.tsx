@@ -1717,12 +1717,14 @@ const WorldMap = () => {
                 <g
                     transform={`
         translate(${planePosition.x}, ${planePosition.y})
-        rotate(${planePosition.angle})
     `}
                 >
                     <text
                         fontSize="45"
                         fill="#D6D6D6"
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        transform={`rotate(${planePosition.angle})`}
                     >
                         ✈
                     </text>
