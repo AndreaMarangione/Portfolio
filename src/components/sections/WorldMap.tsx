@@ -84,25 +84,29 @@ const WorldMap = () => {
                 currentVisibleLength
             );
 
-            const nextPoint = path.getPointAtLength(
-                Math.min(currentVisibleLength + 1, length)
-            );
+            setPlanePosition((prev) => {
 
-            let angle = planePosition.angle;
+                let angle = prev.angle;
 
-            if (progress < 0.995) {
-                angle =
-                    Math.atan2(
-                        nextPoint.y - currentPoint.y,
-                        nextPoint.x - currentPoint.x
-                    ) *
-                    (180 / Math.PI);
-            }
+                if (progress < 1) {
 
-            setPlanePosition({
-                x: currentPoint.x,
-                y: currentPoint.y,
-                angle,
+                    const nextPoint = path.getPointAtLength(
+                        currentVisibleLength + 0.01
+                    );
+
+                    angle =
+                        Math.atan2(
+                            nextPoint.y - currentPoint.y,
+                            nextPoint.x - currentPoint.x
+                        ) *
+                        (180 / Math.PI);
+                }
+
+                return {
+                    x: currentPoint.x,
+                    y: currentPoint.y,
+                    angle,
+                };
             });
 
             if (progress < 1) {
