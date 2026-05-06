@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 
 const WorldMap = () => {
     const [routeIndex, setRouteIndex] = useState(0);
@@ -26,13 +26,100 @@ const WorldMap = () => {
 
     const currentRoute = routes[routeIndex];
 
+    const pathRef = useRef<SVGPathElement | null>(null);
+
+    const [planePosition, setPlanePosition] = useState({
+        x: 0,
+        y: 0,
+        angle: 0,
+    });
+
+    const [visibleLength, setVisibleLength] = useState(0);
+
+    const [pathLength, setPathLength] = useState(0);
+
     useEffect(() => {
-        const interval = setInterval(() => {
+
+        const routeInterval = setInterval(() => {
             setRouteIndex((prev) => (prev + 1) % routes.length);
         }, 4800);
 
-        return () => clearInterval(interval);
+        return () => clearInterval(routeInterval);
+
     }, []);
+
+    useEffect(() => {
+
+        const path = pathRef.current;
+
+        if (!path) return;
+
+        const length = path.getTotalLength();
+
+        setPathLength(length);
+
+        let start: number | null = null;
+
+        let animationFrame: number;
+
+        const duration = 3000;
+
+        const animate = (timestamp: number) => {
+
+            if (!start) {
+                start = timestamp;
+            }
+
+            const progress = Math.min(
+                (timestamp - start) / duration,
+                1
+            );
+
+            const currentVisibleLength =
+                length * progress;
+
+            setVisibleLength(currentVisibleLength);
+
+            const currentPoint = path.getPointAtLength(
+                currentVisibleLength
+            );
+
+            const nextPoint = path.getPointAtLength(
+                Math.min(currentVisibleLength + 1, length)
+            );
+
+            let angle = planePosition.angle;
+
+            if (progress < 0.995) {
+                angle =
+                    Math.atan2(
+                        nextPoint.y - currentPoint.y,
+                        nextPoint.x - currentPoint.x
+                    ) *
+                    (180 / Math.PI);
+            }
+
+            setPlanePosition({
+                x: currentPoint.x,
+                y: currentPoint.y,
+                angle,
+            });
+
+            if (progress < 1) {
+                animationFrame =
+                    requestAnimationFrame(animate);
+            }
+        };
+
+        setVisibleLength(0);
+
+        animationFrame =
+            requestAnimationFrame(animate);
+
+        return () =>
+            cancelAnimationFrame(animationFrame);
+
+    }, [routeIndex]);
 
     return (
         <div className="w-full max-w-5xl mx-auto">
@@ -1603,54 +1690,42 @@ const WorldMap = () => {
                     <text x="510" y="275" fontSize="28">Andalusia</text>
                 </g>
 
-                <g key={`route-${routeIndex}`}>
+                <defs>
+                    <mask id="route-mask">
+                        <path
+                            ref={pathRef}
+                            d={currentRoute.path}
+                            fill="none"
+                            stroke="white"
+                            strokeWidth="4"
+                            strokeLinecap="round"
+                            strokeDasharray={`${visibleLength} ${pathLength}`}
+                        />
+                    </mask>
+                </defs>
 
-                    <defs>
-                        <mask id={`reveal-mask-${routeIndex}`}>
-                            <path
-                                id={`motion-path-${routeIndex}`}
-                                d={currentRoute.path}
-                                fill="none"
-                                stroke="white"
-                                strokeWidth="4"
-                                strokeDasharray="1000"
-                                strokeDashoffset="1000"
-                            >
-                                <animate
-                                    attributeName="stroke-dashoffset"
-                                    from="1000"
-                                    to="0"
-                                    dur="4.8s"
-                                    fill="freeze"
-                                />
-                            </path>
-                        </mask>
-                    </defs>
+                <path
+                    d={currentRoute.path}
+                    fill="none"
+                    stroke="#E95420"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeDasharray="8 6"
+                    mask="url(#route-mask)"
+                />
 
-                    <path
-                        d={currentRoute.path}
-                        fill="none"
-                        stroke="#E95420"
-                        strokeWidth="2"
-                        strokeDasharray="8 6"
-                        mask={`url(#reveal-mask-${routeIndex})`}
-                    />
-
-                    <g>
-                        <text fontSize="45" fill="#D6D6D6">
-                            ✈
-                        </text>
-
-                        <animateMotion
-                            dur="3s"
-                            rotate="auto"
-                            fill="freeze"
-                            begin="0s"
-                        >
-                            <mpath href={`#motion-path-${routeIndex}`} />
-                        </animateMotion>
-                    </g>
-
+                <g
+                    transform={`
+        translate(${planePosition.x}, ${planePosition.y})
+        rotate(${planePosition.angle})
+    `}
+                >
+                    <text
+                        fontSize="45"
+                        fill="#D6D6D6"
+                    >
+                        ✈
+                    </text>
                 </g>
             </svg>
         </div>
