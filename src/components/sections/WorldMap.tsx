@@ -1,4 +1,39 @@
+"use client";
+
+import {useEffect, useState} from "react";
+
 const WorldMap = () => {
+    const [routeIndex, setRouteIndex] = useState(0);
+
+    const routes = [
+        {
+            id: "florence-tongxiang-1",
+            path: "M 1045 230 Q 1350 150 1635 318",
+        },
+        {
+            id: "florence-tongxiang-2",
+            path: "M 1045 230 Q 1350 150 1635 318",
+        },
+        {
+            id: "florence-tongxiang-3",
+            path: "M 1045 230 Q 1350 150 1635 318",
+        },
+        {
+            id: "florence-tongxiang-4",
+            path: "M 1045 230 Q 1350 150 1635 318",
+        }
+    ];
+
+    const currentRoute = routes[routeIndex];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setRouteIndex((prev) => (prev + 1) % routes.length);
+        }, 4800);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="w-full max-w-5xl mx-auto">
             <svg
@@ -1568,47 +1603,54 @@ const WorldMap = () => {
                     <text x="510" y="275" fontSize="28">Andalusia</text>
                 </g>
 
-                <defs>
-                    <mask id="reveal-mask">
-                        <path
-                            id="route-1"
-                            d="M 1045 230 Q 1350 150 1635 318"
-                            fill="none"
-                            stroke="white"
-                            strokeWidth="4"
-                            strokeDasharray="1000"
-                            strokeDashoffset="1000"
+                <g key={`route-${routeIndex}`}>
+
+                    <defs>
+                        <mask id={`reveal-mask-${routeIndex}`}>
+                            <path
+                                id={`motion-path-${routeIndex}`}
+                                d={currentRoute.path}
+                                fill="none"
+                                stroke="white"
+                                strokeWidth="4"
+                                strokeDasharray="1000"
+                                strokeDashoffset="1000"
+                            >
+                                <animate
+                                    attributeName="stroke-dashoffset"
+                                    from="1000"
+                                    to="0"
+                                    dur="4.8s"
+                                    fill="freeze"
+                                />
+                            </path>
+                        </mask>
+                    </defs>
+
+                    <path
+                        d={currentRoute.path}
+                        fill="none"
+                        stroke="#E95420"
+                        strokeWidth="2"
+                        strokeDasharray="8 6"
+                        mask={`url(#reveal-mask-${routeIndex})`}
+                    />
+
+                    <g>
+                        <text fontSize="45" fill="#D6D6D6">
+                            ✈
+                        </text>
+
+                        <animateMotion
+                            dur="3s"
+                            rotate="auto"
+                            fill="freeze"
+                            begin="0s"
                         >
-                            <animate
-                                attributeName="stroke-dashoffset"
-                                from="1000"
-                                to="0"
-                                dur="4.8s"
-                                fill="freeze"
-                            />
-                        </path>
-                    </mask>
-                </defs>
+                            <mpath href={`#motion-path-${routeIndex}`} />
+                        </animateMotion>
+                    </g>
 
-                <path
-                    d="M 1045 230 Q 1350 150 1635 318"
-                    fill="none"
-                    stroke="#E95420"
-                    strokeWidth="2"
-                    strokeDasharray="8 6"
-                    mask="url(#reveal-mask)"
-                />
-
-                <g>
-                    <text fontSize="45" fill="#D6D6D6">✈</text>
-
-                    <animateMotion
-                        dur="3s"
-                        rotate="auto"
-                        fill="freeze"
-                    >
-                        <mpath href="#route-1" />
-                    </animateMotion>
                 </g>
             </svg>
         </div>
