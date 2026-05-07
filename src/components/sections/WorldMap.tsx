@@ -40,16 +40,6 @@ const WorldMap = () => {
 
     useEffect(() => {
 
-        const routeInterval = setInterval(() => {
-            setRouteIndex((prev) => (prev + 1) % routes.length);
-        }, 4800);
-
-        return () => clearInterval(routeInterval);
-
-    }, []);
-
-    useEffect(() => {
-
         const path = pathRef.current;
 
         if (!path) return;
@@ -110,8 +100,19 @@ const WorldMap = () => {
             });
 
             if (progress < 1) {
+
                 animationFrame =
                     requestAnimationFrame(animate);
+
+            } else {
+
+                setTimeout(() => {
+
+                    setRouteIndex((prev) =>
+                        (prev + 1) % routes.length
+                    );
+
+                }, 0);
             }
         };
 
