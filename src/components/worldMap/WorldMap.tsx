@@ -1,161 +1,54 @@
 "use client";
 
 import {useEffect, useRef, useState} from "react";
+import {routes} from "@/components/worldMap/constant";
+import {animateRoute} from "@/utils/animateRoute";
 
 const WorldMap = () => {
     const [routeIndex, setRouteIndex] = useState(0);
-
-    const routes = [
-        {
-            id: "florence-tongxiang",
-            path: "M 1045 230 Q 1350 150 1635 318",
-        },
-        {
-            id: "tongxiang-balikesir",
-            path: "M 1635 318 Q 1455 200 1135 260",
-        },
-        {
-            id: "balikesir-fuzhou",
-            path: "M 1135 260 Q 1455 210 1610 355",
-        },
-        {
-            id: "fuzhou-florence",
-            path: "M 1610 355 Q 1455 210 1045 230",
-        },
-        {
-            id: "florence-Houston",
-            path: "M 1045 230 Q 850 150 460 300",
-        },
-        {
-            id: "Houston-neumünster",
-            path: "M 465 300 Q 650 110 1045 160",
-        },
-        {
-            id: "neumünster-andalusia",
-            path: "M 1045 160 Q 650 110 510 290",
-        },
-        {
-            id: "andalusia-zaragozza",
-            path: "M 510 290 Q 650 150 970 230",
-        },
-        {
-            id: "zaragozza-rudong",
-            path: "M 970 230 Q 1350 110 1620 290",
-        },
-        {
-            id: "rudong-izmit",
-            path: "M 1620 290 Q 1450 180 1140 230",
-        },
-        {
-            id: "izmit-Houston",
-            path: "M 1140 230 Q 850 150 460 300",
-        },
-        {
-            id: "Houston-florence",
-            path: "M 465 300 Q 650 110 1045 230",
-        },
-    ];
-
+    const [completedRoutes, setCompletedRoutes] = useState<{ path: string; id: number; }[]>([]);
+    const [planePosition, setPlanePosition] = useState({x: 0, y: 0, angle: 0,});
+    const [visibleLength, setVisibleLength] = useState(0);
+    const [pathLength, setPathLength] = useState(0);
+    const pathRef = useRef<SVGPathElement | null>(null);
     const currentRoute = routes[routeIndex];
 
-    const pathRef = useRef<SVGPathElement | null>(null);
-
-    const [planePosition, setPlanePosition] = useState({
-        x: 0,
-        y: 0,
-        angle: 0,
-    });
-
-    const [visibleLength, setVisibleLength] = useState(0);
-
-    const [pathLength, setPathLength] = useState(0);
-
     useEffect(() => {
-
         const path = pathRef.current;
 
         if (!path) return;
 
-        const length = path.getTotalLength();
+        const length: number = path.getTotalLength();
 
         setPathLength(length);
 
         let start: number | null = null;
-
         let animationFrame: number;
-
         const duration = 3000;
 
         const animate = (timestamp: number) => {
-
-            if (!start) {
-                start = timestamp;
-            }
-
-            const progress = Math.min(
-                (timestamp - start) / duration,
-                1
-            );
-
-            const currentVisibleLength =
-                length * progress;
-
-            setVisibleLength(currentVisibleLength);
-
-            const currentPoint = path.getPointAtLength(
-                currentVisibleLength
-            );
-
-            setPlanePosition((prev) => {
-
-                let angle = prev.angle;
-
-                if (progress < 1) {
-
-                    const nextPoint = path.getPointAtLength(
-                        currentVisibleLength + 0.01
-                    );
-
-                    angle =
-                        Math.atan2(
-                            nextPoint.y - currentPoint.y,
-                            nextPoint.x - currentPoint.x
-                        ) *
-                        (180 / Math.PI);
-                }
-
-                return {
-                    x: currentPoint.x,
-                    y: currentPoint.y,
-                    angle,
-                };
+            start = animateRoute({
+                timestamp,
+                start,
+                duration,
+                length,
+                path,
+                currentRoutePath: currentRoute.path,
+                routesLength: routes.length,
+                setVisibleLength,
+                setPlanePosition,
+                setCompletedRoutes,
+                setRouteIndex,
+                requestNextFrame: () => {
+                    animationFrame = requestAnimationFrame(animate);
+                },
             });
-
-            if (progress < 1) {
-
-                animationFrame =
-                    requestAnimationFrame(animate);
-
-            } else {
-
-                setTimeout(() => {
-
-                    setRouteIndex((prev) =>
-                        (prev + 1) % routes.length
-                    );
-
-                }, 0);
-            }
         };
 
         setVisibleLength(0);
+        animationFrame = requestAnimationFrame(animate);
 
-        animationFrame =
-            requestAnimationFrame(animate);
-
-        return () =>
-            cancelAnimationFrame(animationFrame);
-
+        return () => cancelAnimationFrame(animationFrame);
     }, [routeIndex]);
 
     return (
@@ -1695,6 +1588,21 @@ const WorldMap = () => {
                 <circle cx="1798.2" cy="719.3" id="2">
                 </circle>
 
+                {completedRoutes.map((route, index) => {
+                    const opacity: number = ((index + 1) / completedRoutes.length) * 0.22;
+                    return (
+                        <path
+                            key={route.id}
+                            d={route.path}
+                            fill="none"
+                            stroke="#E95420"
+                            strokeWidth="1.5"
+                            strokeOpacity={opacity}
+                            strokeLinecap="round"
+                            strokeDasharray="8 6"
+                        />
+                    );
+                })}
                 <g id="cities" fill="#E95420" fontFamily="sans-serif" fontSize="10">
                     <circle cx="1640" cy="320" r="7">
                         <animate
@@ -1703,7 +1611,6 @@ const WorldMap = () => {
                             dur="4.0s"
                             repeatCount="indefinite"
                         />
-
                         <animate
                             attributeName="opacity"
                             values="0.7;1;0.7"
@@ -1712,7 +1619,6 @@ const WorldMap = () => {
                         />
                     </circle>
                     <text x="1655" y="340" fontSize="28">Tongxiang</text>
-
                     <circle cx="1620" cy="290" r="7">
                         <animate
                             attributeName="r"
@@ -1720,7 +1626,6 @@ const WorldMap = () => {
                             dur="2.5s"
                             repeatCount="indefinite"
                         />
-
                         <animate
                             attributeName="opacity"
                             values="0.7;1;0.7"
@@ -1729,7 +1634,6 @@ const WorldMap = () => {
                         />
                     </circle>
                     <text x="1630" y="285" fontSize="28">Rudong</text>
-
                     <circle cx="1610" cy="350" r="7">
                         <animate
                             attributeName="r"
@@ -1737,7 +1641,6 @@ const WorldMap = () => {
                             dur="3.6s"
                             repeatCount="indefinite"
                         />
-
                         <animate
                             attributeName="opacity"
                             values="0.7;1;0.7"
@@ -1746,7 +1649,6 @@ const WorldMap = () => {
                         />
                     </circle>
                     <text x="1610" y="385" fontSize="28">Fuzhou</text>
-
                     <circle cx="1140" cy="260" r="7">
                         <animate
                             attributeName="r"
@@ -1754,7 +1656,6 @@ const WorldMap = () => {
                             dur="2.4s"
                             repeatCount="indefinite"
                         />
-
                         <animate
                             attributeName="opacity"
                             values="0.7;1;0.7"
@@ -1763,7 +1664,6 @@ const WorldMap = () => {
                         />
                     </circle>
                     <text x="1150" y="285" fontSize="28">Balikesir</text>
-
                     <circle cx="1155" cy="235" r="7">
                         <animate
                             attributeName="r"
@@ -1771,7 +1671,6 @@ const WorldMap = () => {
                             dur="3.1s"
                             repeatCount="indefinite"
                         />
-
                         <animate
                             attributeName="opacity"
                             values="0.7;1;0.7"
@@ -1780,7 +1679,6 @@ const WorldMap = () => {
                         />
                     </circle>
                     <text x="1160" y="225" fontSize="28">Izmit</text>
-
                     <circle cx="970" cy="235" r="7">
                         <animate
                             attributeName="r"
@@ -1788,7 +1686,6 @@ const WorldMap = () => {
                             dur="4.2s"
                             repeatCount="indefinite"
                         />
-
                         <animate
                             attributeName="opacity"
                             values="0.7;1;0.7"
@@ -1797,7 +1694,6 @@ const WorldMap = () => {
                         />
                     </circle>
                     <text x="860" y="265" fontSize="28">Zaragoza</text>
-
                     <circle cx="1050" cy="230" r="7">
                         <animate
                             attributeName="r"
@@ -1805,7 +1701,6 @@ const WorldMap = () => {
                             dur="2.7s"
                             repeatCount="indefinite"
                         />
-
                         <animate
                             attributeName="opacity"
                             values="0.7;1;0.7"
@@ -1814,7 +1709,6 @@ const WorldMap = () => {
                         />
                     </circle>
                     <text x="1020" y="215" fontSize="28">Florence</text>
-
                     <circle cx="1040" cy="160" r="7">
                         <animate
                             attributeName="r"
@@ -1822,7 +1716,6 @@ const WorldMap = () => {
                             dur="3.8s"
                             repeatCount="indefinite"
                         />
-
                         <animate
                             attributeName="opacity"
                             values="0.7;1;0.7"
@@ -1831,7 +1724,6 @@ const WorldMap = () => {
                         />
                     </circle>
                     <text x="1040" y="145" fontSize="28">Neumünster</text>
-
                     <circle cx="470" cy="300" r="7">
                         <animate
                             attributeName="r"
@@ -1839,7 +1731,6 @@ const WorldMap = () => {
                             dur="2.9s"
                             repeatCount="indefinite"
                         />
-
                         <animate
                             attributeName="opacity"
                             values="0.7;1;0.7"
@@ -1848,7 +1739,6 @@ const WorldMap = () => {
                         />
                     </circle>
                     <text x="375" y="330" fontSize="28">Houston</text>
-
                     <circle cx="515" cy="290" r="7">
                         <animate
                             attributeName="r"
@@ -1856,7 +1746,6 @@ const WorldMap = () => {
                             dur="3.3s"
                             repeatCount="indefinite"
                         />
-
                         <animate
                             attributeName="opacity"
                             values="0.7;1;0.7"
@@ -1866,7 +1755,6 @@ const WorldMap = () => {
                     </circle>
                     <text x="510" y="275" fontSize="28">Andalusia</text>
                 </g>
-
                 <defs>
                     <mask id="route-mask">
                         <path
@@ -1880,7 +1768,6 @@ const WorldMap = () => {
                         />
                     </mask>
                 </defs>
-
                 <path
                     d={currentRoute.path}
                     fill="none"
@@ -1890,22 +1777,14 @@ const WorldMap = () => {
                     strokeDasharray="8 6"
                     mask="url(#route-mask)"
                 />
-
-                <g
-                    transform={`
-        translate(${planePosition.x}, ${planePosition.y})
-    `}
-                >
+                <g transform={`translate(${planePosition.x}, ${planePosition.y})`}>
                     <text
                         fontSize="45"
                         fill="#D6D6D6"
                         textAnchor="middle"
                         dominantBaseline="middle"
                         transform={`rotate(${planePosition.angle})`}
-                        style={{
-                            filter:
-                                "drop-shadow(0 0 6px rgba(233,84,32,0.55))",
-                        }}
+                        style={{filter: "drop-shadow(0 0 6px rgba(233,84,32,0.55))",}}
                     >
                         ✈
                     </text>
