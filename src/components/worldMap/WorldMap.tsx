@@ -1696,34 +1696,174 @@ const WorldMap = () => {
                 </circle>
 
                 <g id="cities" fill="#E95420" fontFamily="sans-serif" fontSize="10">
-                    <circle cx="1640" cy="320" r="7"/>
+                    <circle cx="1640" cy="320" r="7">
+                        <animate
+                            attributeName="r"
+                            values="4;5.5;4"
+                            dur="4.0s"
+                            repeatCount="indefinite"
+                        />
+
+                        <animate
+                            attributeName="opacity"
+                            values="0.7;1;0.7"
+                            dur="4.0s"
+                            repeatCount="indefinite"
+                        />
+                    </circle>
                     <text x="1655" y="340" fontSize="28">Tongxiang</text>
 
-                    <circle cx="1620" cy="290" r="7"/>
+                    <circle cx="1620" cy="290" r="7">
+                        <animate
+                            attributeName="r"
+                            values="4;5.5;4"
+                            dur="2.5s"
+                            repeatCount="indefinite"
+                        />
+
+                        <animate
+                            attributeName="opacity"
+                            values="0.7;1;0.7"
+                            dur="2.5s"
+                            repeatCount="indefinite"
+                        />
+                    </circle>
                     <text x="1630" y="285" fontSize="28">Rudong</text>
 
-                    <circle cx="1610" cy="350" r="7"/>
+                    <circle cx="1610" cy="350" r="7">
+                        <animate
+                            attributeName="r"
+                            values="4;5.5;4"
+                            dur="3.6s"
+                            repeatCount="indefinite"
+                        />
+
+                        <animate
+                            attributeName="opacity"
+                            values="0.7;1;0.7"
+                            dur="3.6s"
+                            repeatCount="indefinite"
+                        />
+                    </circle>
                     <text x="1610" y="385" fontSize="28">Fuzhou</text>
 
-                    <circle cx="1140" cy="260" r="7"/>
+                    <circle cx="1140" cy="260" r="7">
+                        <animate
+                            attributeName="r"
+                            values="4;5.5;4"
+                            dur="2.4s"
+                            repeatCount="indefinite"
+                        />
+
+                        <animate
+                            attributeName="opacity"
+                            values="0.7;1;0.7"
+                            dur="2.4s"
+                            repeatCount="indefinite"
+                        />
+                    </circle>
                     <text x="1150" y="285" fontSize="28">Balikesir</text>
 
-                    <circle cx="1155" cy="235" r="7"/>
+                    <circle cx="1155" cy="235" r="7">
+                        <animate
+                            attributeName="r"
+                            values="4;5.5;4"
+                            dur="3.1s"
+                            repeatCount="indefinite"
+                        />
+
+                        <animate
+                            attributeName="opacity"
+                            values="0.7;1;0.7"
+                            dur="3.1s"
+                            repeatCount="indefinite"
+                        />
+                    </circle>
                     <text x="1160" y="225" fontSize="28">Izmit</text>
 
-                    <circle cx="970" cy="235" r="7"/>
+                    <circle cx="970" cy="235" r="7">
+                        <animate
+                            attributeName="r"
+                            values="4;5.5;4"
+                            dur="4.2s"
+                            repeatCount="indefinite"
+                        />
+
+                        <animate
+                            attributeName="opacity"
+                            values="0.7;1;0.7"
+                            dur="4.2s"
+                            repeatCount="indefinite"
+                        />
+                    </circle>
                     <text x="860" y="265" fontSize="28">Zaragoza</text>
 
-                    <circle cx="1050" cy="230" r="7"/>
+                    <circle cx="1050" cy="230" r="7">
+                        <animate
+                            attributeName="r"
+                            values="4;5.5;4"
+                            dur="2.7s"
+                            repeatCount="indefinite"
+                        />
+
+                        <animate
+                            attributeName="opacity"
+                            values="0.7;1;0.7"
+                            dur="2.7s"
+                            repeatCount="indefinite"
+                        />
+                    </circle>
                     <text x="1020" y="215" fontSize="28">Florence</text>
 
-                    <circle cx="1040" cy="160" r="7"/>
+                    <circle cx="1040" cy="160" r="7">
+                        <animate
+                            attributeName="r"
+                            values="4;5.5;4"
+                            dur="3.8s"
+                            repeatCount="indefinite"
+                        />
+
+                        <animate
+                            attributeName="opacity"
+                            values="0.7;1;0.7"
+                            dur="3.8s"
+                            repeatCount="indefinite"
+                        />
+                    </circle>
                     <text x="1040" y="145" fontSize="28">Neumünster</text>
 
-                    <circle cx="470" cy="300" r="7"/>
+                    <circle cx="470" cy="300" r="7">
+                        <animate
+                            attributeName="r"
+                            values="4;5.5;4"
+                            dur="2.9s"
+                            repeatCount="indefinite"
+                        />
+
+                        <animate
+                            attributeName="opacity"
+                            values="0.7;1;0.7"
+                            dur="2.9s"
+                            repeatCount="indefinite"
+                        />
+                    </circle>
                     <text x="375" y="330" fontSize="28">Houston</text>
 
-                    <circle cx="515" cy="290" r="7"/>
+                    <circle cx="515" cy="290" r="7">
+                        <animate
+                            attributeName="r"
+                            values="4;5.5;4"
+                            dur="3.3s"
+                            repeatCount="indefinite"
+                        />
+
+                        <animate
+                            attributeName="opacity"
+                            values="0.7;1;0.7"
+                            dur="3.3s"
+                            repeatCount="indefinite"
+                        />
+                    </circle>
                     <text x="510" y="275" fontSize="28">Andalusia</text>
                 </g>
 
@@ -1762,6 +1902,10 @@ const WorldMap = () => {
                         textAnchor="middle"
                         dominantBaseline="middle"
                         transform={`rotate(${planePosition.angle})`}
+                        style={{
+                            filter:
+                                "drop-shadow(0 0 6px rgba(233,84,32,0.55))",
+                        }}
                     >
                         ✈
                     </text>
