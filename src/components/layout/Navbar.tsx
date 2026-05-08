@@ -35,11 +35,9 @@ const Navbar = () => {
     return (
         <header className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur border-b border-border">
             <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-
                 <div className="text-primary font-semibold text-lg">
                     AM
                 </div>
-
                 <nav className="hidden md:flex items-center gap-8">
                     {navItems.map((item) => (
                         <Link
@@ -54,23 +52,23 @@ const Navbar = () => {
                         </Link>
                     ))}
                 </nav>
-
                 <div className="flex items-center gap-3">
-                    <Button variant="outline" size="sm">
-                        Download CV
-                    </Button>
-                    <Button size="sm">
-                        Get in touch
-                    </Button>
+                    <div className="hidden md:flex items-center gap-3">
+                        <Button variant="outline" size="sm">
+                            Download CV
+                        </Button>
+                        <Button size="sm">
+                            Get in touch
+                        </Button>
+                    </div>
                     <button
-                        className="md:hidden text-foreground"
+                        className="md:hidden text-foreground text-2xl leading-none"
                         onClick={() => setOpen(!open)}
                     >
                         ☰
                     </button>
                 </div>
             </div>
-
             {open && (
                 <div className="md:hidden px-6 pb-4 space-y-4 bg-background border-t border-border">
                     {navItems.map((item) => (
@@ -86,6 +84,14 @@ const Navbar = () => {
                             {item.label}
                         </Link>
                     ))}
+                    <div className="flex flex-col gap-3 pt-4">
+                        <Button variant="outline" size="sm">
+                            Download CV
+                        </Button>
+                        <Button size="sm">
+                            Get in touch
+                        </Button>
+                    </div>
                 </div>
             )}
         </header>
