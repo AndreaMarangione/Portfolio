@@ -1,6 +1,17 @@
+import WorldMap from "@/components/worldMap/WorldMap";
+import MobileRoutes from "@/components/mobileRoutes/MobileRoutes";
+
 const About = () => {
     return (
-        <h1>About</h1>
+        <>
+            <div className="block md:hidden">
+                <MobileRoutes/>
+            </div>
+
+            <div className="hidden md:block">
+                <WorldMap/>
+            </div>
+        </>
     )
 }
 
