@@ -6,7 +6,7 @@ const Hero = () => {
     const {isLoaded} = usePageLoad()
 
     return (
-        <div className="px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
             <div className="space-y-5 md:space-y-6">
                 <div className="overflow-hidden">
                     <p className={`text-sm text-muted-foreground whitespace-nowrap w-fit overflow-hidden 
@@ -15,7 +15,7 @@ const Hero = () => {
                         Andrea Marangione
                     </p>
                 </div>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary leading-[1.18] max-w-[650px]">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-[1.18] max-w-[650px]">
                     <span className="block overflow-hidden">
                         <span className={`block ${isLoaded ? "animate-fade-up" : ""}`}>
                             Automate anything

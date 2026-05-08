@@ -3,14 +3,7 @@
 import {useState} from "react";
 import Link from "next/link";
 import {Button} from "@/components/ui/button";
-
-const navItems = [
-    {label: "Home", href: "#home"},
-    {label: "About", href: "#about"},
-    {label: "Skills", href: "#skills"},
-    {label: "Projects", href: "#projects"},
-    {label: "Contact", href: "#contact"},
-];
+import {navItems} from "@/components/layout/constant";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -54,10 +47,10 @@ const Navbar = () => {
                 </nav>
                 <div className="flex items-center gap-3">
                     <div className="hidden md:flex items-center gap-3">
-                        <Button variant="outline" size="sm">
+                        <Button variant="outline" size="sm" className="text-muted-foreground font-normal">
                             Download CV
                         </Button>
-                        <Button size="sm">
+                        <Button size="sm" className="font-normal">
                             Get in touch
                         </Button>
                     </div>
@@ -85,10 +78,10 @@ const Navbar = () => {
                         </Link>
                     ))}
                     <div className="flex flex-col gap-3 pt-4">
-                        <Button variant="outline" size="sm">
+                        <Button variant="outline" size="sm" className="text-muted-foreground font-normal">
                             Download CV
                         </Button>
-                        <Button size="sm">
+                        <Button size="sm" className="font-normal">
                             Get in touch
                         </Button>
                     </div>
