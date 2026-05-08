@@ -39,7 +39,7 @@ export const animateRoute =
         }
 
         const rawProgress: number = Math.min((timestamp - start) / duration, 1);
-        const progress: number = 1 - Math.pow(1 - rawProgress, 1.7);
+        const progress: number = 1 - Math.pow(1 - rawProgress, 1.5);
         const currentVisibleLength: number = length * progress;
 
         setVisibleLength(currentVisibleLength);
@@ -76,7 +76,7 @@ export const animateRoute =
                 setRouteIndex((prev) =>
                     (prev + 1) % routesLength
                 );
-            }, 0);
+            }, 400);
         }
         return start;
     };

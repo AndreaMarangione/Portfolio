@@ -1589,7 +1589,7 @@ const WorldMap = () => {
                 </circle>
 
                 {completedRoutes.map((route, index) => {
-                    const opacity: number = ((index + 1) / completedRoutes.length) * 0.22;
+                    const opacity: number = ((index + 1) / completedRoutes.length) * 0.55;
                     return (
                         <path
                             key={route.id}
