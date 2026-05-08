@@ -147,7 +147,6 @@
     --sidebar-ring: #E95420;
 }
 
-/* animations */
 @layer base {
     * {
         @apply border-border outline-ring/50;
@@ -163,14 +162,17 @@
     }
 }
 
+/* animations */
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(14px);
+        filter: blur(5px);
+        transform: translateY(18px);
     }
 
     to {
         opacity: 1;
+        filter: blur(0);
         transform: translateY(0);
     }
 }
@@ -226,8 +228,7 @@
     display: inline-block;
     white-space: nowrap;
     position: relative;
-
-    animation: typing 1.8s ease-out 1.45s forwards;
+    animation: typing 1.8s ease-out 2s forwards;
 }
 
 .animate-typing::after {
@@ -235,14 +236,10 @@
     position: absolute;
     right: 0;
     top: 0;
-
     width: 1px;
     height: 100%;
-
     background: currentColor;
-
     opacity: 0;
-
     animation: showCursor 0s linear 1.45s forwards,
     blink 1s step-end infinite 3.25s;
 }

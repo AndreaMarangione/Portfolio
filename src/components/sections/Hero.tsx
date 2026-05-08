@@ -10,7 +10,7 @@ const Hero = () => {
             <div className="space-y-5 md:space-y-6">
                 <div className="overflow-hidden">
                     <p className={`text-sm text-muted-foreground whitespace-nowrap w-fit overflow-hidden 
-${isLoaded ? "animate-typing" : ""}`}
+                    ${isLoaded ? "animate-typing" : ""}`}
                     >
                         Andrea Marangione
                     </p>
