@@ -1,11 +1,11 @@
 import WorldMap from "@/components/worldMap/WorldMap";
-import MobileRoutes from "@/components/mobileRoutes/MobileRoutes";
+import GlobeMap from "@/components/globe/GlobeMap";
 
 const About = () => {
     return (
         <>
             <div className="block md:hidden">
-                <MobileRoutes/>
+                <GlobeMap/>
             </div>
 
             <div className="hidden md:block">
