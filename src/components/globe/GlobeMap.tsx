@@ -2,6 +2,8 @@
 
 import {useEffect, useRef} from "react";
 import dynamic from "next/dynamic";
+import gsap from "gsap";
+import * as THREE from "three";
 import type {GlobeMethods} from "react-globe.gl";
 
 const Globe3D = dynamic(
@@ -15,32 +17,36 @@ const GlobeMap = () => {
     const globeRef = useRef<GlobeMethods | undefined>(undefined);
 
     useEffect(() => {
+        const interval = setInterval(() => {
+            if (!globeRef.current) return;
 
-        let animationFrame: number;
+            const scene = globeRef.current.scene();
 
-        const animate = () => {
+            const globeMesh = scene.children.find(
+                (child): child is THREE.Group => child instanceof THREE.Group
+            );
 
-            if (globeRef.current) {
+            if (!globeMesh) return;
 
-                globeRef.current
-                    .scene()
-                    .rotation.y += 0.0015;
-            }
+            clearInterval(interval);
 
-            animationFrame =
-                requestAnimationFrame(animate);
-        };
-
-        animate();
+            gsap.to(
+                globeMesh.rotation,
+                {
+                    y: "+=" + Math.PI * 2,
+                    duration: 20,
+                    repeat: -1,
+                    ease: "none",
+                }
+            );
+        }, 100);
 
         return () =>
-            cancelAnimationFrame(animationFrame);
-
+            clearInterval(interval);
     }, []);
 
     return (
         <div className="w-full flex justify-center pointer-events-none">
-
             <Globe3D
                 ref={globeRef}
                 width={320}
@@ -48,7 +54,6 @@ const GlobeMap = () => {
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
                 backgroundColor="rgba(0,0,0,0)"
             />
-
         </div>
     );
 };
