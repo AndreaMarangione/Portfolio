@@ -1,7 +1,7 @@
 "use client";
 
 import {useEffect, useRef, useState} from "react";
-import {routes} from "@/components/worldMap/constant";
+import {routes} from "@/components/world/partials/worldMap/constant";
 import {animateRoute} from "@/utils/animateRoute";
 
 const WorldMap = () => {
