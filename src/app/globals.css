@@ -157,7 +157,7 @@
     }
 
     html {
-        @apply font-sans;
+        font-family: 'Poppins', sans-serif;
         scroll-behavior: smooth;
     }
 }

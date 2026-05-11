@@ -3,7 +3,6 @@
 import {useEffect, useRef} from "react";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
-import * as THREE from "three";
 import type {GlobeMethods} from "react-globe.gl";
 
 const Globe3D = dynamic(
@@ -23,7 +22,7 @@ const GlobeMap = () => {
             const scene = globeRef.current.scene();
 
             const globeMesh = scene.children.find(
-                (child): child is THREE.Group => child instanceof THREE.Group
+                (child) => child.type === "Group"
             );
 
             if (!globeMesh) return;
