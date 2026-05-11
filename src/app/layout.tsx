@@ -1,22 +1,38 @@
 import type {Metadata} from "next";
-import {Poppins} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import localFont from "next/font/local";
 
-// const geistSans = Geist({
-//     variable: "--font-geist-sans",
-//     subsets: ["latin"],
-// });
-//
-// const geistMono = Geist_Mono({
-//     variable: "--font-geist-mono",
-//     subsets: ["latin"],
-// });
-
-const poppins = Poppins({
-    // variable: "--font-sans",
-    subsets: ["latin"],
-    weight: ["300", "400", "500", "600", "700"]
+const poppins = localFont({
+    src: [
+        {
+            path: "../../public/fonts/poppins/Poppins-Light.ttf",
+            weight: "300",
+            style: "normal",
+        },
+        {
+            path: "../../public/fonts/poppins/Poppins-Regular.ttf",
+            weight: "400",
+            style: "normal",
+        },
+        {
+            path: "../../public/fonts/poppins/Poppins-Medium.ttf",
+            weight: "500",
+            style: "normal",
+        },
+        {
+            path: "../../public/fonts/poppins/Poppins-SemiBold.ttf",
+            weight: "600",
+            style: "normal",
+        },
+        {
+            path: "../../public/fonts/poppins/Poppins-Bold.ttf",
+            weight: "700",
+            style: "normal",
+        },
+    ],
+    variable: "--font-poppins",
+    display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -33,7 +49,7 @@ export default function RootLayout(
     return (
         <html
             lang="en"
-            className={`dark ubuntu ${poppins.className} h-full antialiased`}
+            className={`dark ubuntu ${poppins.variable} h-full antialiased`}
         >
         <body className="min-h-full flex flex-col">
         <Navbar/>
