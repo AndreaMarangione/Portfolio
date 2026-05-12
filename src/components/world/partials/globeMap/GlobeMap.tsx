@@ -22,13 +22,6 @@ const GlobeMap = () => {
 
             const scene = globeRef.current.scene();
 
-            globeRef.current.pointOfView(
-                {
-                    altitude: 1.4,
-                },
-                0
-            );
-
             const globeMesh = scene.children.find(
                 (child) => child.type === "Group"
             );
@@ -36,6 +29,17 @@ const GlobeMap = () => {
             if (!globeMesh) return;
 
             clearInterval(interval);
+
+            globeRef.current.pointOfView(
+                {
+                    lat: 30, //42
+                    lng: 12,
+                    altitude: 1.7,
+                },
+                0
+            );
+
+            globeMesh.rotation.z = -0.4;
 
             gsap.to(
                 globeMesh.rotation,
