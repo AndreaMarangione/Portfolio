@@ -32,14 +32,14 @@ const GlobeMap = () => {
 
             globeRef.current.pointOfView(
                 {
-                    lat: 30, //42
+                    lat: 30,
                     lng: 12,
                     altitude: 1.7,
                 },
                 0
             );
 
-            globeMesh.rotation.z = -0.4;
+            globeMesh.rotation.z = 0;
 
             gsap.to(
                 globeMesh.rotation,
@@ -67,12 +67,19 @@ const GlobeMap = () => {
                 atmosphereColor="#E95420"
                 atmosphereAltitude={0.12}
 
+                pointsData={cities}
+                pointLat="lat"
+                pointLng="lng"
+                pointColor={() => "#E95420"}
+                pointRadius={0.55}
+                pointAltitude={0}
+
                 labelsData={cities}
-                labelLat="lat"
-                labelLng="lng"
+                labelLat="labelLat"
+                labelLng="labelLng"
                 labelText="name"
                 labelSize={2.5}
-                labelDotRadius={0.35}
+                labelDotRadius={0}
                 labelColor={() => "#E95420"}
             />
         </div>
