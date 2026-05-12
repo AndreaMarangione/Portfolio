@@ -122,10 +122,10 @@ const GlobeMap = () => {
 
                 arcsData={arcs}
                 arcColor={() => "#E95420"}
-                arcAltitude={0}
+                arcAltitudeAutoScale={0.2}
                 arcStroke={0.55}
-                arcDashLength={0.22}
-                arcDashGap={0.9}
+                arcDashLength={0.9}
+                arcDashGap={0.4}
                 arcDashAnimateTime={3800}
             />
         </div>
