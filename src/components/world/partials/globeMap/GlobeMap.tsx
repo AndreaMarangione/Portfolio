@@ -4,6 +4,7 @@ import {useEffect, useRef} from "react";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
 import type {GlobeMethods} from "react-globe.gl";
+import {cities} from "@/components/world/partials/globeMap/constant";
 
 const Globe3D = dynamic(
     () => import("react-globe.gl"),
@@ -20,6 +21,13 @@ const GlobeMap = () => {
             if (!globeRef.current) return;
 
             const scene = globeRef.current.scene();
+
+            globeRef.current.pointOfView(
+                {
+                    altitude: 1.4,
+                },
+                0
+            );
 
             const globeMesh = scene.children.find(
                 (child) => child.type === "Group"
@@ -52,6 +60,16 @@ const GlobeMap = () => {
                 height={320}
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
                 backgroundColor="rgba(0,0,0,0)"
+                atmosphereColor="#E95420"
+                atmosphereAltitude={0.12}
+
+                labelsData={cities}
+                labelLat="lat"
+                labelLng="lng"
+                labelText="name"
+                labelSize={2.5}
+                labelDotRadius={0.35}
+                labelColor={() => "#E95420"}
             />
         </div>
     );
