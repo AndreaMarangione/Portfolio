@@ -1,10 +1,11 @@
 "use client";
 
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
 import type {GlobeMethods} from "react-globe.gl";
 import {cities} from "@/components/world/partials/globeMap/constant";
+import {Arc} from "@/components/world/partials/globeMap/type";
 
 const Globe3D = dynamic(
     () => import("react-globe.gl"),
@@ -14,6 +15,7 @@ const Globe3D = dynamic(
 );
 
 const GlobeMap = () => {
+    const [arcs, setArcs] = useState<Array<Arc>>([]);
     const globeRef = useRef<GlobeMethods | undefined>(undefined);
 
     useEffect(() => {
@@ -52,8 +54,44 @@ const GlobeMap = () => {
             );
         }, 100);
 
-        return () =>
+        const arcsInterval = setInterval(() => {
+            const randomCity1 =
+                cities[Math.floor(Math.random() * cities.length)];
+
+            let randomCity2 =
+                cities[Math.floor(Math.random() * cities.length)];
+
+            while (randomCity1 === randomCity2) {
+                randomCity2 =
+                    cities[Math.floor(Math.random() * cities.length)];
+            }
+
+            const newArc = {
+                id: Date.now(),
+
+                startLat: randomCity1.lat,
+                startLng: randomCity1.lng,
+
+                endLat: randomCity2.lat,
+                endLng: randomCity2.lng,
+            };
+
+            setArcs((prev) => [
+                ...prev,
+                newArc,
+            ]);
+
+            setTimeout(() => {
+                setArcs((prev) =>
+                    prev.filter((arc) => arc.id !== newArc.id)
+                );
+            }, 6000);
+        }, 2000);
+
+        return () => {
             clearInterval(interval);
+            clearInterval(arcsInterval);
+        }
     }, []);
 
     return (
@@ -81,6 +119,14 @@ const GlobeMap = () => {
                 labelSize={2.5}
                 labelDotRadius={0}
                 labelColor={() => "#E95420"}
+
+                arcsData={arcs}
+                arcColor={() => "#E95420"}
+                arcAltitude={0}
+                arcStroke={0.55}
+                arcDashLength={0.22}
+                arcDashGap={0.9}
+                arcDashAnimateTime={3800}
             />
         </div>
     );
