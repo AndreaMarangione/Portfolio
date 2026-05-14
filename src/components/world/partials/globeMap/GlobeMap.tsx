@@ -15,18 +15,26 @@ const Globe3D = dynamic(
 );
 
 const GlobeMap = () => {
-    const [arcs, setArcs] = useState<Array<Arc>>([]);
-    const globeRef = useRef<GlobeMethods | undefined>(undefined);
+
+    const [arcs, setArcs] =
+        useState<Array<Arc>>([]);
+
+    const globeRef =
+        useRef<GlobeMethods | undefined>(undefined);
 
     useEffect(() => {
+
         const interval = setInterval(() => {
+
             if (!globeRef.current) return;
 
-            const scene = globeRef.current.scene();
+            const scene =
+                globeRef.current.scene();
 
-            const globeMesh = scene.children.find(
-                (child) => child.type === "Group"
-            );
+            const globeMesh =
+                scene.children.find(
+                    (child) => child.type === "Group"
+                );
 
             if (!globeMesh) return;
 
@@ -52,21 +60,36 @@ const GlobeMap = () => {
                     ease: "none",
                 }
             );
+
         }, 100);
 
         const arcsInterval = setInterval(() => {
+
             const randomCity1 =
-                cities[Math.floor(Math.random() * cities.length)];
+                cities[
+                    Math.floor(
+                        Math.random() * cities.length
+                    )
+                    ];
 
             let randomCity2 =
-                cities[Math.floor(Math.random() * cities.length)];
+                cities[
+                    Math.floor(
+                        Math.random() * cities.length
+                    )
+                    ];
 
             while (randomCity1 === randomCity2) {
                 randomCity2 =
-                    cities[Math.floor(Math.random() * cities.length)];
+                    cities[
+                        Math.floor(
+                            Math.random() * cities.length
+                        )
+                        ];
+
             }
 
-            const newArc = {
+            const newArc: Arc = {
                 id: Date.now(),
 
                 startLat: randomCity1.lat,
@@ -74,34 +97,31 @@ const GlobeMap = () => {
 
                 endLat: randomCity2.lat,
                 endLng: randomCity2.lng,
+
             };
 
-            setArcs((prev) => [
-                ...prev,
-                newArc,
-            ]);
-
-            setTimeout(() => {
-                setArcs((prev) =>
-                    prev.filter((arc) => arc.id !== newArc.id)
-                );
-            }, 6000);
-        }, 2000);
+            setArcs([newArc]);
+        }, 6000);
 
         return () => {
             clearInterval(interval);
             clearInterval(arcsInterval);
-        }
+        };
     }, []);
 
     return (
         <div className="w-full flex justify-center pointer-events-none">
+
             <Globe3D
                 ref={globeRef}
+
                 width={320}
                 height={320}
+
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+
                 backgroundColor="rgba(0,0,0,0)"
+
                 atmosphereColor="#E95420"
                 atmosphereAltitude={0.12}
 
@@ -121,13 +141,19 @@ const GlobeMap = () => {
                 labelColor={() => "#E95420"}
 
                 arcsData={arcs}
+
                 arcColor={() => "#E95420"}
+
                 arcAltitudeAutoScale={0.2}
+
                 arcStroke={0.55}
-                arcDashLength={0.9}
-                arcDashGap={0.4}
-                arcDashAnimateTime={3800}
+
+                arcDashLength={0.35}
+                arcDashGap={0.8}
+
+                arcDashAnimateTime={3000}
             />
+
         </div>
     );
 };
