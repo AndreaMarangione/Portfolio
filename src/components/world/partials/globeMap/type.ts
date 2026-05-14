@@ -4,4 +4,5 @@ export type Arc = {
     startLng: number;
     endLat: number;
     endLng: number;
+    altitude: number;
 }

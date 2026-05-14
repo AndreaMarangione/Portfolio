@@ -1,11 +1,10 @@
 "use client";
 
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
 import type {GlobeMethods} from "react-globe.gl";
-import {cities} from "@/components/world/partials/globeMap/constant";
-import {Arc} from "@/components/world/partials/globeMap/type";
+import {arcs, cities} from "@/components/world/partials/globeMap/constant";
 
 const Globe3D = dynamic(
     () => import("react-globe.gl"),
@@ -15,9 +14,6 @@ const Globe3D = dynamic(
 );
 
 const GlobeMap = () => {
-
-    const [arcs, setArcs] =
-        useState<Array<Arc>>([]);
 
     const globeRef =
         useRef<GlobeMethods | undefined>(undefined);
@@ -63,50 +59,10 @@ const GlobeMap = () => {
 
         }, 100);
 
-        const arcsInterval = setInterval(() => {
-
-            const randomCity1 =
-                cities[
-                    Math.floor(
-                        Math.random() * cities.length
-                    )
-                    ];
-
-            let randomCity2 =
-                cities[
-                    Math.floor(
-                        Math.random() * cities.length
-                    )
-                    ];
-
-            while (randomCity1 === randomCity2) {
-                randomCity2 =
-                    cities[
-                        Math.floor(
-                            Math.random() * cities.length
-                        )
-                        ];
-
-            }
-
-            const newArc: Arc = {
-                id: Date.now(),
-
-                startLat: randomCity1.lat,
-                startLng: randomCity1.lng,
-
-                endLat: randomCity2.lat,
-                endLng: randomCity2.lng,
-
-            };
-
-            setArcs([newArc]);
-        }, 6000);
-
         return () => {
             clearInterval(interval);
-            clearInterval(arcsInterval);
         };
+
     }, []);
 
     return (
@@ -141,19 +97,10 @@ const GlobeMap = () => {
                 labelColor={() => "#E95420"}
 
                 arcsData={arcs}
-
-                arcColor={() => "#E95420"}
-
-                arcAltitudeAutoScale={0.2}
-
-                arcStroke={0.55}
-
-                arcDashLength={0.35}
-                arcDashGap={0.8}
-
-                arcDashAnimateTime={3000}
+                arcColor={() => "rgba(233,84,32,0.45)"}
+                arcStroke={0.6}
+                arcAltitude="altitude"
             />
-
         </div>
     );
 };
