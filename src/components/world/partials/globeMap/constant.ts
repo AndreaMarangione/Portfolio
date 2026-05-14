@@ -81,7 +81,8 @@ export const arcs: Array<Arc> = [
         startLng: 119.5530,
         endLat: 29.7604,
         endLng: -95.3698,
-        altitude: 0.22
+        altitude: 0.22,
+        dashInitialGap: Math.random(),
     },
     // florence -> andalusia
     {
@@ -90,7 +91,8 @@ export const arcs: Array<Arc> = [
         startLng: 11.2558,
         endLat: 31.3085,
         endLng: -86.4822,
-        altitude: 0.10
+        altitude: 0.10,
+        dashInitialGap: Math.random(),
     },
     // rudong -> neumunster
     {
@@ -99,7 +101,8 @@ export const arcs: Array<Arc> = [
         startLng: 118.1850,
         endLat: 53.0728,
         endLng: 9.9819,
-        altitude: 0.10
+        altitude: 0.10,
+        dashInitialGap: Math.random(),
     },
     // fuzho -> izmit
     {
@@ -108,7 +111,8 @@ export const arcs: Array<Arc> = [
         startLng: 115.2965,
         endLat: 40.7654,
         endLng: 29.9408,
-        altitude: 0.10
+        altitude: 0.10,
+        dashInitialGap: Math.random(),
     },
     // balikesir -> zaragozza
     {
@@ -117,6 +121,7 @@ export const arcs: Array<Arc> = [
         startLng: 28.8826,
         endLat: 41.6488,
         endLng: -0.8891,
-        altitude: 0.02
+        altitude: 0.02,
+        dashInitialGap: Math.random(),
     },
 ];

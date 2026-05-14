@@ -5,4 +5,5 @@ export type Arc = {
     endLat: number;
     endLng: number;
     altitude: number;
+    dashInitialGap: number;
 }

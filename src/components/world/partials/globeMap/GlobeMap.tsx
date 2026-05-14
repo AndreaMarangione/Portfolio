@@ -1,10 +1,16 @@
 "use client";
 
 import {useEffect, useRef} from "react";
+
 import dynamic from "next/dynamic";
 import gsap from "gsap";
+
 import type {GlobeMethods} from "react-globe.gl";
-import {arcs, cities} from "@/components/world/partials/globeMap/constant";
+
+import {
+    arcs,
+    cities,
+} from "@/components/world/partials/globeMap/constant";
 
 const Globe3D = dynamic(
     () => import("react-globe.gl"),
@@ -100,7 +106,12 @@ const GlobeMap = () => {
                 arcColor={() => "rgba(233,84,32,0.45)"}
                 arcStroke={0.6}
                 arcAltitude="altitude"
+                arcDashLength={0.24}
+                arcDashGap={1}
+                arcDashInitialGap="dashInitialGap"
+                arcDashAnimateTime={2500}
             />
+
         </div>
     );
 };
