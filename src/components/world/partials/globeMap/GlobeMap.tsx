@@ -106,7 +106,7 @@ const GlobeMap = () => {
                 arcColor={() => "rgba(233,84,32,0.45)"}
                 arcStroke={0.6}
                 arcAltitude="altitude"
-                arcDashLength={0.24}
+                arcDashLength={0.30}
                 arcDashGap={1}
                 arcDashInitialGap="dashInitialGap"
                 arcDashAnimateTime={2500}
