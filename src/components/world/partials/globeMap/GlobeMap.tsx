@@ -1,16 +1,10 @@
 "use client";
 
-import {useEffect, useRef} from "react";
-
+import {useEffect, useMemo, useRef} from "react";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
-
 import type {GlobeMethods} from "react-globe.gl";
-
-import {
-    arcs,
-    cities,
-} from "@/components/world/partials/globeMap/constant";
+import {arcs, cities,} from "@/components/world/partials/globeMap/constant";
 
 const Globe3D = dynamic(
     () => import("react-globe.gl"),
@@ -20,9 +14,14 @@ const Globe3D = dynamic(
 );
 
 const GlobeMap = () => {
-
-    const globeRef =
-        useRef<GlobeMethods | undefined>(undefined);
+    const globeRef = useRef<GlobeMethods | undefined>(undefined);
+    const points = useMemo(
+        () => ({
+            lat: 43.7696,
+            lng: 11.2558,
+        }),
+        []
+    );
 
     useEffect(() => {
 
@@ -63,12 +62,22 @@ const GlobeMap = () => {
                 }
             );
 
+            gsap.to(
+                points,
+                {
+                    lat: 31.3085,
+                    lng: -86.4822,
+                    duration: 4,
+                    repeat: -1,
+                    ease: "none",
+                    yoyo: false,
+                }
+            );
         }, 100);
 
         return () => {
             clearInterval(interval);
         };
-
     }, []);
 
     return (
@@ -106,12 +115,29 @@ const GlobeMap = () => {
                 arcColor={() => "rgba(233,84,32,0.45)"}
                 arcStroke={0.6}
                 arcAltitude="altitude"
-                arcDashLength={0.30}
-                arcDashGap={1}
-                arcDashInitialGap="dashInitialGap"
-                arcDashAnimateTime={2500}
-            />
 
+                htmlElementsData={[points]}
+                htmlLat="lat"
+                htmlLng="lng"
+                htmlElement={() => {
+
+                    const element =
+                        document.createElement("div");
+
+                    element.style.width = "8px";
+
+                    element.style.height = "8px";
+
+                    element.style.borderRadius = "999px";
+
+                    element.style.background = "#E95420";
+
+                    element.style.boxShadow =
+                        "0 0 12px #E95420";
+
+                    return element;
+                }}
+            />
         </div>
     );
 };
