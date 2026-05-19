@@ -73,7 +73,7 @@ export const cities = [
     },
 ];
 
-export const arcs: Array<Arc> = [
+export const staticArcs: Array<Arc> = [
     // tongxiang -> houston
     {
         id: 1,
@@ -85,7 +85,7 @@ export const arcs: Array<Arc> = [
     },
     // florence -> andalusia
     {
-        id: 1,
+        id: 2,
         startLat: 43.7696,
         startLng: 11.2558,
         endLat: 31.3085,
@@ -94,7 +94,7 @@ export const arcs: Array<Arc> = [
     },
     // rudong -> neumunster
     {
-        id: 1,
+        id: 3,
         startLat: 34.3118,
         startLng: 118.1850,
         endLat: 53.0728,
@@ -103,7 +103,7 @@ export const arcs: Array<Arc> = [
     },
     // fuzho -> izmit
     {
-        id: 1,
+        id: 4,
         startLat: 24.0745,
         startLng: 115.2965,
         endLat: 40.7654,
@@ -112,7 +112,7 @@ export const arcs: Array<Arc> = [
     },
     // balikesir -> zaragozza
     {
-        id: 1,
+        id: 5,
         startLat: 37.6484,
         startLng: 28.8826,
         endLat: 41.6488,
@@ -120,3 +120,9 @@ export const arcs: Array<Arc> = [
         altitude: 0.02,
     },
 ];
+
+export const animatedArcs: Array<Arc> =
+    staticArcs.map((arc, index) => ({
+        ...arc,
+        id: index + 100,
+    }));
