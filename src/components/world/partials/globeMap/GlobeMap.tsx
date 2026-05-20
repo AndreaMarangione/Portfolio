@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import gsap from "gsap";
 import type {GlobeMethods} from "react-globe.gl";
 import {animatedArcs, cities, staticArcs} from "@/components/world/partials/globeMap/constant";
+import {MeshBasicMaterial} from "three";
 
 const Globe3D = dynamic(
     () => import("react-globe.gl"),
@@ -73,7 +74,9 @@ const GlobeMap = () => {
                     repeat: -1,
                     ease: "none",
                     onUpdate: () => {
-                        animatedGlobeMesh.rotation.y = staticGlobeMesh.rotation.y;
+                        animatedGlobeMesh.rotation.copy(
+                            staticGlobeMesh.rotation
+                        );
                     },
                 }
             );
@@ -85,8 +88,8 @@ const GlobeMap = () => {
     }, []);
 
     return (
-        <div className="relative w-[320px] h-[320px] pointer-events-none">
-            <div className="absolute inset-0 flex justify-center">
+        <div className="w-full flex justify-center pointer-events-none">
+            <div className="relative">
                 <Globe3D
                     ref={staticGlobeRef}
                     width={320}
@@ -115,29 +118,36 @@ const GlobeMap = () => {
                     arcStroke={0.6}
                     arcAltitude="altitude"
                 />
-            </div>
-            <div className="absolute inset-0 flex justify-center">
-                <Globe3D
-                    ref={animatedGlobeRef}
-                    width={320}
-                    height={320}
-                    backgroundColor="rgba(0,0,0,0)"
-                    globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
-                    showGlobe={false}
-                    showAtmosphere={false}
-                    arcsData={animatedArcs}
-                    arcColor={() => "#E95420"}
-                    arcStroke={1.1}
-                    arcAltitude="altitude"
-                    arcDashLength={0.025}
-                    arcDashGap={1}
-                    arcDashInitialGap={() =>
-                        Math.random() * 3
-                    }
-                    arcDashAnimateTime={() =>
-                        1800
-                    }
-                />
+                <div className="absolute top-0 left-0">
+                    <Globe3D
+                        ref={animatedGlobeRef}
+                        width={320}
+                        height={320}
+                        backgroundColor="rgba(0,0,0,0)"
+                        globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+                        globeMaterial={
+                            new MeshBasicMaterial({
+                                color: "#000000",
+                                transparent: true,
+                                opacity: 0,
+                                depthWrite: true,
+                            })
+                        }
+                        showAtmosphere={false}
+                        arcsData={animatedArcs}
+                        arcColor={() => "#E95420"}
+                        arcStroke={1.1}
+                        arcAltitude="altitude"
+                        arcDashLength={0.025}
+                        arcDashGap={1}
+                        arcDashInitialGap={() =>
+                            Math.random() * 3
+                        }
+                        arcDashAnimateTime={() =>
+                            1800
+                        }
+                    />
+                </div>
             </div>
         </div>
     );
