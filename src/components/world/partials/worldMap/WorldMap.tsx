@@ -1,55 +1,16 @@
 "use client";
 
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 import {routes} from "@/components/world/partials/worldMap/constant";
-import {animateRoute} from "@/utils/animateRoute";
 
 const WorldMap = () => {
-    const [routeIndex, setRouteIndex] = useState(0);
-    const [completedRoutes, setCompletedRoutes] = useState<{ path: string; id: number; }[]>([]);
-    const [planePosition, setPlanePosition] = useState({x: 0, y: 0, angle: 0,});
-    const [visibleLength, setVisibleLength] = useState(0);
-    const [pathLength, setPathLength] = useState(0);
     const pathRef = useRef<SVGPathElement | null>(null);
-    const currentRoute = routes[routeIndex];
 
     useEffect(() => {
         const path = pathRef.current;
 
         if (!path) return;
-
-        const length: number = path.getTotalLength();
-
-        setPathLength(length);
-
-        let start: number | null = null;
-        let animationFrame: number;
-        const duration = 3000;
-
-        const animate = (timestamp: number) => {
-            start = animateRoute({
-                timestamp,
-                start,
-                duration,
-                length,
-                path,
-                currentRoutePath: currentRoute.path,
-                routesLength: routes.length,
-                setVisibleLength,
-                setPlanePosition,
-                setCompletedRoutes,
-                setRouteIndex,
-                requestNextFrame: () => {
-                    animationFrame = requestAnimationFrame(animate);
-                },
-            });
-        };
-
-        setVisibleLength(0);
-        animationFrame = requestAnimationFrame(animate);
-
-        return () => cancelAnimationFrame(animationFrame);
-    }, [routeIndex]);
+    }, []);
 
     return (
         <div className="w-full max-w-5xl mx-auto">
@@ -1588,21 +1549,6 @@ const WorldMap = () => {
                 <circle cx="1798.2" cy="719.3" id="2">
                 </circle>
 
-                {completedRoutes.map((route, index) => {
-                    const opacity: number = ((index + 1) / completedRoutes.length) * 0.55;
-                    return (
-                        <path
-                            key={route.id}
-                            d={route.path}
-                            fill="none"
-                            stroke="#E95420"
-                            strokeWidth="1.5"
-                            strokeOpacity={opacity}
-                            strokeLinecap="round"
-                            strokeDasharray="8 6"
-                        />
-                    );
-                })}
                 <g id="cities" fill="#E95420" fontFamily="sans-serif" fontSize="10">
                     <circle cx="1640" cy="320" r="7">
                         <animate
@@ -1755,40 +1701,16 @@ const WorldMap = () => {
                     </circle>
                     <text x="510" y="275" fontSize="28">Andalusia</text>
                 </g>
-                <defs>
-                    <mask id="route-mask">
-                        <path
-                            ref={pathRef}
-                            d={currentRoute.path}
-                            fill="none"
-                            stroke="white"
-                            strokeWidth="4"
-                            strokeLinecap="round"
-                            strokeDasharray={`${visibleLength} ${pathLength}`}
-                        />
-                    </mask>
-                </defs>
-                <path
-                    d={currentRoute.path}
-                    fill="none"
-                    stroke="#E95420"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeDasharray="8 6"
-                    mask="url(#route-mask)"
-                />
-                <g transform={`translate(${planePosition.x}, ${planePosition.y})`}>
-                    <text
-                        fontSize="45"
-                        fill="#D6D6D6"
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        transform={`rotate(${planePosition.angle})`}
-                        style={{filter: "drop-shadow(0 0 6px rgba(233,84,32,0.55))",}}
-                    >
-                        ✈
-                    </text>
-                </g>
+                {routes.map((route) => (
+                    <path
+                        key={route.id}
+                        d={route.path}
+                        fill="none"
+                        stroke="rgba(233,84,32,0.45)"
+                        strokeWidth={1.5}
+                        strokeLinecap="round"
+                    />
+                ))}
             </svg>
         </div>
     )
