@@ -172,7 +172,7 @@ const GlobeMap = () => {
 
                 const mesh =
                     new Mesh(
-                        new SphereGeometry(2),
+                        new SphereGeometry(1.2),
 
                         new MeshBasicMaterial({
                             color: "#E95420",
@@ -187,8 +187,7 @@ const GlobeMap = () => {
                 });
 
                 const animation = {
-                    progress:
-                        Math.random(),
+                    progress: 0,
                 };
 
                 gsap.to(
@@ -198,6 +197,12 @@ const GlobeMap = () => {
 
                         duration:
                             3 +
+                            Math.random() * 2,
+
+                        delay:
+                            Math.random(),
+
+                        repeatDelay:
                             Math.random() * 2,
 
                         repeat: -1,
