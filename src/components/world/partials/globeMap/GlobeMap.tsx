@@ -1,8 +1,9 @@
 "use client";
 
-import {useEffect, useMemo, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
+
 import type {GlobeMethods} from "react-globe.gl";
 
 import {
@@ -15,6 +16,8 @@ import {
     MeshBasicMaterial,
     SphereGeometry,
 } from "three";
+
+import type {Mesh as ThreeMesh} from "three";
 
 const Globe3D = dynamic(
     () => import("react-globe.gl"),
@@ -57,20 +60,10 @@ const GlobeMap = () => {
             undefined
         );
 
-    const packet = useMemo(
-        () => ({
-            lat: 43.7696,
-            lng: 11.2558,
-            altitude: 0,
-            progress: 0,
-        }),
-        []
-    );
-
-    const [
-        packetData,
-        setPacketData,
-    ] = useState([packet]);
+    const packetMeshRef =
+        useRef<ThreeMesh | null>(
+            null
+        );
 
     useEffect(() => {
 
@@ -119,13 +112,29 @@ const GlobeMap = () => {
                 }
             );
 
+            const mesh =
+                new Mesh(
+                    new SphereGeometry(2),
+
+                    new MeshBasicMaterial({
+                        color: "#E95420",
+                    })
+                );
+
+            packetMeshRef.current =
+                mesh;
+
+            globeMesh.add(mesh);
+
             const arc =
                 staticArcs[1];
 
-            let lastUpdate = 0;
+            const animation = {
+                progress: 0,
+            };
 
             gsap.to(
-                packet,
+                animation,
                 {
                     progress: 1,
 
@@ -137,6 +146,13 @@ const GlobeMap = () => {
 
                     onUpdate: () => {
 
+                        if (
+                            !globeRef.current ||
+                            !packetMeshRef.current
+                        ) {
+                            return;
+                        }
+
                         const position =
                             getArcPosition(
                                 arc.startLat,
@@ -144,35 +160,21 @@ const GlobeMap = () => {
                                 arc.endLat,
                                 arc.endLng,
                                 arc.altitude,
-                                packet.progress,
+                                animation.progress,
                             );
 
-                        packet.lat =
-                            position.lat;
+                        const coords =
+                            globeRef.current.getCoords(
+                                position.lat,
+                                position.lng,
+                                position.altitude,
+                            );
 
-                        packet.lng =
-                            position.lng;
-
-                        packet.altitude =
-                            position.altitude;
-
-                        const now =
-                            Date.now();
-
-                        if (
-                            now - lastUpdate <
-                            16
-                        ) {
-                            return;
-                        }
-
-                        lastUpdate = now;
-
-                        setPacketData([
-                            {
-                                ...packet,
-                            },
-                        ]);
+                        packetMeshRef.current.position.set(
+                            coords.x,
+                            coords.y,
+                            coords.z,
+                        );
                     },
                 }
             );
@@ -181,7 +183,7 @@ const GlobeMap = () => {
         return () => {
             clearInterval(interval);
         };
-    }, [packet]);
+    }, []);
 
     return (
         <div className="w-full flex justify-center pointer-events-none">
@@ -236,25 +238,6 @@ const GlobeMap = () => {
                 arcStroke={0.6}
 
                 arcAltitude="altitude"
-
-                objectsData={packetData}
-
-                objectLat="lat"
-
-                objectLng="lng"
-
-                objectAltitude="altitude"
-
-                objectThreeObject={() => {
-
-                    return new Mesh(
-                        new SphereGeometry(2),
-
-                        new MeshBasicMaterial({
-                            color: "#E95420",
-                        })
-                    );
-                }}
             />
         </div>
     );
