@@ -28,6 +28,11 @@ const Globe3D = dynamic(
     }
 );
 
+type PacketAnimation = {
+    mesh: ThreeMesh;
+    curve: CubicBezierCurve3;
+};
+
 const GlobeMap = () => {
 
     const globeRef =
@@ -35,14 +40,9 @@ const GlobeMap = () => {
             undefined
         );
 
-    const packetMeshRef =
-        useRef<ThreeMesh | null>(
-            null
-        );
-
-    const curveRef =
-        useRef<CubicBezierCurve3 | null>(
-            null
+    const packetAnimationsRef =
+        useRef<PacketAnimation[]>(
+            []
         );
 
     useEffect(() => {
@@ -79,18 +79,24 @@ const GlobeMap = () => {
 
             globeMesh.rotation.z = 0;
 
-            const targetArc =
-                staticArcs[3];
+            gsap.to(
+                globeMesh.rotation,
+                {
+                    y: "+=" + Math.PI * 2,
 
-            const startCoords =
-                globeRef.current.getCoords(
-                    targetArc.startLat,
-                    targetArc.startLng,
-                    0,
-                );
+                    duration: 20,
 
-            let closestDistance =
-                Infinity;
+                    repeat: -1,
+
+                    ease: "none",
+                }
+            );
+
+            const curveMap =
+                new Map<
+                    number,
+                    CubicBezierCurve3
+                >();
 
             globeMesh.traverse((child: any) => {
 
@@ -111,97 +117,124 @@ const GlobeMap = () => {
                     return;
                 }
 
-                const curveStart =
-                    path.v0;
+                for (const arc of staticArcs) {
 
-                const distance =
-                    curveStart.distanceTo(
-                        new Vector3(
-                            startCoords.x,
-                            startCoords.y,
-                            startCoords.z,
+                    if (
+                        curveMap.has(
+                            arc.id
                         )
-                    );
+                    ) {
+                        continue;
+                    }
 
-                if (
-                    distance <
-                    closestDistance
-                ) {
+                    const startCoords =
+                        globeRef.current?.getCoords(
+                            arc.startLat,
+                            arc.startLng,
+                            0,
+                        );
 
-                    closestDistance =
-                        distance;
+                    if (!startCoords) {
+                        continue;
+                    }
 
-                    curveRef.current =
-                        path;
+                    const distance =
+                        path.v0.distanceTo(
+                            new Vector3(
+                                startCoords.x,
+                                startCoords.y,
+                                startCoords.z,
+                            )
+                        );
+
+                    if (
+                        distance < 1
+                    ) {
+
+                        curveMap.set(
+                            arc.id,
+                            path
+                        );
+                    }
                 }
             });
 
-            gsap.to(
-                globeMesh.rotation,
-                {
-                    y: "+=" + Math.PI * 2,
+            for (const arc of staticArcs) {
 
-                    duration: 20,
+                const curve =
+                    curveMap.get(
+                        arc.id
+                    );
 
-                    repeat: -1,
-
-                    ease: "none",
+                if (!curve) {
+                    continue;
                 }
-            );
 
-            const mesh =
-                new Mesh(
-                    new SphereGeometry(2),
+                const mesh =
+                    new Mesh(
+                        new SphereGeometry(2),
 
-                    new MeshBasicMaterial({
-                        color: "#E95420",
-                    })
-                );
+                        new MeshBasicMaterial({
+                            color: "#E95420",
+                        })
+                    );
 
-            packetMeshRef.current =
-                mesh;
+                globeMesh.add(mesh);
 
-            globeMesh.add(mesh);
+                packetAnimationsRef.current.push({
+                    mesh,
+                    curve,
+                });
 
-            const animation = {
-                progress: 0,
-            };
+                const animation = {
+                    progress:
+                        Math.random(),
+                };
 
-            gsap.to(
-                animation,
-                {
-                    progress: 1,
+                gsap.to(
+                    animation,
+                    {
+                        progress: 1,
 
-                    duration: 4,
+                        duration:
+                            3 +
+                            Math.random() * 2,
 
-                    repeat: -1,
+                        repeat: -1,
 
-                    ease: "none",
+                        ease: "none",
 
-                    onUpdate: () => {
+                        onRepeat: () => {
+                            animation.progress = 0;
+                        },
 
-                        if (
-                            !packetMeshRef.current ||
-                            !curveRef.current
-                        ) {
-                            return;
-                        }
+                        onUpdate: () => {
 
-                        const point =
-                            curveRef.current.getPoint(
-                                animation.progress
+                            const point =
+                                curve.getPoint(
+                                    animation.progress
+                                );
+
+                            mesh.position.copy(
+                                point
                             );
-
-                        packetMeshRef.current.position.copy(
-                            point
-                        );
-                    },
-                }
-            );
+                        },
+                    }
+                );
+            }
         }, 100);
 
         return () => {
             clearInterval(interval);
+
+            packetAnimationsRef.current.forEach(
+                ({mesh}) => {
+                    mesh.removeFromParent();
+                }
+            );
+
+            packetAnimationsRef.current =
+                [];
         };
     }, []);
 
