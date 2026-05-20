@@ -2,6 +2,7 @@
 
 import {useEffect, useRef} from "react";
 import {routes} from "@/components/world/partials/worldMap/constant";
+import worldPacketRandom from "@/utils/worldPacketRandom";
 
 const WorldMap = () => {
     const pathRef = useRef<SVGPathElement | null>(null);
@@ -1711,14 +1712,15 @@ const WorldMap = () => {
                         strokeLinecap="round"
                     />
                 ))}
-                {routes.map((route) => (
+                {routes.map((route, index) => (
                     <circle
                         key={`packet-${route.id}`}
                         r={4.3}
                         fill="#e95420"
                     >
                         <animateMotion
-                            dur="6s"
+                            dur={`${worldPacketRandom[index].duration}s`}
+                            begin={`${worldPacketRandom[index].delay}s`}
                             repeatCount="indefinite"
                             path={route.path}
                         />
