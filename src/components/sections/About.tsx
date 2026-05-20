@@ -1,18 +1,13 @@
-import WorldMap from "@/components/worldMap/WorldMap";
-import MobileRoutes from "@/components/mobileRoutes/MobileRoutes";
+"use client";
+
+import World from "@/components/world/World";
 
 const About = () => {
     return (
         <>
-            <div className="block md:hidden">
-                <MobileRoutes/>
-            </div>
-
-            <div className="hidden md:block">
-                <WorldMap/>
-            </div>
+            <World/>
         </>
     )
-}
+};
 
-export default About
+export default About;
