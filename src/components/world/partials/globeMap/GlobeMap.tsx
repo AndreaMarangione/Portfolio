@@ -5,6 +5,11 @@ import dynamic from "next/dynamic";
 import gsap from "gsap";
 import type {GlobeMethods} from "react-globe.gl";
 import {cities, staticArcs,} from "@/components/world/partials/globeMap/constant";
+import {
+    Mesh,
+    MeshBasicMaterial,
+    SphereGeometry,
+} from "three";
 
 const Globe3D = dynamic(
     () => import("react-globe.gl"),
@@ -15,10 +20,11 @@ const Globe3D = dynamic(
 
 const GlobeMap = () => {
     const globeRef = useRef<GlobeMethods | undefined>(undefined);
-    const points = useMemo(
+    const packet = useMemo(
         () => ({
             lat: 43.7696,
             lng: 11.2558,
+            altitude: 0,
         }),
         []
     );
@@ -59,18 +65,6 @@ const GlobeMap = () => {
                     duration: 20,
                     repeat: -1,
                     ease: "none",
-                }
-            );
-
-            gsap.to(
-                points,
-                {
-                    lat: 31.3085,
-                    lng: -86.4822,
-                    duration: 4,
-                    repeat: -1,
-                    ease: "none",
-                    yoyo: false,
                 }
             );
         }, 100);
@@ -115,6 +109,19 @@ const GlobeMap = () => {
                 arcColor={() => "rgba(233,84,32,0.45)"}
                 arcStroke={0.6}
                 arcAltitude="altitude"
+
+                objectsData={[packet]}
+                objectLat="lat"
+                objectLng="lng"
+                objectAltitude="altitude"
+                objectThreeObject={() => {
+                    return new Mesh(
+                        new SphereGeometry(2),
+                        new MeshBasicMaterial({
+                            color: "#E95420",
+                        })
+                    );
+                }}
             />
         </div>
     );
