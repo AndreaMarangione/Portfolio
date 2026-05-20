@@ -1,4 +1,12 @@
 import {Arc} from "@/components/world/partials/globeMap/type";
+import dynamic from "next/dynamic";
+
+export const Globe3D = dynamic(
+    () => import("react-globe.gl"),
+    {
+        ssr: false,
+    }
+);
 
 export const cities = [
     {
