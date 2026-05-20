@@ -12,9 +12,11 @@ import {
 } from "@/components/world/partials/globeMap/constant";
 
 import {
+    CubicBezierCurve3,
     Mesh,
     MeshBasicMaterial,
     SphereGeometry,
+    Vector3,
 } from "three";
 
 import type {Mesh as ThreeMesh} from "three";
@@ -26,33 +28,6 @@ const Globe3D = dynamic(
     }
 );
 
-const getArcPosition = (
-    startLat: number,
-    startLng: number,
-    endLat: number,
-    endLng: number,
-    altitude: number,
-    t: number,
-) => {
-
-    const lat =
-        startLat +
-        (endLat - startLat) * t;
-
-    const lng =
-        startLng +
-        (endLng - startLng) * t;
-
-    const arcAltitude =
-        Math.sin(Math.PI * t) * altitude;
-
-    return {
-        lat,
-        lng,
-        altitude: arcAltitude,
-    };
-};
-
 const GlobeMap = () => {
 
     const globeRef =
@@ -62,6 +37,11 @@ const GlobeMap = () => {
 
     const packetMeshRef =
         useRef<ThreeMesh | null>(
+            null
+        );
+
+    const curveRef =
+        useRef<CubicBezierCurve3 | null>(
             null
         );
 
@@ -78,7 +58,7 @@ const GlobeMap = () => {
 
             const globeMesh =
                 scene.children.find(
-                    (child) =>
+                    (child: any) =>
                         child.type === "Group"
                 );
 
@@ -98,6 +78,63 @@ const GlobeMap = () => {
             );
 
             globeMesh.rotation.z = 0;
+
+            const targetArc =
+                staticArcs[3];
+
+            const startCoords =
+                globeRef.current.getCoords(
+                    targetArc.startLat,
+                    targetArc.startLng,
+                    0,
+                );
+
+            let closestDistance =
+                Infinity;
+
+            globeMesh.traverse((child: any) => {
+
+                if (
+                    child.geometry?.type !==
+                    "TubeGeometry"
+                ) {
+                    return;
+                }
+
+                const path =
+                    child.geometry.parameters.path;
+
+                if (
+                    path?.type !==
+                    "CubicBezierCurve3"
+                ) {
+                    return;
+                }
+
+                const curveStart =
+                    path.v0;
+
+                const distance =
+                    curveStart.distanceTo(
+                        new Vector3(
+                            startCoords.x,
+                            startCoords.y,
+                            startCoords.z,
+                        )
+                    );
+
+                if (
+                    distance <
+                    closestDistance
+                ) {
+
+                    closestDistance =
+                        distance;
+
+                    curveRef.current =
+                        path;
+                }
+            });
 
             gsap.to(
                 globeMesh.rotation,
@@ -126,9 +163,6 @@ const GlobeMap = () => {
 
             globeMesh.add(mesh);
 
-            const arc =
-                staticArcs[1];
-
             const animation = {
                 progress: 0,
             };
@@ -147,33 +181,19 @@ const GlobeMap = () => {
                     onUpdate: () => {
 
                         if (
-                            !globeRef.current ||
-                            !packetMeshRef.current
+                            !packetMeshRef.current ||
+                            !curveRef.current
                         ) {
                             return;
                         }
 
-                        const position =
-                            getArcPosition(
-                                arc.startLat,
-                                arc.startLng,
-                                arc.endLat,
-                                arc.endLng,
-                                arc.altitude,
-                                animation.progress,
+                        const point =
+                            curveRef.current.getPoint(
+                                animation.progress
                             );
 
-                        const coords =
-                            globeRef.current.getCoords(
-                                position.lat,
-                                position.lng,
-                                position.altitude,
-                            );
-
-                        packetMeshRef.current.position.set(
-                            coords.x,
-                            coords.y,
-                            coords.z,
+                        packetMeshRef.current.position.copy(
+                            point
                         );
                     },
                 }
