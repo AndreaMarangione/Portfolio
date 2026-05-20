@@ -3,23 +3,10 @@
 import {useEffect, useRef} from "react";
 import dynamic from "next/dynamic";
 import gsap from "gsap";
-
+import {cities, staticArcs,} from "@/components/world/partials/globeMap/constant";
+import {CubicBezierCurve3, Mesh, MeshBasicMaterial, SphereGeometry, TubeGeometry, Vector3,} from "three";
+import {PacketAnimation} from "@/components/world/partials/globeMap/type";
 import type {GlobeMethods} from "react-globe.gl";
-
-import {
-    cities,
-    staticArcs,
-} from "@/components/world/partials/globeMap/constant";
-
-import {
-    CubicBezierCurve3,
-    Mesh,
-    MeshBasicMaterial,
-    SphereGeometry,
-    Vector3,
-} from "three";
-
-import type {Mesh as ThreeMesh} from "three";
 
 const Globe3D = dynamic(
     () => import("react-globe.gl"),
@@ -28,39 +15,19 @@ const Globe3D = dynamic(
     }
 );
 
-type PacketAnimation = {
-    mesh: ThreeMesh;
-    curve: CubicBezierCurve3;
-};
-
 const GlobeMap = () => {
-
-    const globeRef =
-        useRef<GlobeMethods | undefined>(
-            undefined
-        );
-
-    const packetAnimationsRef =
-        useRef<PacketAnimation[]>(
-            []
-        );
+    const globeRef = useRef<GlobeMethods | undefined>(undefined);
+    const packetAnimationsRef = useRef<PacketAnimation[]>([]);
 
     useEffect(() => {
-
         const interval = setInterval(() => {
-
             if (!globeRef.current) {
                 return;
             }
 
-            const scene =
-                globeRef.current.scene();
-
+            const scene = globeRef.current.scene();
             const globeMesh =
-                scene.children.find(
-                    (child: any) =>
-                        child.type === "Group"
-                );
+                scene.children.find((child) => child.type === "Group");
 
             if (!globeMesh) {
                 return;
@@ -83,88 +50,74 @@ const GlobeMap = () => {
                 globeMesh.rotation,
                 {
                     y: "+=" + Math.PI * 2,
-
                     duration: 20,
-
                     repeat: -1,
-
                     ease: "none",
                 }
             );
 
-            const curveMap =
-                new Map<
-                    number,
-                    CubicBezierCurve3
-                >();
+            const curveMap = new Map<number, CubicBezierCurve3>();
 
-            globeMesh.traverse((child: any) => {
-
-                if (
-                    child.geometry?.type !==
-                    "TubeGeometry"
-                ) {
+            globeMesh.traverse((child) => {
+                if (child.type !== "Mesh") {
                     return;
                 }
 
-                const path =
-                    child.geometry.parameters.path;
+                const mesh = child as Mesh;
 
-                if (
-                    path?.type !==
-                    "CubicBezierCurve3"
-                ) {
+                if (mesh.geometry?.type !== "TubeGeometry") {
+                    return;
+                }
+
+                const geometry = mesh.geometry as TubeGeometry;
+                const path = geometry.parameters.path;
+
+                if (path.type !== "CubicBezierCurve3") {
+                    return;
+                }
+
+                const curve = path as CubicBezierCurve3;
+
+                if (path?.type !== "CubicBezierCurve3") {
                     return;
                 }
 
                 for (const arc of staticArcs) {
-
-                    if (
-                        curveMap.has(
-                            arc.id
-                        )
-                    ) {
+                    if (curveMap.has(arc.id)) {
                         continue;
                     }
 
-                    const startCoords =
+                    const startCoordinates =
                         globeRef.current?.getCoords(
                             arc.startLat,
                             arc.startLng,
                             0,
                         );
 
-                    if (!startCoords) {
+                    if (!startCoordinates) {
                         continue;
                     }
 
                     const distance =
-                        path.v0.distanceTo(
+                        curve.v0.distanceTo(
                             new Vector3(
-                                startCoords.x,
-                                startCoords.y,
-                                startCoords.z,
+                                startCoordinates.x,
+                                startCoordinates.y,
+                                startCoordinates.z,
                             )
                         );
 
-                    if (
-                        distance < 1
-                    ) {
-
+                    if (distance < 1) {
                         curveMap.set(
                             arc.id,
-                            path
+                            curve
                         );
                     }
                 }
             });
 
             for (const arc of staticArcs) {
-
-                const curve =
-                    curveMap.get(
-                        arc.id
-                    );
+                const curve = curveMap.get(arc.id);
 
                 if (!curve) {
                     continue;
@@ -173,40 +126,23 @@ const GlobeMap = () => {
                 const mesh =
                     new Mesh(
                         new SphereGeometry(1.2),
-
-                        new MeshBasicMaterial({
-                            color: "#E95420",
-                        })
+                        new MeshBasicMaterial({color: "#E95420"})
                     );
 
                 globeMesh.add(mesh);
+                packetAnimationsRef.current.push({mesh, curve});
 
-                packetAnimationsRef.current.push({
-                    mesh,
-                    curve,
-                });
-
-                const animation = {
-                    progress: 0,
-                };
+                const animation = {progress: 0};
+                const reverse = Math.random() > 0.5;
 
                 gsap.to(
                     animation,
                     {
                         progress: 1,
-
-                        duration:
-                            3 +
-                            Math.random() * 2,
-
-                        delay:
-                            Math.random(),
-
-                        repeatDelay:
-                            Math.random() * 2,
-
+                        duration: 3 + Math.random() * 2,
+                        delay: Math.random(),
+                        repeatDelay: Math.random() * 2,
                         repeat: -1,
-
                         ease: "none",
 
                         onRepeat: () => {
@@ -214,15 +150,13 @@ const GlobeMap = () => {
                         },
 
                         onUpdate: () => {
-
                             const point =
                                 curve.getPoint(
-                                    animation.progress
+                                    reverse
+                                        ? 1 - animation.progress
+                                        : animation.progress
                                 );
-
-                            mesh.position.copy(
-                                point
-                            );
+                            mesh.position.copy(point);
                         },
                     }
                 );
@@ -231,70 +165,42 @@ const GlobeMap = () => {
 
         return () => {
             clearInterval(interval);
-
             packetAnimationsRef.current.forEach(
                 ({mesh}) => {
                     mesh.removeFromParent();
                 }
             );
-
-            packetAnimationsRef.current =
-                [];
+            packetAnimationsRef.current = [];
         };
     }, []);
 
     return (
         <div className="w-full flex justify-center pointer-events-none">
-
             <Globe3D
                 ref={globeRef}
-
                 width={320}
-
                 height={320}
-
                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
-
+                // globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
                 backgroundColor="rgba(0,0,0,0)"
-
                 atmosphereColor="#E95420"
-
-                atmosphereAltitude={0.12}
-
+                atmosphereAltitude={0.09}
                 pointsData={cities}
-
                 pointLat="lat"
-
                 pointLng="lng"
-
                 pointColor={() => "#E95420"}
-
                 pointRadius={0.55}
-
                 pointAltitude={0}
-
                 labelsData={cities}
-
                 labelLat="labelLat"
-
                 labelLng="labelLng"
-
                 labelText="name"
-
                 labelSize={2.5}
-
                 labelDotRadius={0}
-
                 labelColor={() => "#E95420"}
-
                 arcsData={staticArcs}
-
-                arcColor={() =>
-                    "rgba(233,84,32,0.45)"
-                }
-
+                arcColor={() => "rgba(233,84,32,0.45)"}
                 arcStroke={0.6}
-
                 arcAltitude="altitude"
             />
         </div>
