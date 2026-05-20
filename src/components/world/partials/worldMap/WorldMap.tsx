@@ -1712,20 +1712,27 @@ const WorldMap = () => {
                         strokeLinecap="round"
                     />
                 ))}
-                {routes.map((route, index) => (
-                    <circle
-                        key={`packet-${route.id}`}
-                        r={4.3}
-                        fill="#e95420"
-                    >
-                        <animateMotion
-                            dur={`${worldPacketRandom[index].duration}s`}
-                            begin={`${worldPacketRandom[index].delay}s`}
-                            repeatCount="indefinite"
-                            path={route.path}
-                        />
-                    </circle>
-                ))}
+                {routes.map((route, index) => {
+                    const config = worldPacketRandom[index];
+
+                    return (
+                        <circle
+                            key={`packet-${route.id}`}
+                            r={4.3}
+                            fill="#e95420"
+                        >
+                            <animateMotion
+                                dur={`${config.duration}s`}
+                                begin={`${config.delay}s`}
+                                repeatCount="indefinite"
+                                path={route.path}
+                                keyPoints={config.reverse ? "1;0" : "0;1"}
+                                keyTimes="0;1"
+                                calcMode="linear"
+                            />
+                        </circle>
+                    );
+                })}
             </svg>
         </div>
     )
