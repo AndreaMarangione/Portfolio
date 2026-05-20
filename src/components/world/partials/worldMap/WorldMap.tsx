@@ -1711,6 +1711,19 @@ const WorldMap = () => {
                         strokeLinecap="round"
                     />
                 ))}
+                {routes.map((route) => (
+                    <circle
+                        key={`packet-${route.id}`}
+                        r={4.3}
+                        fill="#e95420"
+                    >
+                        <animateMotion
+                            dur="6s"
+                            repeatCount="indefinite"
+                            path={route.path}
+                        />
+                    </circle>
+                ))}
             </svg>
         </div>
     )
