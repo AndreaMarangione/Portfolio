@@ -25,9 +25,10 @@ const MySkills = () => {
     }, []);
 
     return (
-        <div className="flex animate-fade-up flex-col items-center gap-9 md:gap-10">
+        <div
+            className="flex animate-fade-up flex-col items-center gap-9 md:gap-10 min-[1025px]:flex-row min-[1025px]:items-stretch min-[1025px]:gap-6">
             <div
-                className="relative w-full max-w-[1120px] rounded-[18px] border border-[#262626] bg-[#0d0d0d] p-4 pb-3.5"
+                className="relative w-full min-w-0 max-w-[1120px] rounded-[18px] border border-[#262626] bg-[#0d0d0d] p-4 pb-3.5 min-[1025px]:max-w-none min-[1025px]:flex-[1.55]"
                 style={{boxShadow: "0 32px 70px -30px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.05)"}}
             >
                 <HmiScrew className="left-[7px] top-[7px]"/>
@@ -158,11 +159,11 @@ const MySkills = () => {
             </div>
 
             <div
-                className="w-full max-w-[880px] overflow-hidden rounded-xl border border-border bg-background"
+                className="flex w-full min-w-0 max-w-[880px] flex-col overflow-hidden rounded-xl border border-border bg-background min-[1025px]:max-w-none min-[1025px]:flex-1"
                 style={{boxShadow: "0 28px 60px -28px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.04)"}}
             >
                 <div
-                    className="flex h-[46px] items-center justify-between gap-2 border-b border-black/30 bg-card px-2.5">
+                    className="flex h-[46px] shrink-0 items-center justify-between gap-2 border-b border-black/30 bg-card px-2.5">
                     <span className="w-[90px]"/>
                     <span className="flex-1 text-center font-mono text-[13px] text-foreground/80">andrea@portfolio: ~/web</span>
                     <div className="flex items-center gap-2">
@@ -187,7 +188,7 @@ const MySkills = () => {
                     </div>
                 </div>
 
-                <div className="bg-[#300a24] px-[18px] py-4 font-mono text-[13.5px] leading-[1.75]">
+                <div className="flex-1 bg-[#300a24] px-[18px] py-4 font-mono text-[13.5px] leading-[1.75]">
                     <div className="whitespace-pre-wrap break-words text-foreground/85">
                         <TerminalPrompt/><span className="text-foreground/95">cat package.json</span>
                     </div>
