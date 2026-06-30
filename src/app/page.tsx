@@ -20,7 +20,7 @@ export default function Home() {
             </section>
 
             <section id="skills"
-                     className="min-h-screen pt-12 scroll-mt-16 min-[1025px]:flex min-[1025px]:min-h-[calc(100vh_-_4rem)] min-[1025px]:flex-col min-[1025px]:justify-center"
+                     className="min-h-screen scroll-mt-16 min-[1025px]:flex min-[1025px]:min-h-[calc(100vh_-_4rem)] min-[1025px]:flex-col min-[1025px]:justify-center"
             >
                 <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
                     <Skills/>
