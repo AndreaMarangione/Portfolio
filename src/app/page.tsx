@@ -6,7 +6,7 @@ import Contact from "@/components/sections/Contact";
 
 export default function Home() {
     return (
-        <main className="pt-16">
+        <div className="pt-16">
             <section id="home" className="min-h-screen py-10 scroll-mt-16">
                 <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
                     <Hero/>
@@ -36,6 +36,6 @@ export default function Home() {
                     <Contact/>
                 </div>
             </section>
-        </main>
+        </div>
     );
 }
