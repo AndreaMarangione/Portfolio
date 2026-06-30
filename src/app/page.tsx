@@ -6,36 +6,36 @@ import Contact from "@/components/sections/Contact";
 
 export default function Home() {
     return (
-        <main className="pt-16">
-            <section id="home" className="min-h-screen py-10 md:py-12">
-                <div className="px-6 w-full md:max-w-6xl md:mx-auto">
+        <div className="pt-16">
+            <section id="home" className="min-h-screen py-10 scroll-mt-16">
+                <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
                     <Hero/>
                 </div>
             </section>
 
-            <section id="about" className="min-h-screen py-12 md:py-20">
-                <div className="px-6 w-full md:max-w-6xl md:mx-auto">
+            <section id="about" className="min-h-screen pt-10 scroll-mt-16">
+                <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
                     <About/>
                 </div>
             </section>
 
-            <section id="skills" className="min-h-screen py-12 md:py-20">
-                <div className="px-6 w-full md:max-w-6xl md:mx-auto">
+            <section id="skills" className="min-h-screen pt-10 scroll-mt-16">
+                <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
                     <Skills/>
                 </div>
             </section>
 
-            <section id="projects" className="min-h-screen py-12 md:py-20">
-                <div className="px-6 w-full md:max-w-6xl md:mx-auto">
+            <section id="projects" className="min-h-screen pt-10 scroll-mt-16">
+                <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
                     <Projects/>
                 </div>
             </section>
 
-            <section id="contact" className="min-h-screen py-12 md:py-20">
-                <div className="px-6 w-full md:max-w-6xl md:mx-auto">
+            <section id="contact" className="min-h-screen pt-10 scroll-mt-16">
+                <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
                     <Contact/>
                 </div>
             </section>
-        </main>
+        </div>
     );
 }

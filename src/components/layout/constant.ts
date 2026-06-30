@@ -5,3 +5,5 @@ export const navItems = [
     {label: "Projects", href: "#projects"},
     {label: "Contact", href: "#contact"},
 ]
+
+export const NAVBAR_HEIGHT = 64;

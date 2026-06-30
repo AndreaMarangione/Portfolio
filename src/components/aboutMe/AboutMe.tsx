@@ -5,7 +5,7 @@ import {aboutMeLines} from "@/components/aboutMe/constant";
 
 const AboutMe = () => {
     return (
-        <div className="mx-auto mt-10 w-full max-w-3xl animate-fade-up md:mt-14">
+        <div className="mx-auto mt-10 w-full max-w-3xl lg:max-w-none animate-fade-up md:mt-5">
             <div className="overflow-hidden rounded-xl border border-border bg-background shadow-2xl">
                 <div className="flex h-[46px] items-center gap-2 border-b border-black/30 bg-card px-2.5">
                     <div className="hidden items-center gap-2 sm:flex">
