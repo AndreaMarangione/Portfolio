@@ -3,8 +3,6 @@ import {AboutMeLineType} from "@/components/aboutMe/type";
 export const aboutMeLines: AboutMeLineType[] = [
     {kind: "heading", text: "Andrea Marangione"},
     {kind: "blank"},
-    {kind: "bold", text: "Automation Software Developer"},
-    {kind: "blank"},
     {
         kind: "text",
         text:

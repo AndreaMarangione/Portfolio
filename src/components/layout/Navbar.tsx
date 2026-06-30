@@ -8,23 +8,6 @@ import {NAVBAR_HEIGHT, navItems} from "@/components/layout/constant";
 const Navbar = () => {
     const [open, setOpen] = useState(false);
 
-    // const handleScroll = (e: React.MouseEvent, href: string) => {
-    //     const currentHash: string = window.location.hash;
-    //
-    //     if (currentHash === href) {
-    //         e.preventDefault();
-    //
-    //         const id = href.replace("#", "");
-    //         const element = document.getElementById(id);
-    //
-    //         if (element) {
-    //             element.scrollIntoView({
-    //                 behavior: "smooth",
-    //             });
-    //         }
-    //     }
-    // };
-
     const handleNavClick = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
         setOpen(false);
