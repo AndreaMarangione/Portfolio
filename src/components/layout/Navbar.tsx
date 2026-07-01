@@ -2,7 +2,6 @@
 
 import {useState} from "react";
 import Link from "next/link";
-import {Button} from "@/components/ui/button";
 import {NAVBAR_HEIGHT, navItems} from "@/components/layout/constant";
 
 const Navbar = () => {
@@ -45,14 +44,6 @@ const Navbar = () => {
                     ))}
                 </nav>
                 <div className="flex items-center gap-3">
-                    <div className="hidden md:flex items-center gap-3">
-                        <Button variant="outline" size="sm" className="text-muted-foreground font-normal">
-                            Download CV
-                        </Button>
-                        <Button size="sm" className="font-normal">
-                            Get in touch
-                        </Button>
-                    </div>
                     <button
                         className="md:hidden text-foreground text-2xl leading-none"
                         onClick={() => setOpen(!open)}
@@ -76,14 +67,6 @@ const Navbar = () => {
                             {item.label}
                         </Link>
                     ))}
-                    <div className="flex flex-col gap-3 pt-4">
-                        <Button variant="outline" size="sm" className="text-muted-foreground font-normal">
-                            Download CV
-                        </Button>
-                        <Button size="sm" className="font-normal">
-                            Get in touch
-                        </Button>
-                    </div>
                 </div>
             )}
         </header>
