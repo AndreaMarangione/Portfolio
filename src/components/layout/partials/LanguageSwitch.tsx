@@ -4,18 +4,18 @@ import {useState} from "react";
 import {Lang} from "@/components/layout/type";
 
 const LanguageSwitch = () => {
-    const [language, setLanguage] = useState<Lang>("en");
+    const [lang, setLang] = useState<Lang>("en");
 
     return (
-        <div className="flex items-center gap-0.5 rounded-md border border-border bg-muted/40 p-0.5">
+        <div className="flex h-9 items-center gap-0.5 rounded-md border border-border bg-muted/40 p-[3px]">
             {(["en", "it"] as const).map((l) => (
                 <button
                     key={l}
                     type="button"
-                    onClick={() => setLanguage(l)}
-                    aria-pressed={language === l}
-                    className={`rounded-[5px] px-2.5 py-1 font-mono text-xs uppercase tracking-wide transition-colors cursor-pointer ${
-                        language === l
+                    onClick={() => setLang(l)}
+                    aria-pressed={lang === l}
+                    className={`flex h-full cursor-pointer items-center rounded-[5px] px-3 font-mono text-xs uppercase tracking-wide transition-colors ${
+                        lang === l
                             ? "bg-primary text-primary-foreground"
                             : "text-muted-foreground hover:text-foreground"
                     }`}
