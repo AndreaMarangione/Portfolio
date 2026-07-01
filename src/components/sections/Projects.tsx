@@ -1,6 +1,8 @@
+import MyProjects from "@/components/myProjects/MyProjects";
+
 const Projects = () => {
     return (
-        <h1>Projects</h1>
+        <MyProjects/>
     )
 }
 

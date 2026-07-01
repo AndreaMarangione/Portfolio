@@ -234,11 +234,12 @@
     content: "";
     position: absolute;
     right: 0;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: 1px;
-    height: 100%;
-    background: currentColor;
+    height: 1.05em;
+    background: var(--primary);
     opacity: 0;
     animation: showCursor 0s linear 1.45s forwards,
-    blink 1s step-end infinite 3.25s;
+    blink 1.1s step-end infinite 3.25s;
 }
