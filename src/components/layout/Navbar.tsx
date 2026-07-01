@@ -1,11 +1,16 @@
 "use client";
 
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Link from "next/link";
 import {NAVBAR_HEIGHT, navItems} from "@/components/layout/constant";
+import LanguageSwitch from "@/components/layout/partials/LanguageSwitch";
+import useActiveSection from "@/hooks/useActiveSections";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+
+    const ids: Array<string> = navItems.map((item) => item.href.replace("#", ""));
+    const activeId: string = useActiveSection(ids, NAVBAR_HEIGHT + 1);
 
     const handleNavClick = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
@@ -30,23 +35,31 @@ const Navbar = () => {
                     AM
                 </div>
                 <nav className="hidden md:flex items-center gap-8">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.label}
-                            href={item.href}
-                            onClick={(e) => {
-                                handleNavClick(e, item.href)
-                            }}
-                            className="text-muted-foreground hover:text-primary transition-colors"
-                        >
-                            {item.label}
-                        </Link>
-                    ))}
+                    {navItems.map((item) => {
+                        const isActive: boolean = activeId === item.href.replace("#", "");
+                        return (
+                            <Link
+                                key={item.label}
+                                href={item.href}
+                                onClick={(e) => {
+                                    handleNavClick(e, item.href)
+                                }}
+                                aria-current={isActive ? "page" : undefined}
+                                className={`transition-colors ${
+                                    isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+                                }`}
+                            >
+                                {item.label}
+                            </Link>
+                        );
+                    })}
                 </nav>
                 <div className="flex items-center gap-3">
+                    <LanguageSwitch/>
                     <button
                         className="md:hidden text-foreground text-2xl leading-none"
                         onClick={() => setOpen(!open)}
+                        aria-label="Toggle menu"
                     >
                         ☰
                     </button>
@@ -54,19 +67,25 @@ const Navbar = () => {
             </div>
             {open && (
                 <div className="md:hidden px-6 pb-4 space-y-4 bg-background border-t border-border">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.label}
-                            href={item.href}
-                            onClick={(e) => {
-                                handleNavClick(e, item.href);
-                                setOpen(false);
-                            }}
-                            className="block text-muted-foreground hover:text-primary"
-                        >
-                            {item.label}
-                        </Link>
-                    ))}
+                    {navItems.map((item) => {
+                        const isActive: boolean = activeId === item.href.replace("#", "");
+                        return (
+                            <Link
+                                key={item.label}
+                                href={item.href}
+                                onClick={(e) => {
+                                    handleNavClick(e, item.href);
+                                    setOpen(false);
+                                }}
+                                aria-current={isActive ? "page" : undefined}
+                                className={`block transition-colors ${
+                                    isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+                                }`}
+                            >
+                                {item.label}
+                            </Link>
+                        );
+                    })}
                 </div>
             )}
         </header>
