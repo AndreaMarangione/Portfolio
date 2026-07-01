@@ -1,6 +1,8 @@
+import MySkills from "@/components/mySkills/MySkills";
+
 const Skills = () => {
     return (
-        <h1>Skills</h1>
+        <MySkills/>
     )
 }
 
