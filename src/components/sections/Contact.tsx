@@ -1,6 +1,8 @@
+import MyContact from "@/components/myContact/MyContact";
+
 const Contact = () => {
     return (
-        <h1>Contact</h1>
+        <MyContact/>
     )
 }
 
