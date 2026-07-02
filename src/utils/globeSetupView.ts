@@ -1,8 +1,5 @@
-import type {GlobeMethods} from "react-globe.gl";
-
-type GlobeSetupViewProps = {
-    globe: GlobeMethods;
-};
+import {GlobeSetupViewProps} from "@/components/world/partials/globeMap/type";
+import {VIEW_TRANSITION_MS} from "@/components/world/partials/globeMap/constant";
 
 const globeSetupView =
     ({
@@ -15,7 +12,7 @@ const globeSetupView =
                 lng: 12,
                 altitude: 1.7,
             },
-            0
+            VIEW_TRANSITION_MS
         );
     };
 
