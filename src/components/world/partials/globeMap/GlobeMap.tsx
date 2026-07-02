@@ -12,6 +12,7 @@ import globeSetupView from "@/utils/globeSetupView";
 const GlobeMap = () => {
     const globeRef = useRef<GlobeMethods | undefined>(undefined);
     const packetAnimationsRef = useRef<PacketAnimation[]>([]);
+    const stopPacketsRef = useRef<(() => void) | null>(null);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -39,15 +40,20 @@ const GlobeMap = () => {
                     globe: globeRef.current,
                 });
 
-            globeSetupPacketAnimation({
-                globeMesh,
-                curveMap,
-                packetAnimationsRef,
-            });
+            stopPacketsRef.current =
+                globeSetupPacketAnimation({
+                    globeMesh,
+                    curveMap,
+                    packetAnimationsRef,
+                });
         }, 100);
 
         return () => {
             clearInterval(interval);
+
+            stopPacketsRef.current?.();
+            stopPacketsRef.current = null;
+
             packetAnimationsRef.current.forEach(
                 ({mesh}) => {
                     mesh.removeFromParent();

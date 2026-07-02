@@ -1,14 +1,32 @@
-import gsap from "gsap";
-import {Mesh, MeshBasicMaterial, SphereGeometry,} from "three";
+import {CubicBezierCurve3, Mesh, MeshBasicMaterial, Object3D, SphereGeometry,} from "three";
 import {staticArcs} from "@/components/world/partials/globeMap/constant";
-import type {SetupPacketAnimationsProps} from "@/components/world/partials/globeMap/type";
+import type {PacketAnimation} from "@/components/world/partials/globeMap/type";
+import {RefObject} from "react";
+
+type SetupPacketAnimationsProps = {
+    globeMesh: Object3D;
+    curveMap: Map<number, CubicBezierCurve3>;
+    packetAnimationsRef: RefObject<PacketAnimation[]>;
+};
+
+type Packet = {
+    mesh: Mesh;
+    curve: CubicBezierCurve3;
+    delay: number;
+    duration: number;
+    repeatDelay: number;
+    reverse: boolean;
+};
 
 const globeSetupPacketAnimation =
     ({
          globeMesh,
          curveMap,
          packetAnimationsRef,
-     }: SetupPacketAnimationsProps) => {
+     }: SetupPacketAnimationsProps): (() => void) => {
+
+        const packets: Packet[] = [];
+
         for (const arc of staticArcs) {
             const curve = curveMap.get(arc.id);
 
@@ -23,34 +41,55 @@ const globeSetupPacketAnimation =
             globeMesh.add(mesh);
             packetAnimationsRef.current.push({mesh, curve});
 
-            const animation = {progress: 0};
-            const reverse: boolean = Math.random() > 0.5;
-
-            gsap.to(
-                animation,
-                {
-                    progress: 1,
-                    duration: 3 + Math.random() * 2,
-                    delay: Math.random(),
-                    repeatDelay: Math.random() * 2,
-                    repeat: -1,
-                    ease: "none",
-
-                    onRepeat: () => {
-                        animation.progress = 0
-                    },
-                    onUpdate: () => {
-                        const point =
-                            curve.getPoint(
-                                reverse
-                                    ? 1 - animation.progress
-                                    : animation.progress
-                            );
-                        mesh.position.copy(point);
-                    },
-                }
-            );
+            packets.push({
+                mesh,
+                curve,
+                delay: Math.random(),
+                duration: 3 + Math.random() * 2,
+                repeatDelay: Math.random() * 2,
+                reverse: Math.random() > 0.5,
+            });
         }
+
+        const startTime = performance.now();
+        let rafId = 0;
+
+        const tick = () => {
+            const elapsed = (performance.now() - startTime) / 1000;
+
+            for (const packet of packets) {
+                const local = elapsed - packet.delay;
+
+                if (local < 0) {
+                    packet.mesh.visible = false;
+                    continue;
+                }
+
+                packet.mesh.visible = true;
+
+                const cycle = packet.duration + packet.repeatDelay;
+                const phase = local % cycle;
+                const progress =
+                    phase < packet.duration
+                        ? phase / packet.duration
+                        : 1;
+
+                const point =
+                    packet.curve.getPoint(
+                        packet.reverse
+                            ? 1 - progress
+                            : progress
+                    );
+
+                packet.mesh.position.copy(point);
+            }
+
+            rafId = requestAnimationFrame(tick);
+        };
+
+        rafId = requestAnimationFrame(tick);
+
+        return () => cancelAnimationFrame(rafId);
     };
 
 export default globeSetupPacketAnimation;
