@@ -29,7 +29,8 @@ export type FindArcCurvesProps = {
 };
 
 export type GlobeSetupRotationAnimationProps = {
-    globeMesh: Object3D;
+    // globeMesh: Object3D;
+    globe: GlobeMethods;
 };
 
 export type GlobeSetupViewProps = {

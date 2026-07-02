@@ -2,6 +2,7 @@ import {Arc} from "@/components/world/partials/globeMap/type";
 import dynamic from "next/dynamic";
 
 export const VIEW_TRANSITION_MS = 0;
+export const AUTOROTATE_SPEED = 3;
 
 export const Globe3D = dynamic(
     () => import("react-globe.gl"),
