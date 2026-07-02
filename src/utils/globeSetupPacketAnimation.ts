@@ -1,14 +1,7 @@
 import gsap from "gsap";
-import {CubicBezierCurve3, Mesh, MeshBasicMaterial, Object3D, SphereGeometry,} from "three";
+import {Mesh, MeshBasicMaterial, SphereGeometry,} from "three";
 import {staticArcs} from "@/components/world/partials/globeMap/constant";
-import type {PacketAnimation} from "@/components/world/partials/globeMap/type";
-import {RefObject} from "react";
-
-type SetupPacketAnimationsProps = {
-    globeMesh: Object3D;
-    curveMap: Map<number, CubicBezierCurve3>;
-    packetAnimationsRef: RefObject<PacketAnimation[]>;
-};
+import type {SetupPacketAnimationsProps} from "@/components/world/partials/globeMap/type";
 
 const globeSetupPacketAnimation =
     ({

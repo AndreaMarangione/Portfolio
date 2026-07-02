@@ -1,11 +1,6 @@
-import type {GlobeMethods} from "react-globe.gl";
-import {CubicBezierCurve3, Mesh, Object3D, TubeGeometry, Vector3,} from "three";
+import {CubicBezierCurve3, Mesh, TubeGeometry, Vector3,} from "three";
 import {staticArcs} from "@/components/world/partials/globeMap/constant";
-
-type FindArcCurvesProps = {
-    globeMesh: Object3D;
-    globe: GlobeMethods;
-};
+import {FindArcCurvesProps} from "@/components/world/partials/globeMap/type";
 
 const globeFindArcCurves =
     ({

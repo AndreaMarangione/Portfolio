@@ -1,9 +1,5 @@
 import gsap from "gsap";
-import type {Object3D} from "three";
-
-type GlobeSetupRotationAnimationProps = {
-    globeMesh: Object3D;
-};
+import {GlobeSetupRotationAnimationProps} from "@/components/world/partials/globeMap/type";
 
 const globeSetupRotationAnimation =
     ({
