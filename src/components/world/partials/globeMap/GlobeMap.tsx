@@ -30,7 +30,7 @@ const GlobeMap = () => {
             });
 
             globeSetupRotationAnimation({
-                globeMesh
+                globe: globeRef.current,
             });
 
             const curveMap =

@@ -1,22 +1,15 @@
-import gsap from "gsap";
 import {GlobeSetupRotationAnimationProps} from "@/components/world/partials/globeMap/type";
+import {AUTOROTATE_SPEED} from "@/components/world/partials/globeMap/constant";
 
 const globeSetupRotationAnimation =
     ({
-         globeMesh,
+         globe,
      }: GlobeSetupRotationAnimationProps) => {
 
-        globeMesh.rotation.z = 0;
+        const controls = globe.controls();
 
-        gsap.to(
-            globeMesh.rotation,
-            {
-                y: "+=" + Math.PI * 2,
-                duration: 20,
-                repeat: -1,
-                ease: "none",
-            }
-        );
+        controls.autoRotate = true;
+        controls.autoRotateSpeed = AUTOROTATE_SPEED;
     };
 
 export default globeSetupRotationAnimation;
