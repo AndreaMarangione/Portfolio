@@ -146,6 +146,46 @@
     --sidebar-ring: #E95420;
 }
 
+.animate-fade-up {
+    opacity: 0;
+    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-up-delay-motto {
+    animation-delay: 0.35s;
+}
+
+.animate-fade-up-delay-description {
+    animation-delay: 0.55s;
+}
+
+.animate-fade-up-delay-stats {
+    animation-delay: 1.1s;
+}
+
+.animate-typing {
+    width: 0;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    position: relative;
+    animation: typing 1.8s ease-out 2s forwards;
+}
+
+.animate-typing::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 1.05em;
+    background: var(--primary);
+    opacity: 0;
+    animation: showCursor 0s linear 1.45s forwards,
+    blink 1.1s step-end infinite 3.25s;
+}
+
 @layer base {
     * {
         @apply border-border outline-ring/50;
@@ -204,42 +244,7 @@
     }
 }
 
-.animate-fade-up {
-    opacity: 0;
-    animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.animate-fade-up-delay-motto {
-    animation-delay: 0.35s;
-}
-
-.animate-fade-up-delay-description {
-    animation-delay: 0.55s;
-}
-
-.animate-fade-up-delay-stats {
-    animation-delay: 1.1s;
-}
-
-.animate-typing {
-    width: 0;
-    overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    position: relative;
-    animation: typing 1.8s ease-out 2s forwards;
-}
-
-.animate-typing::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 1.05em;
-    background: var(--primary);
-    opacity: 0;
-    animation: showCursor 0s linear 1.45s forwards,
-    blink 1.1s step-end infinite 3.25s;
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
 }

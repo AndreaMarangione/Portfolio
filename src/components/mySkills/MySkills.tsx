@@ -7,6 +7,31 @@ import {automationModules, hmiFunctionKeys, webData, webSkills} from "@/componen
 import TerminalWinCtrl from "@/components/mySkills/partials/TerminalWinCtrl";
 import TerminalPrompt from "@/components/mySkills/partials/TerminalPrompt";
 
+// PLACEHOLDER — riga superiore (scorre a sinistra). Sostituisci con le tue skill reali.
+const marqueeAutomationSkills: Array<string> = [
+    "TypeScript", "React", "Next.js", "Node.js", "Python", "C++",
+    "PostgreSQL", "MongoDB", "Docker", "Git", "Tailwind CSS", "REST API",
+    "Siemens S7", "TIA Portal", "SCADA", "Linux",
+];
+
+// PLACEHOLDER — riga inferiore (scorre a destra). Sostituisci con le tue skill reali.
+const marqueeWebSkills: Array<string> = [
+    "React", "Next.js", "TypeScript", "JavaScript", "Node.js", "Express",
+    "Tailwind CSS", "HTML5", "CSS3", "MongoDB", "PostgreSQL", "Prisma",
+    "REST API", "Vite", "Zustand", "Git",
+];
+
+const SkillChip = ({label}: { label: string }) => (
+    <li className="flex items-center gap-2 whitespace-nowrap rounded-full border border-[#2f2f2f] bg-[#1c1c1c] px-4 py-2 transition-colors hover:border-primary/50">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="shrink-0">
+            <path d="M12 3 3 8l9 5 9-5-9-5Z" fill="#E95420"/>
+            <path d="M3 12l9 5 9-5" stroke="#E95420" strokeWidth="1.6" strokeLinejoin="round"/>
+            <path d="M3 16l9 5 9-5" stroke="#E95420" strokeWidth="1.6" strokeLinejoin="round"/>
+        </svg>
+        <span className="font-mono text-[13px] tracking-tight text-foreground/85">{label}</span>
+    </li>
+);
+
 const MySkills = () => {
     const [clock, setClock] = useState({time: "", date: ""});
 
@@ -26,9 +51,29 @@ const MySkills = () => {
 
     return (
         <div
-            className="flex animate-fade-up flex-col items-center gap-9 md:gap-10 min-[1025px]:flex-row min-[1025px]:items-stretch min-[1025px]:gap-6">
+            className="flex w-full animate-fade-up flex-col items-center gap-y-8 md:gap-y-10 min-[1025px]:flex-row min-[1025px]:flex-wrap min-[1025px]:items-stretch min-[1025px]:gap-x-6">
+            {/* 1. MARQUEE automation — scorre a SINISTRA (mobile: 1° · desktop: riga in alto) */}
             <div
-                className="relative w-full min-w-0 max-w-[1120px] rounded-[18px] border border-[#262626] bg-[#0d0d0d] p-4 pb-3.5 min-[1025px]:max-w-none min-[1025px]:flex-[1.55]"
+                className="group relative w-full overflow-hidden min-[1025px]:order-1 min-[1025px]:basis-full"
+                style={{
+                    maskImage: "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)",
+                    WebkitMaskImage: "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)",
+                }}
+            >
+                <div
+                    className="flex w-max animate-[marquee_40s_linear_infinite] group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+                    <ul className="flex shrink-0 items-center gap-3 pr-3">
+                        {marqueeAutomationSkills.map((s) => <SkillChip key={s} label={s}/>)}
+                    </ul>
+                    <ul className="flex shrink-0 items-center gap-3 pr-3" aria-hidden="true">
+                        {marqueeAutomationSkills.map((s) => <SkillChip key={`${s}-dup`} label={s}/>)}
+                    </ul>
+                </div>
+            </div>
+
+            {/* 2. HMI (mobile: 2° · desktop: sinistra della riga centrale) */}
+            <div
+                className="relative w-full min-w-0 max-w-[1120px] rounded-[18px] border border-[#262626] bg-[#0d0d0d] p-4 pb-3.5 min-[1025px]:max-w-none min-[1025px]:flex-[1.55] min-[1025px]:order-2"
                 style={{boxShadow: "0 32px 70px -30px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.05)"}}
             >
                 <HmiScrew className="left-[7px] top-[7px]"/>
@@ -98,7 +143,8 @@ const MySkills = () => {
                         </p>
                         <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
                             {automationModules.map((mod) => (
-                                <div key={mod.title} className="rounded-[9px] border border-border bg-card p-[13px]">
+                                <div key={mod.title}
+                                     className="rounded-[9px] border border-border bg-card p-[13px]">
                                     <div
                                         className="mb-[11px] flex items-center justify-between border-b border-[#333] pb-[9px]">
                                         <span
@@ -130,7 +176,8 @@ const MySkills = () => {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-2 border-t border-[#2e2e2e] bg-[#151515] p-3 sm:grid-cols-6">
+                    <div
+                        className="grid grid-cols-3 gap-2 border-t border-[#2e2e2e] bg-[#151515] p-3 sm:grid-cols-6">
                         {hmiFunctionKeys.map((fn) => (
                             <div
                                 key={fn.n}
@@ -158,8 +205,28 @@ const MySkills = () => {
                 </div>
             </div>
 
+            {/* 3. MARQUEE web — scorre a DESTRA (mobile: 3°, tra HMI e terminale · desktop: riga in basso) */}
             <div
-                className="flex w-full min-w-0 max-w-[880px] flex-col overflow-hidden rounded-xl border border-border bg-background min-[1025px]:max-w-none min-[1025px]:flex-1"
+                className="group relative w-full overflow-hidden min-[1025px]:order-4 min-[1025px]:basis-full"
+                style={{
+                    maskImage: "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)",
+                    WebkitMaskImage: "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)",
+                }}
+            >
+                <div
+                    className="flex w-max animate-[marquee_40s_linear_infinite_reverse] group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+                    <ul className="flex shrink-0 items-center gap-3 pr-3">
+                        {marqueeWebSkills.map((s) => <SkillChip key={s} label={s}/>)}
+                    </ul>
+                    <ul className="flex shrink-0 items-center gap-3 pr-3" aria-hidden="true">
+                        {marqueeWebSkills.map((s) => <SkillChip key={`${s}-dup`} label={s}/>)}
+                    </ul>
+                </div>
+            </div>
+
+            {/* 4. TERMINALE (mobile: 4° · desktop: destra della riga centrale) */}
+            <div
+                className="flex w-full min-w-0 max-w-[880px] flex-col overflow-hidden rounded-xl border border-border bg-background min-[1025px]:max-w-none min-[1025px]:flex-1 min-[1025px]:order-3"
                 style={{boxShadow: "0 28px 60px -28px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.04)"}}
             >
                 <div
