@@ -1,20 +1,28 @@
 "use client";
 
-import {useEffect, useRef} from "react";
-import {cities, Globe3D, staticArcs,} from "@/components/world/partials/globeMap/constant";
+import {useEffect, useRef, useState} from "react";
+import {cities, Globe3D, staticArcs, VIEW_TRANSITION_MS,} from "@/components/world/partials/globeMap/constant";
 import {PacketAnimation} from "@/components/world/partials/globeMap/type";
 import type {GlobeMethods} from "react-globe.gl";
 import globeFindArcCurves from "@/utils/globeFindArcCurves";
 import globeSetupPacketAnimation from "@/utils/globeSetupPacketAnimation";
 import globeSetupRotationAnimation from "@/utils/globeSetupRotationAnimation";
 import globeSetupView from "@/utils/globeSetupView";
+import globeSetupInteraction from "@/utils/globeSetupInteraction";
 
 const GlobeMap = () => {
     const globeRef = useRef<GlobeMethods | undefined>(undefined);
     const packetAnimationsRef = useRef<PacketAnimation[]>([]);
     const stopPacketsRef = useRef<(() => void) | null>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    // ready = intro della camera finita → si può attivare l'interazione
+    const [ready, setReady] = useState(false);
+    const [interactive, setInteractive] = useState(false);
 
     useEffect(() => {
+        let readyTimeout: ReturnType<typeof setTimeout>;
+
         const interval = setInterval(() => {
             if (!globeRef.current) return;
 
@@ -46,10 +54,13 @@ const GlobeMap = () => {
                     curveMap,
                     packetAnimationsRef,
                 });
+
+            readyTimeout = setTimeout(() => setReady(true), VIEW_TRANSITION_MS);
         }, 100);
 
         return () => {
             clearInterval(interval);
+            clearTimeout(readyTimeout);
 
             stopPacketsRef.current?.();
             stopPacketsRef.current = null;
@@ -63,35 +74,67 @@ const GlobeMap = () => {
         };
     }, []);
 
+    const handleActivate = () => {
+        const globe = globeRef.current;
+
+        if (!globe) return;
+
+        globeSetupInteraction({globe});
+
+        // Gli OrbitControls impostano touchAction="none" sul canvas: bloccherebbe
+        // lo scroll della pagina col dito sopra il globo. Con "pan-y" lo swipe
+        // verticale continua a scrollare, quello orizzontale ruota il globo.
+        const canvas = containerRef.current?.querySelector("canvas");
+
+        if (canvas) canvas.style.touchAction = "pan-y";
+
+        setInteractive(true);
+    };
+
     return (
-        <div className="w-full flex justify-center pointer-events-none">
-            <Globe3D
-                ref={globeRef}
-                width={320}
-                height={320}
-                globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
-                // globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-                backgroundColor="rgba(0,0,0,0)"
-                atmosphereColor="#E95420"
-                atmosphereAltitude={0.09}
-                pointsData={cities}
-                pointLat="lat"
-                pointLng="lng"
-                pointColor={() => "#E95420"}
-                pointRadius={0.55}
-                pointAltitude={0}
-                labelsData={cities}
-                labelLat="labelLat"
-                labelLng="labelLng"
-                labelText="name"
-                labelSize={2.5}
-                labelDotRadius={0}
-                labelColor={() => "#E95420"}
-                arcsData={staticArcs}
-                arcColor={() => "rgba(233,84,32,0.45)"}
-                arcStroke={0.6}
-                arcAltitude="altitude"
-            />
+        <div className="flex w-full justify-center">
+            <div ref={containerRef} className="relative h-[320px] w-[320px]">
+                <div className={interactive ? undefined : "pointer-events-none"}>
+                    <Globe3D
+                        ref={globeRef}
+                        width={320}
+                        height={320}
+                        globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+                        // globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+                        backgroundColor="rgba(0,0,0,0)"
+                        atmosphereColor="#E95420"
+                        atmosphereAltitude={0.09}
+                        pointsData={cities}
+                        pointLat="lat"
+                        pointLng="lng"
+                        pointColor={() => "#E95420"}
+                        pointRadius={0.55}
+                        pointAltitude={0}
+                        labelsData={cities}
+                        labelLat="labelLat"
+                        labelLng="labelLng"
+                        labelText="name"
+                        labelSize={2.5}
+                        labelDotRadius={0}
+                        labelColor={() => "#E95420"}
+                        arcsData={staticArcs}
+                        arcColor={() => "rgba(233,84,32,0.45)"}
+                        arcStroke={0.6}
+                        arcAltitude="altitude"
+                    />
+                </div>
+
+                {/* Overlay invisibile: intercetta solo il TAP di attivazione.
+                    touch-action pan-y → lo swipe verticale scrolla comunque la pagina. */}
+                {ready && !interactive && (
+                    <button
+                        type="button"
+                        onClick={handleActivate}
+                        aria-label="Attiva la rotazione manuale del globo"
+                        className="absolute inset-0 cursor-pointer [touch-action:pan-y]"
+                    />
+                )}
+            </div>
         </div>
     );
 };
