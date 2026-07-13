@@ -15,8 +15,6 @@ const GlobeMap = () => {
     const packetAnimationsRef = useRef<PacketAnimation[]>([]);
     const stopPacketsRef = useRef<(() => void) | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-
-    // ready = intro della camera finita → si può attivare l'interazione
     const [ready, setReady] = useState(false);
     const [interactive, setInteractive] = useState(false);
 
@@ -81,9 +79,6 @@ const GlobeMap = () => {
 
         globeSetupInteraction({globe});
 
-        // Gli OrbitControls impostano touchAction="none" sul canvas: bloccherebbe
-        // lo scroll della pagina col dito sopra il globo. Con "pan-y" lo swipe
-        // verticale continua a scrollare, quello orizzontale ruota il globo.
         const canvas = containerRef.current?.querySelector("canvas");
 
         if (canvas) canvas.style.touchAction = "pan-y";
@@ -124,8 +119,6 @@ const GlobeMap = () => {
                     />
                 </div>
 
-                {/* Overlay invisibile: intercetta solo il TAP di attivazione.
-                    touch-action pan-y → lo swipe verticale scrolla comunque la pagina. */}
                 {ready && !interactive && (
                     <button
                         type="button"
