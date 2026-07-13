@@ -16,7 +16,6 @@ const GlobeMap = () => {
     const stopPacketsRef = useRef<(() => void) | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [ready, setReady] = useState(false);
-    const [interactive, setInteractive] = useState(false);
 
     useEffect(() => {
         let readyTimeout: ReturnType<typeof setTimeout>;
@@ -53,7 +52,19 @@ const GlobeMap = () => {
                     packetAnimationsRef,
                 });
 
-            readyTimeout = setTimeout(() => setReady(true), VIEW_TRANSITION_MS);
+            readyTimeout = setTimeout(() => {
+                if (!globeRef.current) return;
+
+                globeSetupInteraction({
+                    globe: globeRef.current,
+                });
+
+                const canvas = containerRef.current?.querySelector("canvas");
+
+                if (canvas) canvas.style.touchAction = "pan-y";
+
+                setReady(true);
+            }, VIEW_TRANSITION_MS);
         }, 100);
 
         return () => {
@@ -72,61 +83,36 @@ const GlobeMap = () => {
         };
     }, []);
 
-    const handleActivate = () => {
-        const globe = globeRef.current;
-
-        if (!globe) return;
-
-        globeSetupInteraction({globe});
-
-        const canvas = containerRef.current?.querySelector("canvas");
-
-        if (canvas) canvas.style.touchAction = "pan-y";
-
-        setInteractive(true);
-    };
-
     return (
         <div className="flex w-full justify-center">
-            <div ref={containerRef} className="relative h-[320px] w-[320px]">
-                <div className={interactive ? undefined : "pointer-events-none"}>
-                    <Globe3D
-                        ref={globeRef}
-                        width={320}
-                        height={320}
-                        globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
-                        // globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-                        backgroundColor="rgba(0,0,0,0)"
-                        atmosphereColor="#E95420"
-                        atmosphereAltitude={0.09}
-                        pointsData={cities}
-                        pointLat="lat"
-                        pointLng="lng"
-                        pointColor={() => "#E95420"}
-                        pointRadius={0.55}
-                        pointAltitude={0}
-                        labelsData={cities}
-                        labelLat="labelLat"
-                        labelLng="labelLng"
-                        labelText="name"
-                        labelSize={2.5}
-                        labelDotRadius={0}
-                        labelColor={() => "#E95420"}
-                        arcsData={staticArcs}
-                        arcColor={() => "rgba(233,84,32,0.45)"}
-                        arcStroke={0.6}
-                        arcAltitude="altitude"
-                    />
-                </div>
-
-                {ready && !interactive && (
-                    <button
-                        type="button"
-                        onClick={handleActivate}
-                        aria-label="Attiva la rotazione manuale del globo"
-                        className="absolute inset-0 cursor-pointer [touch-action:pan-y]"
-                    />
-                )}
+            <div ref={containerRef} className={ready ? undefined : "pointer-events-none"}>
+                <Globe3D
+                    ref={globeRef}
+                    width={320}
+                    height={320}
+                    globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+                    // globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+                    backgroundColor="rgba(0,0,0,0)"
+                    atmosphereColor="#E95420"
+                    atmosphereAltitude={0.09}
+                    pointsData={cities}
+                    pointLat="lat"
+                    pointLng="lng"
+                    pointColor={() => "#E95420"}
+                    pointRadius={0.55}
+                    pointAltitude={0}
+                    labelsData={cities}
+                    labelLat="labelLat"
+                    labelLng="labelLng"
+                    labelText="name"
+                    labelSize={2.5}
+                    labelDotRadius={0}
+                    labelColor={() => "#E95420"}
+                    arcsData={staticArcs}
+                    arcColor={() => "rgba(233,84,32,0.45)"}
+                    arcStroke={0.6}
+                    arcAltitude="altitude"
+                />
             </div>
         </div>
     );
