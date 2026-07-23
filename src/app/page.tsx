@@ -22,13 +22,13 @@ export default function Home() {
             </section>
 
             <section id="skills"
-                     className="min-h-screen mt-10 pt-3 scroll-mt-16 min-[1025px]:relative min-[1025px]:flex min-[1025px]:min-h-[calc(100vh_-_4rem)] min-[1025px]:flex-col min-[1025px]:justify-center"
+                     className="min-h-screen mt-10 pt-3 scroll-mt-16 min-[1025px]:flex min-[1025px]:min-h-[calc(100vh_-_4rem)] min-[1025px]:flex-col"
             >
-                <div
-                    className="mx-auto w-full max-w-[1600px] px-6 lg:px-12 min-[1025px]:absolute min-[1025px]:left-1/2 min-[1025px]:top-0 min-[1025px]:-translate-x-1/2 min-[1025px]:pt-1">
+                <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
                     <SectionDivider dir="skills"/>
                 </div>
-                <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
+                <div
+                    className="mx-auto w-full max-w-[1600px] px-6 lg:px-12 min-[1025px]:flex min-[1025px]:min-h-0 min-[1025px]:flex-1 min-[1025px]:flex-col">
                     <Skills/>
                 </div>
             </section>

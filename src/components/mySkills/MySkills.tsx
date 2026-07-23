@@ -51,7 +51,7 @@ const MySkills = () => {
 
     return (
         <div
-            className="flex w-full animate-fade-up flex-col items-center gap-y-8 md:gap-y-10 min-[1025px]:flex-row min-[1025px]:flex-wrap min-[1025px]:items-stretch min-[1025px]:gap-x-6">
+            className="flex w-full animate-fade-up flex-col items-center max-[1024px]:gap-y-8 md:max-[1024px]:gap-y-10 min-[1025px]:flex-1 min-[1025px]:flex-row min-[1025px]:flex-wrap min-[1025px]:items-stretch min-[1025px]:content-evenly min-[1025px]:gap-x-6">
             {/* 1. MARQUEE automation — scorre a SINISTRA (mobile: 1° · desktop: riga in alto) */}
             <div
                 className="group relative w-full overflow-hidden min-[1025px]:order-1 min-[1025px]:basis-full"
