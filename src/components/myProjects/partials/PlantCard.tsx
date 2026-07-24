@@ -7,7 +7,7 @@ const PlantCard = ({p}: { p: PlantProject }) => (
         <div className="flex items-start justify-between gap-3">
             <span className="text-[20px] font-bold text-foreground">{p.name}</span>
             <span
-                className="flex-none whitespace-nowrap rounded-full border border-border px-2.5 py-1 font-mono text-[10px] tracking-[0.1em] text-white/70">
+                className="flex-none whitespace-nowrap rounded-full border border-primary/50 px-2.5 py-1 font-mono text-[10px] tracking-[0.1em] text-primary">
                 {p.type}
             </span>
         </div>

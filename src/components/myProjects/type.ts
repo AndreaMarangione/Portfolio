@@ -20,3 +20,9 @@ export type WebProject = {
 };
 
 export type Project = PlantProject | WebProject;
+
+export type ProjectProcessProps = {
+    label: string;
+    steps: string[];
+    arrows?: boolean;
+};
