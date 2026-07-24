@@ -1,5 +1,7 @@
 import {Project} from "@/components/myProjects/type";
 
+export const PROJECTS_VISIBLE = 4;
+
 export const projects: Project[] = [
     {
         kind: "plant",
@@ -96,5 +98,5 @@ export const projects: Project[] = [
             "The site you’re looking at — an Ubuntu-themed portfolio.",
         stackLabel: "Stack",
         stack: ["Next.js", "TypeScript", "Tailwind", "Shadcn"]
-    },
+    }
 ];
