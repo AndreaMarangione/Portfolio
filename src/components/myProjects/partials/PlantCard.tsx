@@ -3,7 +3,9 @@ import {PlantProject} from "@/components/myProjects/type";
 
 const PlantCard = ({p}: { p: PlantProject }) => (
     <div
-        className="flex flex-col rounded-xl border border-border bg-[#202020] p-5 shadow-[0_20px_44px_-28px_rgba(0,0,0,0.7)]">
+        className="relative flex flex-col rounded-xl border border-border bg-[#202020] p-5 shadow-[0_20px_44px_-28px_rgba(0,0,0,0.7)]
+            transition-[transform,border-color] duration-300 hover:z-10 hover:scale-[1.02] hover:border-primary/50
+            motion-reduce:hover:scale-100">
         <div className="flex items-start justify-between gap-3">
             <span className="text-[20px] font-bold text-foreground">{p.name}</span>
             <span
