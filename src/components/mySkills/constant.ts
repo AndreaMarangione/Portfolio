@@ -7,23 +7,24 @@ export const automationSkills: Array<string> = [
 ];
 
 export const webSkills: Array<string> = [
-    "CRM", "HTML5", "CSS3", "Prisma", "REST API", "Git", "GitHub", "bCrypt", "Axios",
-    "Cookie", "JsonWebToken", "excelJs", "mjml", "Linux", "Windows"
+    "CRM", "HTML5", "CSS3", "NextJs", "Prisma", "REST API", "Git", "GitHub", "bCrypt", "Axios",
+    "Cookie", "Shadcn", "JsonWebToken", "excelJs", "mjml", "Linux", "Windows"
 ];
 
 export const automationModules: SkillModule[] = [
     {
         title: "PLC Programming",
         rows: [
-            {name: "Structured Text", core: true},
-            {name: "STL — Siemens", core: true},
+            {name: "Structured Text"},
+            {name: "STL — Siemens"},
             {name: "Ladder"},
-        ],
+            {name: "FBD - Function block diagram"},
+        ]
     },
     {
         title: "Networks & Drives",
         rows: [
-            {name: "Profinet design", core: true},
+            {name: "Profinet, Profisafe, EGD, Modbus"},
             {name: "Drive config — async / brushless"},
             {name: "Axis control — encoders"},
         ],
@@ -31,9 +32,9 @@ export const automationModules: SkillModule[] = [
     {
         title: "Engineering & Delivery",
         rows: [
-            {name: "Software design from scratch"},
+            {name: "Software & hardware design"},
             {name: "Production & process data"},
-            {name: "Commissioning", core: true},
+            {name: "Commissioning"},
             {name: "Project management"},
         ],
     },
@@ -45,20 +46,19 @@ export const hmiFunctionKeys = [
     {n: "F3", label: "Alarms"},
     {n: "F4", label: "Drives"},
     {n: "F5", label: "Network"},
-    {n: "F6", label: "Diag"},
+    {n: "F6", label: "Diagnostics"},
 ];
 
-export const webData = [
+export const terminalWebData = [
     {key: "developer", value: "Andrea Marangione"},
-    {key: "role", value: "web developer"},
+    {key: "role", value: "software developer"},
 ];
 
 export const terminalWebSkills = [
-    {key: "languages", items: ["JavaScript", "TypeScript"]},
-    {key: "frontend", items: ["React", "Redux", "Tailwind", "Bootstrap", "Axios"]},
+    {key: "languages", items: ["JavaScript", "TypeScript", "Visual Basic", "C++"]},
+    {key: "frontend", items: ["React", "Tailwind", "Bootstrap", "Redux", "Axios"]},
     {key: "backend", items: ["Node.js", "Express"]},
-    {key: "database", items: ["MongoDB", "PostgreSQL"]},
+    {key: "database", items: ["PostgreSQL", "MongoDB"]},
+    {key: "cloud", items: ["AWS", "Cloudinary"]},
     {key: "architecture", items: ["Database design", "Server design", "Client design"]},
 ];
-
-

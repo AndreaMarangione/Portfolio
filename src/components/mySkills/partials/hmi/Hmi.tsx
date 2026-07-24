@@ -50,7 +50,6 @@ const Hmi = () => {
                             className="hidden whitespace-nowrap font-mono text-xs text-muted-foreground sm:inline">
                                 / skills overview
                             </span>
-                        <span className="hidden font-mono text-[11px] text-white/40 sm:inline">SCR_01</span>
                     </div>
                     <div
                         className="flex items-center gap-[15px] whitespace-nowrap font-mono text-[11.5px] text-muted-foreground">
@@ -89,7 +88,7 @@ const Hmi = () => {
                     }}
                 >
                     <p className="mb-3 font-mono text-[10.5px] uppercase tracking-[0.12em] text-white/40">
-                        Modules — 3 groups · 10 signals
+                        Modules — 3 groups
                     </p>
                     <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
                         {automationModules.map((mod) => (
@@ -113,12 +112,8 @@ const Hmi = () => {
                                             row.core ? "text-foreground/95" : "text-foreground/75"
                                         }`}
                                     >
-                                        <HmiLed color={row.core ? "o" : "g"}/>
+                                        <HmiLed color="o"/>
                                         {row.name}
-                                        {row.core && (
-                                            <span
-                                                className="ml-auto text-[9.5px] tracking-[0.1em] text-primary/90">CORE</span>
-                                        )}
                                     </div>
                                 ))}
                             </div>
@@ -151,7 +146,7 @@ const Hmi = () => {
             <div
                 className="flex items-center justify-between px-2 pb-0.5 pt-[11px] font-mono text-[10.5px] tracking-[0.08em] text-white/40">
                 <span className="flex items-center gap-[7px]"><HmiLed/>PWR</span>
-                <span>HMI PANEL · SK-2400</span>
+                <span>HMI PANEL</span>
             </div>
         </div>
     )

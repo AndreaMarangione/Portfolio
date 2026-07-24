@@ -1,6 +1,6 @@
 import TerminalWinCtrl from "@/components/mySkills/partials/terminal/TerminalWinCtrl";
 import TerminalPrompt from "@/components/mySkills/partials/terminal/TerminalPrompt";
-import {terminalWebSkills, webData} from "@/components/mySkills/constant";
+import {terminalWebSkills, terminalWebData} from "@/components/mySkills/constant";
 import {Fragment} from "react";
 
 const Terminal = () => {
@@ -42,7 +42,7 @@ const Terminal = () => {
                     <TerminalPrompt/><span className="text-foreground/95">cat package.json</span>
                 </div>
                 <div className="whitespace-pre-wrap break-words text-[#6f6f6f]">{"{"}</div>
-                {webData.map((m) => (
+                {terminalWebData.map((m) => (
                     <div key={m.key} className="whitespace-pre-wrap break-words">
                         {"  "}
                         <span className="text-primary">{`"${m.key}"`}</span>
