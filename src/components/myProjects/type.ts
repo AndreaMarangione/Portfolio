@@ -1,13 +1,13 @@
 export type PlantProject = {
     kind: "plant";
     name: string;
+    type: string;
+    description?: string;
     site: string;
     product: string;
     capacity?: { value: string; unit: string };
-    highlight?: string;
     flowLabel: string;
-    flow: string[];
-    status: "COMMISSIONED" | "CURRENT";
+    flow: string[]
 };
 
 export type WebProject = {
@@ -15,9 +15,8 @@ export type WebProject = {
     name: string;
     type: string;
     description: string;
+    stackLabel: string;
     stack: string[];
-    flowLabel: string;
-    flow: string[];
 };
 
 export type Project = PlantProject | WebProject;

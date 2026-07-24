@@ -38,7 +38,7 @@ const PlantCard = ({p}: { p: PlantProject }) => {
                     <span className="font-mono text-xs text-muted-foreground">{p.capacity.unit}</span>
                 </div>
             ) : (
-                <div className="mb-5 text-[17px] font-semibold text-foreground">{p.highlight}</div>
+                <div className="mb-5 text-[17px] font-semibold text-foreground">{p.description}</div>
             )}
 
             <ProjectProcess label={p.flowLabel} steps={p.flow}/>

@@ -24,7 +24,7 @@ const WebCard = ({p}: { p: WebProject }) => (
             ))}
         </div>
 
-        <ProjectProcess label={p.flowLabel} steps={p.flow}/>
+        <ProjectProcess label={p.stackLabel} steps={p.flow}/>
 
         <button
             type="button"

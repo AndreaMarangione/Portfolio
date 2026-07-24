@@ -55,7 +55,7 @@ export const terminalWebData = [
 ];
 
 export const terminalWebSkills = [
-    {key: "languages", items: ["JavaScript", "TypeScript", "Visual Basic", "C++"]},
+    {key: "languages", items: ["JavaScript", "TypeScript", "Visual Basic", "C++", "Python"]},
     {key: "frontend", items: ["React", "Tailwind", "Bootstrap", "Redux", "Axios"]},
     {key: "backend", items: ["Node.js", "Express"]},
     {key: "database", items: ["PostgreSQL", "MongoDB"]},

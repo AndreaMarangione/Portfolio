@@ -106,12 +106,8 @@ const Hmi = () => {
                                         </span>
                                 </div>
                                 {mod.rows.map((row) => (
-                                    <div
-                                        key={row.name}
-                                        className={`flex items-center gap-2.5 py-[5px] font-mono text-[13px] ${
-                                            row.core ? "text-foreground/95" : "text-foreground/75"
-                                        }`}
-                                    >
+                                    <div key={row.name}
+                                         className="flex items-center gap-2.5 py-[5px] font-mono text-[13px] text-foreground/75">
                                         <HmiLed color="o"/>
                                         {row.name}
                                     </div>
