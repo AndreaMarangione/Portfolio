@@ -1,5 +1,16 @@
 import {SkillModule} from "@/components/mySkills/type";
 
+export const automationSkills: Array<string> = [
+    "TIA Portal", "Simatic Manager", "Startdrive", "Sick", "Keyence", "Balluff",
+    "Encoder", "Drives", "Laser scanner", "Safety barrier", "Safety", "Siemens",
+    "ToolboxST", "Proficy machine edition", "Cimplicity",
+];
+
+export const webSkills: Array<string> = [
+    "CRM", "HTML5", "CSS3", "Prisma", "REST API", "Git", "GitHub", "bCrypt", "Axios",
+    "Cookie", "JsonWebToken", "excelJs", "mjml", "Linux", "Windows"
+];
+
 export const automationModules: SkillModule[] = [
     {
         title: "PLC Programming",
@@ -42,7 +53,7 @@ export const webData = [
     {key: "role", value: "web developer"},
 ];
 
-export const webSkills = [
+export const terminalWebSkills = [
     {key: "languages", items: ["JavaScript", "TypeScript"]},
     {key: "frontend", items: ["React", "Redux", "Tailwind", "Bootstrap", "Axios"]},
     {key: "backend", items: ["Node.js", "Express"]},
