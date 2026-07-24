@@ -6,14 +6,8 @@ const ProjectProcess = ({label, steps}: { label: string; steps: string[] }) => (
         <div className="flex flex-wrap items-center gap-[7px] font-mono text-[11.5px]">
             {steps.map((step, i) => (
                 <Fragment key={i}>
-                    <span
-                        className={
-                            i === steps.length - 1
-                                ? "rounded-[5px] border border-primary/55 bg-primary/15 px-2 py-1 text-white"
-                                : "rounded-[5px] border border-border bg-[#171717] px-2 py-1 text-foreground/80"
-                        }
-                    >
-                        {step}
+                    <span className="rounded-[5px] border border-border bg-[#171717] px-2 py-1 text-foreground/80">
+                            {step}
                     </span>
                     {i < steps.length - 1 && <span className="text-white/40">→</span>}
                 </Fragment>

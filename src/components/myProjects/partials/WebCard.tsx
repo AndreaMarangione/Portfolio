@@ -1,5 +1,4 @@
 import GithubIcon from "@/components/ui/GithubIcon";
-import ProjectProcess from "@/components/myProjects/partials/ProjectProcess";
 import {WebProject} from "@/components/myProjects/type";
 
 const WebCard = ({p}: { p: WebProject }) => (
@@ -15,6 +14,8 @@ const WebCard = ({p}: { p: WebProject }) => (
 
         <p className="my-3 text-[13.5px] leading-relaxed text-foreground/75">{p.description}</p>
 
+        <div className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-white/40">{p.stackLabel}</div>
+
         <div className="mb-[18px] flex flex-wrap gap-[7px]">
             {p.stack.map((s) => (
                 <span key={s}
@@ -24,11 +25,9 @@ const WebCard = ({p}: { p: WebProject }) => (
             ))}
         </div>
 
-        <ProjectProcess label={p.stackLabel} steps={p.flow}/>
-
         <button
             type="button"
-            className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-lg border border-border bg-[#171717] p-2.5 text-[13.5px] font-medium text-foreground/90 transition-colors hover:border-[#4a4a4a] hover:bg-[#242424]"
+            className="mt-auto flex w-full items-center justify-center gap-2.5 rounded-lg border border-border bg-[#171717] p-2.5 text-[13.5px] font-medium text-foreground/90 transition-colors hover:border-[#4a4a4a] hover:bg-[#242424]"
         >
             <GithubIcon/>
             View on GitHub
