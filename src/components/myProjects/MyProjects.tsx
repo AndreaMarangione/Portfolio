@@ -7,7 +7,7 @@ const webProjects = projects.filter((p): p is WebProject => p.kind === "web");
 
 const MyProjects = () => {
     return (
-        <div className="flex animate-fade-up flex-col gap-8">
+        <div className="flex animate-fade-up flex-col gap-8 pt-4">
             <ProjectGroup projects={plantProjects}/>
             <ProjectGroup projects={webProjects}/>
         </div>
