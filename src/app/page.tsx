@@ -40,9 +40,15 @@ export default function Home() {
                 </div>
             </section>
 
-            <section id="contact" className="min-h-[calc(100vh_-_4rem)] mt-10 pt-3 scroll-mt-16">
+            <section id="contact"
+                     className="min-h-[calc(100vh_-_4rem)] mt-10 pt-3 scroll-mt-16 min-[820px]:flex min-[820px]:flex-col"
+            >
                 <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
                     <SectionDivider dir="contact"/>
+                </div>
+                <div
+                    className="mx-auto w-full max-w-[1600px] px-6 lg:px-12 min-[820px]:flex min-[820px]:min-h-0
+                    min-[820px]:flex-1 min-[820px]:flex-col min-[820px]:justify-center">
                     <Contact/>
                 </div>
             </section>

@@ -3,4 +3,5 @@ export type AboutMeLineType =
     | { kind: "bold"; text: string }
     | { kind: "quote"; text: string }
     | { kind: "text"; text: string }
-    | { kind: "blank" };
+    | { kind: "blank" }
+    | { kind: "link"; text: string; href: string }

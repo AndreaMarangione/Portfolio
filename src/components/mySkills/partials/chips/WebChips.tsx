@@ -1,6 +1,6 @@
 import {webSkills} from "@/components/mySkills/constant";
 import SkillChip from "@/components/mySkills/partials/chips/SkillChip";
-import WebIcon from "@/components/ui/WebIcon";
+import WebIcon from "@/components/ui/icons/WebIcon";
 
 const WebChips = () => {
     return (

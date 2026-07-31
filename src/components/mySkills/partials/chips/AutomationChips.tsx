@@ -1,6 +1,6 @@
 import {automationSkills} from "@/components/mySkills/constant";
 import SkillChip from "@/components/mySkills/partials/chips/SkillChip";
-import AutomationIcon from "@/components/ui/AutomationIcon";
+import AutomationIcon from "@/components/ui/icons/AutomationIcon";
 
 const AutomationChips = () => {
     return (

@@ -1,13 +1,13 @@
 "use client";
 
 import World from "@/components/world/World";
-import AboutMe from "@/components/aboutMe/AboutMe";
+import TextEditorAboutMe from "@/components/textEditorAboutMe/TextEditorAboutMe";
 
 const About = () => {
     return (
         <>
             <World/>
-            <AboutMe/>
+            <TextEditorAboutMe/>
         </>
     )
 };

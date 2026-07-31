@@ -1,7 +1,8 @@
-import {AboutMeLineType} from "@/components/aboutMe/type";
+import {AboutMeLineType} from "@/components/textEditorAboutMe/type";
 import type {ReactNode} from "react";
+import {Caret} from "@/components/ui/Caret";
 
-const AboutMeRenderLine = (line: AboutMeLineType, isLast: boolean): ReactNode => {
+const TextEditorRenderLine = (line: AboutMeLineType, isLast: boolean): ReactNode => {
     switch (line.kind) {
         case "heading":
             return (
@@ -23,17 +24,33 @@ const AboutMeRenderLine = (line: AboutMeLineType, isLast: boolean): ReactNode =>
                 <span className="block border-l-2 border-primary/55 pl-3 italic text-muted-foreground">
                     <span className="not-italic text-white/35">&gt; </span>
                     {line.text}
-                    {isLast && (
-                        <span
-                            className="ml-0.5 inline-block h-[1.05em] w-px align-[-2px] bg-primary animate-[blink_1.1s_step-end_infinite]"/>
-                    )}
+                    {isLast && <Caret/>}
+                </span>
+            );
+        case "link":
+            return (
+                <span className="text-foreground/80">
+                    <a
+                        href={line.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-primary underline decoration-primary/40 underline-offset-2 transition-colors hover:decoration-primary"
+                    >
+                        {line.text}
+                    </a>
+                    {isLast && <Caret/>}
                 </span>
             );
         case "text":
-            return <span className="text-foreground/80">{line.text}</span>;
+            return (
+                <span className="text-foreground/80">
+                    {line.text}
+                    {isLast && <Caret/>}
+                </span>
+            );
         case "blank":
             return <span>{"\u00A0"}</span>;
     }
 };
 
-export default AboutMeRenderLine;
+export default TextEditorRenderLine;

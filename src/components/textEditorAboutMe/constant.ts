@@ -1,4 +1,4 @@
-import {AboutMeLineType} from "@/components/aboutMe/type";
+import {AboutMeLineType} from "@/components/textEditorAboutMe/type";
 
 export const aboutMeLines: AboutMeLineType[] = [
     {kind: "heading", text: "Andrea Marangione"},

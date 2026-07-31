@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 
-const AboutMeWindowControl = (
+const TextEditorWindowControl = (
     {children, label, close = false}: { children: ReactNode; label: string; close?: boolean }
 ) => (
     <button
@@ -14,4 +14,4 @@ const AboutMeWindowControl = (
     </button>
 );
 
-export default AboutMeWindowControl;
+export default TextEditorWindowControl;

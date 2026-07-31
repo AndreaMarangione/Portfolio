@@ -1,4 +1,4 @@
-import GithubIcon from "@/components/ui/GithubIcon";
+import GithubIcon from "@/components/ui/icons/GithubIcon";
 import ProjectProcess from "@/components/myProjects/partials/ProjectProcess";
 import {WebProject} from "@/components/myProjects/type";
 

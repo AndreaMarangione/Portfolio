@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 
-const AboutMeWindowButton = (
+const TextEditorWindowButton = (
     {children, className = "", label}: { children: ReactNode; className?: string; label?: string }
 ) => (
     <button
@@ -12,4 +12,4 @@ const AboutMeWindowButton = (
     </button>
 );
 
-export default AboutMeWindowButton;
+export default TextEditorWindowButton;
