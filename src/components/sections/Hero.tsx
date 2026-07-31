@@ -2,8 +2,11 @@
 
 import usePageLoad from "@/hooks/usePageLoad";
 
+const CAREER_START_YEAR = 2016
+
 const Hero = () => {
     const {isLoaded} = usePageLoad()
+    const experienceYears: number = new Date().getFullYear() - CAREER_START_YEAR;
 
     return (
         <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12">
@@ -42,7 +45,7 @@ const Hero = () => {
                     >
                         <div className="py-5 text-center">
                             <p className="text-primary font-semibold text-xl">
-                                10+
+                                {experienceYears}
                             </p>
                             <p className="text-xs sm:text-sm text-muted-foreground">
                                 Experience
