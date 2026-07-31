@@ -1,6 +1,6 @@
 import {CubicBezierCurve3, Mesh, TubeGeometry, Vector3,} from "three";
-import {staticArcs} from "@/components/world/partials/globeMap/constant";
-import {FindArcCurvesProps} from "@/components/world/partials/globeMap/type";
+import {staticArcs} from "@/components/about/world/partials/globeMap/constant";
+import {FindArcCurvesProps} from "@/components/about/world/partials/globeMap/type";
 
 const globeFindArcCurves =
     ({

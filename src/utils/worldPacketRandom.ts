@@ -1,4 +1,4 @@
-import {routes} from "@/components/world/partials/worldMap/constant";
+import {routes} from "@/components/about/world/partials/worldMap/constant";
 
 const worldPacketRandom = routes.map(() => ({
     duration: 3 + Math.random() * 7,

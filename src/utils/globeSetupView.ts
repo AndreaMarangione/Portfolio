@@ -1,5 +1,5 @@
-import {GlobeSetupViewProps} from "@/components/world/partials/globeMap/type";
-import {VIEW_TRANSITION_MS} from "@/components/world/partials/globeMap/constant";
+import {GlobeSetupViewProps} from "@/components/about/world/partials/globeMap/type";
+import {VIEW_TRANSITION_MS} from "@/components/about/world/partials/globeMap/constant";
 
 const globeSetupView =
     ({

@@ -1,5 +1,5 @@
-import {GlobeSetupRotationAnimationProps} from "@/components/world/partials/globeMap/type";
-import {AUTOROTATE_SPEED} from "@/components/world/partials/globeMap/constant";
+import {GlobeSetupRotationAnimationProps} from "@/components/about/world/partials/globeMap/type";
+import {AUTOROTATE_SPEED} from "@/components/about/world/partials/globeMap/constant";
 
 const globeSetupRotationAnimation =
     ({

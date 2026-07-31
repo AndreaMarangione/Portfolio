@@ -1,6 +1,6 @@
 import {CubicBezierCurve3, Mesh, MeshBasicMaterial, Object3D, SphereGeometry,} from "three";
-import {staticArcs} from "@/components/world/partials/globeMap/constant";
-import type {PacketAnimation} from "@/components/world/partials/globeMap/type";
+import {staticArcs} from "@/components/about/world/partials/globeMap/constant";
+import type {PacketAnimation} from "@/components/about/world/partials/globeMap/type";
 import {RefObject} from "react";
 
 type SetupPacketAnimationsProps = {
