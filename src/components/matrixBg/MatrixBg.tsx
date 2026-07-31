@@ -111,7 +111,12 @@ const BitBackground = () => {
                     width: GLOW_SIZE,
                     height: GLOW_SIZE,
                     background:
-                        "radial-gradient(circle closest-side, rgba(233,84,32,0.9) 0%, rgba(233,84,32,0.75) 45%, rgba(233,84,32,0) 100%)",
+                        "radial-gradient(circle closest-side, " +
+                        "rgba(233,84,32,0.9) 0%, " +
+                        "rgba(233,84,32,0.62) 25%, " +
+                        "rgba(233,84,32,0.3) 55%, " +
+                        "rgba(233,84,32,0.09) 78%, " +
+                        "rgba(233,84,32,0) 100%)",
                 }}
             />
             <canvas ref={canvasRef} className="absolute inset-0"/>
