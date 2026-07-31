@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import {navItems} from "@/components/layout/constant";
-import {MobileMenuProps} from "@/components/layout/type";
+import {navItems} from "@/components/layout/navbar/constant";
+import {MobileMenuProps} from "@/components/layout/navbar/type";
 
 const MobileMenu = ({open, activeId, onNavClick, onClose}: MobileMenuProps) => {
     if (!open) return null;

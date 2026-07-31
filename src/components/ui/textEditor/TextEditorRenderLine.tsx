@@ -1,8 +1,8 @@
-import {AboutMeLineType} from "@/components/textEditorAboutMe/type";
 import type {ReactNode} from "react";
 import {Caret} from "@/components/ui/Caret";
+import {TextEditorLineType} from "@/components/ui/textEditor/type";
 
-const TextEditorRenderLine = (line: AboutMeLineType, isLast: boolean): ReactNode => {
+const TextEditorRenderLine = (line: TextEditorLineType, isLast: boolean): ReactNode => {
     switch (line.kind) {
         case "heading":
             return (

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import {NavLinkProps} from "@/components/layout/type";
+import {NavLinkProps} from "@/components/layout/navbar/type";
 
 const NavLink = ({item, activeId, onNavClick, className = ""}: NavLinkProps) => {
     const isActive: boolean = activeId === item.href.replace("#", "");

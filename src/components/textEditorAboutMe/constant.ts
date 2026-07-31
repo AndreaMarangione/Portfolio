@@ -1,6 +1,6 @@
-import {AboutMeLineType} from "@/components/textEditorAboutMe/type";
+import {TextEditorLineType} from "@/components/ui/textEditor/type";
 
-export const aboutMeLines: AboutMeLineType[] = [
+export const aboutMeLines: TextEditorLineType[] = [
     {kind: "heading", text: "Andrea Marangione"},
     {kind: "blank"},
     {

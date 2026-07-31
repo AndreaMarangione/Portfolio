@@ -1,7 +1,7 @@
 "use client";
 
-import World from "@/components/world/World";
-import TextEditorAboutMe from "@/components/textEditorAboutMe/TextEditorAboutMe";
+import World from "@/components/world";
+import TextEditorAboutMe from "@/components/textEditorAboutMe";
 
 const About = () => {
     return (

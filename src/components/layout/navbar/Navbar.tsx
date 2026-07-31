@@ -1,11 +1,11 @@
 "use client";
 
 import {useState} from "react";
-import {NAVBAR_HEIGHT, navItems} from "@/components/layout/constant";
-import LanguageSwitch from "@/components/layout/partials/LanguageSwitch";
-import NavLink from "@/components/layout/partials/NavLink";
-import MenuToggle from "@/components/layout/partials/MenuToggle";
-import MobileMenu from "@/components/layout/partials/MobileMenu";
+import {NAVBAR_HEIGHT, navItems} from "@/components/layout/navbar/constant";
+import LanguageSwitch from "@/components/layout/navbar/partials/LanguageSwitch";
+import NavLink from "@/components/layout/navbar/partials/NavLink";
+import MenuToggle from "@/components/layout/navbar/partials/MenuToggle";
+import MobileMenu from "@/components/layout/navbar/partials/MobileMenu";
 import useActiveSection from "@/hooks/useActiveSections";
 
 const Navbar = () => {
@@ -23,8 +23,11 @@ const Navbar = () => {
 
         if (!element) return;
 
-        const top =
-            element.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+        const isFirstSection: boolean = href === navItems[0].href;
+
+        const top: number = isFirstSection
+            ? 0
+            : element.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
 
         window.scrollTo({top, behavior: "smooth"});
         window.history.pushState(null, "", href);

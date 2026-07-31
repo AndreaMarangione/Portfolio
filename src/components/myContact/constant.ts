@@ -1,4 +1,4 @@
-import {AboutMeLineType} from "@/components/textEditorAboutMe/type";
+import {TextEditorLineType} from "@/components/ui/textEditor/type";
 
 export const EMAIL = "marangione.dev@gmail.com";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/andrea-marangione-b4bbb916b/";
@@ -7,7 +7,7 @@ export const GITHUB_URL = "https://github.com/AndreaMarangione?tab=overview&from
 export const GITHUB_LABEL = "/andrea-marangione";
 export const LOCATION = "Italy";
 
-export const contactLines: AboutMeLineType[] = [
+export const contactLines: TextEditorLineType[] = [
     {kind: "heading", text: "Let’s talk"},
     {kind: "blank"},
     {kind: "quote", text: "Automate anything, find the right solution."},

@@ -3,7 +3,7 @@ import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
-import SectionDivider from "@/components/sectionDivider/SectionDivider";
+import SectionDivider from "@/components/layout/sectionDivider/SectionDivider";
 
 export default function Home() {
     return (

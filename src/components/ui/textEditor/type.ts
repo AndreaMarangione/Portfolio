@@ -1,4 +1,4 @@
-export type AboutMeLineType =
+export type TextEditorLineType =
     | { kind: "heading"; text: string }
     | { kind: "bold"; text: string }
     | { kind: "quote"; text: string }

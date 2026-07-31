@@ -1,7 +1,7 @@
 "use client";
 
 import {useState} from "react";
-import {Lang} from "@/components/layout/type";
+import {Lang} from "@/components/layout/navbar/type";
 
 const LanguageSwitch = () => {
     const [lang, setLang] = useState<Lang>("en");

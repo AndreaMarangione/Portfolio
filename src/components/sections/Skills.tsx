@@ -1,4 +1,4 @@
-import MySkills from "@/components/mySkills/MySkills";
+import MySkills from "@/components/mySkills";
 
 const Skills = () => {
     return (

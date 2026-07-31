@@ -1,4 +1,4 @@
-import {SectionDividerProps} from "@/components/sectionDivider/type";
+import {SectionDividerProps} from "@/components/layout/sectionDivider/type";
 
 const SectionDivider = ({dir}: SectionDividerProps) => {
     return (

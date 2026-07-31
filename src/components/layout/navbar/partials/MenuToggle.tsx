@@ -1,6 +1,6 @@
 "use client";
 
-import {MenuToggleProps} from "@/components/layout/type";
+import {MenuToggleProps} from "@/components/layout/navbar/type";
 
 const MenuToggle = ({open, onClick}: MenuToggleProps) => {
     return (
