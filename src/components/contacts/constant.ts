@@ -22,5 +22,5 @@ export const contactLines: TextEditorLineType[] = [
     {kind: "blank"},
     {kind: "link", text: "elettromar.com", href: "https://www.elettromar.com"},
     {kind: "blank"},
-    {kind: "text", text: "Pick a channel and say hi. I read everything."},
+    {kind: "text", text: "Don’t hesitate to get in touch - let’s do a feasibility study together."},
 ];

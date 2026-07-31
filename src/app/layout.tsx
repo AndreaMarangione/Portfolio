@@ -1,6 +1,12 @@
 import "./globals.css";
 import Navbar from "@/components/layout/navbar/Navbar";
 import {poppins} from "@/app/constant";
+import type {Metadata} from "next";
+
+export const metadata: Metadata = {
+    title: "Andrea Marangione",
+    description: "Andrea Marangione portfolio",
+};
 
 export default function RootLayout(
     {

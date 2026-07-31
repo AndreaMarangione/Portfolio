@@ -10,7 +10,6 @@ import useActiveSection from "@/hooks/useActiveSections";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-
     const ids: Array<string> = navItems.map((item) => item.href.replace("#", ""));
     const activeId: string = useActiveSection(ids, NAVBAR_HEIGHT + 1);
 
