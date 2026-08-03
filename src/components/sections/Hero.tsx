@@ -1,11 +1,14 @@
 "use client"
 
 import usePageLoad from "@/hooks/usePageLoad";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const CAREER_START_YEAR = 2016
 
 const Hero = () => {
     const {isLoaded} = usePageLoad()
+    const {dict} = useDictionary()
+
     const experienceYears: number = new Date().getFullYear() - CAREER_START_YEAR;
 
     return (
@@ -16,28 +19,25 @@ const Hero = () => {
                         <p className={`text-sm text-muted-foreground whitespace-nowrap w-fit overflow-hidden 
                     ${isLoaded ? "animate-typing" : ""}`}
                         >
-                            Andrea Marangione
+                            {dict.hero.name}
                         </p>
                     </div>
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-[1.18] max-w-[650px]">
                     <span className="block overflow-hidden">
                         <span className={`block ${isLoaded ? "animate-fade-up" : ""}`}>
-                            Automate anything
+                            {dict.hero.titleLine1}
                         </span>
                     </span>
                         <span className="block overflow-hidden">
                         <span className={`block ${isLoaded ? "animate-fade-up animate-fade-up-delay-motto" : ""}`}>
-                            find the right solution
+                            {dict.hero.titleLine2}
                         </span>
                     </span>
                     </h1>
                     <p className={`text-muted-foreground max-w-md leading-relaxed 
                 ${isLoaded ? "animate-fade-up animate-fade-up-delay-description" : ""}`}
                     >
-                        I design and develop industrial automation software,
-                        from initial concept to full system commissioning.
-                        I build reliable solutions for both small and large-scale plants,
-                        focused on performance, efficiency, and real-world impact.
+                        {dict.hero.description}
                     </p>
                     <div
                         className={`mt-6 grid grid-cols-3 w-full max-w-md rounded-xl bg-muted border border-border overflow-hidden 
@@ -48,15 +48,7 @@ const Hero = () => {
                                 {experienceYears}
                             </p>
                             <p className="text-xs sm:text-sm text-muted-foreground">
-                                Experience
-                            </p>
-                        </div>
-                        <div className="py-5 text-center border-l border-border">
-                            <p className="text-primary font-semibold text-xl">
-                                40+
-                            </p>
-                            <p className="text-xs sm:text-sm text-muted-foreground">
-                                Projects
+                                {dict.hero.statExperience}
                             </p>
                         </div>
                         <div className="py-5 text-center border-l border-border">
@@ -64,7 +56,15 @@ const Hero = () => {
                                 20+
                             </p>
                             <p className="text-xs sm:text-sm text-muted-foreground">
-                                Customers
+                                {dict.hero.statProjects}
+                            </p>
+                        </div>
+                        <div className="py-5 text-center border-l border-border">
+                            <p className="text-primary font-semibold text-xl">
+                                80+
+                            </p>
+                            <p className="text-xs sm:text-sm text-muted-foreground">
+                                {dict.hero.statCustomers}
                             </p>
                         </div>
                     </div>
