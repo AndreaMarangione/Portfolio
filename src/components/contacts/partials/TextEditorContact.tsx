@@ -1,9 +1,14 @@
+"use client";
+
 import TextEditorWindowButton from "@/components/ui/textEditor/TextEditorWindowButton";
 import TextEditorWindowControl from "@/components/ui/textEditor/TextEditorWindowControl";
 import TextEditorRenderLine from "@/components/ui/textEditor/TextEditorRenderLine";
-import {contactLines} from "@/components/contacts/constant";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const TextEditorContact = () => {
+    const {dict} = useDictionary();
+    const lines = dict.contact.lines;
+
     return (
         <div
             className="flex flex-col overflow-hidden rounded-xl border border-border bg-background shadow-2xl min-[820px]:flex-[1.35]">
@@ -60,13 +65,13 @@ const TextEditorContact = () => {
             </div>
 
             <div className="flex-1 bg-background py-3.5 font-mono text-sm leading-[1.7]">
-                {contactLines.map((line, index) => (
+                {lines.map((line, index) => (
                     <div key={index} className="flex">
                         <span className="w-[34px] flex-none select-none pr-4 text-right text-white/30">
                             {index + 1}
                         </span>
                         <span className="min-w-0 flex-1 break-words pr-6">
-                            {TextEditorRenderLine(line, index === contactLines.length - 1)}
+                            {TextEditorRenderLine(line, index === lines.length - 1)}
                         </span>
                     </div>
                 ))}
@@ -83,4 +88,4 @@ const TextEditorContact = () => {
     )
 }
 
-export default TextEditorContact
+export default TextEditorContact;

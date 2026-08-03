@@ -1,17 +1,23 @@
+"use client";
+
 import {EMAIL, GITHUB_LABEL, GITHUB_URL, LINKEDIN_LABEL, LINKEDIN_URL, LOCATION} from "@/components/contacts/constant";
 import MailIcon from "@/components/ui/icons/MailIcon";
 import LinkedInIcon from "@/components/ui/icons/LinkedInIcon";
 import GithubIcon from "@/components/ui/icons/GithubIcon";
 import PinIcon from "@/components/ui/icons/PinIcon";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const ReachMe = () => {
+    const {dict} = useDictionary();
+
     return (
         <div
             className="flex flex-col rounded-xl border border-border bg-[#222222] p-[22px] shadow-[0_24px_54px_-30px_rgba(0,0,0,0.8)] min-[820px]:flex-1">
-            <div className="mb-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40">Reach me</div>
+            <div
+                className="mb-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40">{dict.contact.reachMe.title}</div>
             <div className="mb-5 flex items-center gap-2.5 text-[13.5px] text-foreground/85">
                 <span className="h-[9px] w-[9px] rounded-full bg-[#2fbf5f] shadow-[0_0_6px_rgba(47,191,95,0.6)]"/>
-                Available for new projects
+                {dict.contact.reachMe.available}
             </div>
 
             <div className="flex flex-col gap-2">
@@ -23,7 +29,7 @@ const ReachMe = () => {
                         </span>
                     <span className="min-w-0">
                             <span
-                                className="block font-mono text-[10px] uppercase tracking-[0.1em] text-white/40">Email</span>
+                                className="block font-mono text-[10px] uppercase tracking-[0.1em] text-white/40">{dict.contact.reachMe.email}</span>
                             <span className="block truncate text-[13.5px] text-white">{EMAIL}</span>
                         </span>
                 </a>
@@ -61,7 +67,7 @@ const ReachMe = () => {
                         </span>
                     <span className="min-w-0">
                             <span
-                                className="block font-mono text-[10px] uppercase tracking-[0.1em] text-white/40">Location</span>
+                                className="block font-mono text-[10px] uppercase tracking-[0.1em] text-white/40">{dict.contact.reachMe.location}</span>
                             <span className="block truncate text-[13.5px] text-white">{LOCATION}</span>
                         </span>
                 </div>

@@ -1,9 +1,14 @@
+"use client";
+
 import TextEditorWindowButton from "@/components/ui/textEditor/TextEditorWindowButton";
 import TextEditorWindowControl from "@/components/ui/textEditor/TextEditorWindowControl";
 import TextEditorRenderLine from "@/components/ui/textEditor/TextEditorRenderLine";
-import {aboutMeLines} from "@/components/about/textEditorAboutMe/constant";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const TextEditorAboutMe = () => {
+    const {dict} = useDictionary();
+    const lines = dict.about.lines;
+
     return (
         <div className="mx-auto mt-10 w-full max-w-3xl lg:max-w-none animate-fade-up md:mt-5">
             <div className="overflow-hidden rounded-xl border border-border bg-background shadow-2xl">
@@ -60,7 +65,7 @@ const TextEditorAboutMe = () => {
                 </div>
 
                 <div className="bg-background py-3.5 font-mono text-sm leading-[1.7]">
-                    {aboutMeLines.map((line, index) => (
+                    {lines.map((line, index) => (
                         <div key={index} className="flex">
                             <span
                                 className="w-[34px] flex-none select-none pr-4 text-right text-white/30"
@@ -68,7 +73,7 @@ const TextEditorAboutMe = () => {
                                 {index + 1}
                             </span>
                             <span className="min-w-0 flex-1 break-words pr-6">
-                                {TextEditorRenderLine(line, index === aboutMeLines.length - 1)}
+                                {TextEditorRenderLine(line, index === lines.length - 1)}
                             </span>
                         </div>
                     ))}
