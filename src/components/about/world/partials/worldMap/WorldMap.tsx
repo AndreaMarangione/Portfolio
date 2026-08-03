@@ -1,13 +1,18 @@
+"use client";
+
 import {routes} from "@/components/about/world/partials/worldMap/constant";
 import worldPacketRandom from "@/utils/worldPacketRandom";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const WorldMap = () => {
+    const {dict} = useDictionary();
+
     return (
         <div className="w-full max-w-5xl mx-auto">
             <svg
                 className="w-full h-auto"
                 role="img"
-                aria-label="Map of the places where i have worked"
+                aria-label={dict.about.mapLabel}
                 preserveAspectRatio="xMidYMid meet"
                 baseProfile="tiny"
                 fill="#3A3A3A"
