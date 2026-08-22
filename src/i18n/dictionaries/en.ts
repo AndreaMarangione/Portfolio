@@ -1,4 +1,5 @@
 import type {TextEditorLineType} from "@/components/ui/textEditor/type";
+import {SkillModule} from "@/components/skills/type";
 
 const en = {
     meta: {
@@ -14,6 +15,13 @@ const en = {
         projects: "Projects",
         contact: "Contact",
     },
+
+    dividers: {
+        about: "about",
+        skills: "skills",
+        projects: "projects",
+        contact: "contact",
+    } as Record<string, string>,
 
     hero: {
         name: "Andrea Marangione",
@@ -51,6 +59,51 @@ const en = {
                 text: "Automation built to be reliable, efficient, and ready for the real world.",
             },
         ] as TextEditorLineType[],
+    },
+
+    skills: {
+        modules: [
+            {
+                title: "PLC Programming",
+                rows: [
+                    {name: "Structured Text"},
+                    {name: "STL — Siemens"},
+                    {name: "Ladder"},
+                    {name: "FBD - Function block diagram"},
+                ],
+            },
+            {
+                title: "Networks & Drives",
+                rows: [
+                    {name: "Profinet, Profisafe, EGD, Modbus"},
+                    {name: "Drive config — async / brushless"},
+                    {name: "Axis control — encoders"},
+                ],
+            },
+            {
+                title: "Engineering & Delivery",
+                rows: [
+                    {name: "Software & hardware design"},
+                    {name: "Production & process data"},
+                    {name: "Commissioning"},
+                    {name: "Project management"},
+                ],
+            },
+        ] as SkillModule[],
+
+        terminalData: [
+            {key: "developer", value: "Andrea Marangione"},
+            {key: "role", value: "software developer"},
+        ] as { key: string; value: string }[],
+
+        terminalSkills: [
+            {key: "languages", items: ["TypeScript", "Visual Basic", "C++", "C#", "Python"]},
+            {key: "frontend", items: ["React", "Tailwind", "Bootstrap", "Redux", "Axios"]},
+            {key: "backend", items: ["Node.js", "Express", ".NET"]},
+            {key: "database", items: ["PostgreSQL", "MongoDB"]},
+            {key: "cloud", items: ["AWS", "Cloudinary"]},
+            {key: "architecture", items: ["Database design", "Server design", "Client design"]},
+        ] as { key: string; items: string[] }[],
     },
 
     projects: {

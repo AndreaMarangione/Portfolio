@@ -16,10 +16,17 @@ const it: Dictionary = {
         contact: "Contatti",
     },
 
+    dividers: {
+        about: "chi-sono",
+        skills: "competenze",
+        projects: "progetti",
+        contact: "contatti",
+    },
+
     hero: {
         name: "Andrea Marangione",
-        titleLine1: "Automatizza qualsiasi cosa",
-        titleLine2: "trova la soluzione giusta",
+        titleLine1: "Tutto è automatizzabile",
+        titleLine2: "basta la soluzione giusta",
         description:
             "Progetto e sviluppo software per l'automazione industriale, dall'idea iniziale fino al commissioning completo dell'impianto. Realizzo soluzioni affidabili per impianti di ogni dimensione, con attenzione a prestazioni, efficienza e risultati concreti.",
         statExperience: "Esperienza",
@@ -34,7 +41,7 @@ const it: Dictionary = {
             {kind: "blank"},
             {
                 kind: "text",
-                text: "Sono un programmatore di automazione industriale. Ho iniziato a 19 anni in Irico Gualchierani Handling S.r.l., progettando e avviando linee di automazione in siti come Tongxiang, Rudong, Balikesir, Zaragoza ecc...",
+                text: "Sono un programmatore di automazione industriale e perito in Elettrotecnica. Ho iniziato a 19 anni in Irico Gualchierani Handling S.r.l., progettando e avviando impianti di automazione in siti come Tongxiang, Rudong, Balikesir, Zaragoza ecc...",
             },
             {kind: "blank"},
             {
@@ -54,6 +61,51 @@ const it: Dictionary = {
         ] as TextEditorLineType[],
     },
 
+    skills: {
+        modules: [
+            {
+                title: "Programmazione PLC",
+                rows: [
+                    {name: "Structured Text"},
+                    {name: "STL — Siemens"},
+                    {name: "Ladder"},
+                    {name: "FBD - Function block diagram"},
+                ],
+            },
+            {
+                title: "Reti e azionamenti",
+                rows: [
+                    {name: "Profinet, Profisafe, EGD, Modbus"},
+                    {name: "Configurazione drive — asincroni / brushless"},
+                    {name: "Controllo assi — encoder"},
+                ],
+            },
+            {
+                title: "Progettazione e realizzazione",
+                rows: [
+                    {name: "Progettazione software e hardware"},
+                    {name: "Dati di produzione e processo"},
+                    {name: "Messa in servizio"},
+                    {name: "Gestione progetti"},
+                ],
+            },
+        ],
+
+        terminalData: [
+            {key: "sviluppatore", value: "Andrea Marangione"},
+            {key: "ruolo", value: "sviluppatore software"},
+        ],
+
+        terminalSkills: [
+            {key: "linguaggi", items: ["TypeScript", "Visual Basic", "C++", "C#", "Python"]},
+            {key: "frontend", items: ["React", "Tailwind", "Bootstrap", "Redux", "Axios"]},
+            {key: "backend", items: ["Node.js", "Express", ".NET"]},
+            {key: "database", items: ["PostgreSQL", "MongoDB"]},
+            {key: "cloud", items: ["AWS", "Cloudinary"]},
+            {key: "architetture", items: ["Progettazione database", "Progettazione server", "Progettazione client"]},
+        ],
+    },
+
     projects: {
         viewOnGithub: "Vedi su GitHub",
         showMore: "+ altri {count} progetti",
@@ -64,7 +116,7 @@ const it: Dictionary = {
             "Stack": "Stack",
         },
         descriptions: {
-            "Baker Hughes": "Commissioning e controllo turbine",
+            "Baker Hughes": "Messa in servizio e controllo turbine",
             "Emplhub CRM": "Applicativo gestionale per dipendenti e attività verso i clienti.",
             "TeamsChatExporter":
                 "Esporta le chat di Teams selezionate in file HTML puliti e autonomi, pronti da archiviare e condividere.",

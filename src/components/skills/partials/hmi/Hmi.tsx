@@ -1,10 +1,12 @@
 import HmiScrew from "@/components/skills/partials/hmi/HmiScrew";
 import HmiLed from "@/components/skills/partials/hmi/HmiLed";
-import {automationModules, hmiFunctionKeys} from "@/components/skills/constant";
+import {hmiFunctionKeys} from "@/components/skills/constant";
 import {useEffect, useState} from "react";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const Hmi = () => {
     const [clock, setClock] = useState({time: "", date: ""});
+    const {dict} = useDictionary();
 
     useEffect(() => {
         const pad = (n: number) => String(n).padStart(2, "0");
@@ -91,7 +93,7 @@ const Hmi = () => {
                         Modules — 3 groups
                     </p>
                     <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
-                        {automationModules.map((mod) => (
+                        {dict.skills.modules.map((mod) => (
                             <div key={mod.title}
                                  className="rounded-[9px] border border-border bg-card p-[13px]">
                                 <div
