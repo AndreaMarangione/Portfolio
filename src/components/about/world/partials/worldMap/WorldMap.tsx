@@ -1,18 +1,17 @@
-"use client";
-
-import {routes} from "@/components/about/world/partials/worldMap/constant";
-import worldPacketRandom from "@/utils/worldPacketRandom";
-import {useDictionary} from "@/i18n/DictionaryProvider";
+import {
+    cities,
+    PULSE_DURATION_S, PULSE_MAX_RADIUS,
+    PULSE_MIN_RADIUS,
+    PULSE_STAGGER_S
+} from "@/components/about/world/partials/worldMap/constant";
 
 const WorldMap = () => {
-    const {dict} = useDictionary();
-
     return (
         <div className="w-full max-w-5xl mx-auto">
             <svg
                 className="w-full h-auto"
                 role="img"
-                aria-label={dict.about.mapLabel}
+                aria-label="Map of the places where i have worked"
                 preserveAspectRatio="xMidYMid meet"
                 baseProfile="tiny"
                 fill="#3A3A3A"
@@ -1540,189 +1539,38 @@ const WorldMap = () => {
                       d="M 1994.4 606 1994 606.4 1993.2 607.5 1992.9 607.6 1992.2 608 1992 608.6 1991.6 608.8 1991.4 609.1 1991.3 609.3 1991.6 609.4 1992.2 609.1 1992.3 609 1992.6 608.7 1992.8 608.4 1993.4 608.1 1993.7 607.8 1994.3 607.5 1994.3 607.8 1993.8 608.5 1993.6 608.6 1993.7 609.2 1993.4 609.5 1993.1 609.2 1992.7 609.2 1992.2 609.3 1991.8 609.6 1991.1 609.7 1990.1 609.7 1990.6 609.2 1990.2 609 1989.6 609.2 1989.2 609.4 1989.2 609.6 1988.9 609.7 1988.7 609.8 1988.6 610.2 1988.4 610.5 1988.1 610.4 1988.1 610.2 1987.7 610.1 1987.3 610.3 1987.1 610.8 1986.8 611 1986.5 611 1986.5 610.7 1986.5 610.3 1986.3 609.9 1986.4 609.7 1986.3 609.6 1985.7 609.8 1985.7 609.4 1986.1 609.1 1986.2 609.1 1986.1 608.6 1986.4 608.5 1986.9 608.8 1987.5 608.4 1987.7 608.4 1988 608.1 1988.2 608.1 1988.5 607.8 1988.5 607.6 1989.3 607.5 1990.2 607.2 1990.5 607.1 1990.9 607.2 1991.4 607 1991.6 606.6 1991.8 606.6 1992 606.2 1992.4 606.3 1992.5 606.1 1992.7 606.2 1993.7 605.7 1993.8 606 1994 605.9 1994.2 606 1994.5 605.7 1995 605.5 1995.1 605.6 1994.6 606 1994.4 606 Z">
                 </path>
 
-                <g id="cities" fill="#E95420" fontFamily="sans-serif" fontSize="10">
-                    <circle cx="1640" cy="320" r="7">
-                        <animate
-                            attributeName="r"
-                            values="4;5.5;4"
-                            dur="4.0s"
-                            repeatCount="indefinite"
-                        />
-                        <animate
-                            attributeName="opacity"
-                            values="0.7;1;0.7"
-                            dur="4.0s"
-                            repeatCount="indefinite"
-                        />
-                    </circle>
-                    <text x="1655" y="340" fontSize="28">Tongxiang</text>
-                    <circle cx="1620" cy="290" r="7">
-                        <animate
-                            attributeName="r"
-                            values="4;5.5;4"
-                            dur="2.5s"
-                            repeatCount="indefinite"
-                        />
-                        <animate
-                            attributeName="opacity"
-                            values="0.7;1;0.7"
-                            dur="2.5s"
-                            repeatCount="indefinite"
-                        />
-                    </circle>
-                    <text x="1630" y="285" fontSize="28">Rudong</text>
-                    <circle cx="1610" cy="350" r="7">
-                        <animate
-                            attributeName="r"
-                            values="4;5.5;4"
-                            dur="3.6s"
-                            repeatCount="indefinite"
-                        />
-                        <animate
-                            attributeName="opacity"
-                            values="0.7;1;0.7"
-                            dur="3.6s"
-                            repeatCount="indefinite"
-                        />
-                    </circle>
-                    <text x="1610" y="385" fontSize="28">Fuzhou</text>
-                    <circle cx="1140" cy="260" r="7">
-                        <animate
-                            attributeName="r"
-                            values="4;5.5;4"
-                            dur="2.4s"
-                            repeatCount="indefinite"
-                        />
-                        <animate
-                            attributeName="opacity"
-                            values="0.7;1;0.7"
-                            dur="2.4s"
-                            repeatCount="indefinite"
-                        />
-                    </circle>
-                    <text x="1150" y="285" fontSize="28">Balikesir</text>
-                    <circle cx="1155" cy="235" r="7">
-                        <animate
-                            attributeName="r"
-                            values="4;5.5;4"
-                            dur="3.1s"
-                            repeatCount="indefinite"
-                        />
-                        <animate
-                            attributeName="opacity"
-                            values="0.7;1;0.7"
-                            dur="3.1s"
-                            repeatCount="indefinite"
-                        />
-                    </circle>
-                    <text x="1160" y="225" fontSize="28">Izmit</text>
-                    <circle cx="970" cy="235" r="7">
-                        <animate
-                            attributeName="r"
-                            values="4;5.5;4"
-                            dur="4.2s"
-                            repeatCount="indefinite"
-                        />
-                        <animate
-                            attributeName="opacity"
-                            values="0.7;1;0.7"
-                            dur="4.2s"
-                            repeatCount="indefinite"
-                        />
-                    </circle>
-                    <text x="860" y="265" fontSize="28">Zaragoza</text>
-                    <circle cx="1050" cy="230" r="7">
-                        <animate
-                            attributeName="r"
-                            values="4;5.5;4"
-                            dur="2.7s"
-                            repeatCount="indefinite"
-                        />
-                        <animate
-                            attributeName="opacity"
-                            values="0.7;1;0.7"
-                            dur="2.7s"
-                            repeatCount="indefinite"
-                        />
-                    </circle>
-                    <text x="1020" y="215" fontSize="28">Florence</text>
-                    <circle cx="1040" cy="160" r="7">
-                        <animate
-                            attributeName="r"
-                            values="4;5.5;4"
-                            dur="3.8s"
-                            repeatCount="indefinite"
-                        />
-                        <animate
-                            attributeName="opacity"
-                            values="0.7;1;0.7"
-                            dur="3.8s"
-                            repeatCount="indefinite"
-                        />
-                    </circle>
-                    <text x="1040" y="145" fontSize="28">Neumünster</text>
-                    <circle cx="470" cy="300" r="7">
-                        <animate
-                            attributeName="r"
-                            values="4;5.5;4"
-                            dur="2.9s"
-                            repeatCount="indefinite"
-                        />
-                        <animate
-                            attributeName="opacity"
-                            values="0.7;1;0.7"
-                            dur="2.9s"
-                            repeatCount="indefinite"
-                        />
-                    </circle>
-                    <text x="375" y="330" fontSize="28">Houston</text>
-                    <circle cx="515" cy="290" r="7">
-                        <animate
-                            attributeName="r"
-                            values="4;5.5;4"
-                            dur="3.3s"
-                            repeatCount="indefinite"
-                        />
-                        <animate
-                            attributeName="opacity"
-                            values="0.7;1;0.7"
-                            dur="3.3s"
-                            repeatCount="indefinite"
-                        />
-                    </circle>
-                    <text x="510" y="275" fontSize="28">Andalusia</text>
-                </g>
-                {routes.map((route) => (
-                    <path
-                        key={route.id}
-                        d={route.path}
-                        fill="none"
-                        stroke="rgba(233,84,32,0.45)"
-                        strokeWidth={1.5}
-                        strokeLinecap="round"
-                    />
-                ))}
-                {routes.map((route, index) => {
-                    const config = worldPacketRandom[index];
+                <g id="cities" fill="#E95420" fontFamily="sans-serif">
+                    {cities.map((city, index) => (
+                        <g key={city.name}>
+                            <circle
+                                cx={city.x}
+                                cy={city.y}
+                                r={PULSE_MIN_RADIUS}
+                                fill="none"
+                                stroke="#E95420"
+                                strokeWidth={1.6}
+                            >
+                                <animate
+                                    attributeName="r"
+                                    values={`${PULSE_MIN_RADIUS};${PULSE_MAX_RADIUS}`}
+                                    dur={`${PULSE_DURATION_S}s`}
+                                    begin={`${index * PULSE_STAGGER_S}s`}
+                                    repeatCount="indefinite"
+                                />
+                                <animate
+                                    attributeName="opacity"
+                                    values="0.85;0"
+                                    dur={`${PULSE_DURATION_S}s`}
+                                    begin={`${index * PULSE_STAGGER_S}s`}
+                                    repeatCount="indefinite"
+                                />
+                            </circle>
 
-                    return (
-                        <circle
-                            key={`packet-${route.id}`}
-                            r={4.3}
-                            fill="#e95420"
-                        >
-                            <animateMotion
-                                dur={`${config.duration}s`}
-                                begin={`${config.delay}s`}
-                                repeatCount="indefinite"
-                                path={route.path}
-                                keyPoints={config.reverse ? "1;0" : "0;1"}
-                                keyTimes="0;1"
-                                calcMode="linear"
-                            />
-                        </circle>
-                    );
-                })}
+                            <circle cx={city.x} cy={city.y} r={5}/>
+                            <text x={city.labelX} y={city.labelY} fontSize={28}>{city.name}</text>
+                        </g>
+                    ))}
+                </g>
             </svg>
         </div>
     )
