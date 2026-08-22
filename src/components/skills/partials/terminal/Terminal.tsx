@@ -1,9 +1,13 @@
 import TerminalWinCtrl from "@/components/skills/partials/terminal/TerminalWinCtrl";
 import TerminalPrompt from "@/components/skills/partials/terminal/TerminalPrompt";
-import {terminalWebSkills, terminalWebData} from "@/components/skills/constant";
 import {Fragment} from "react";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const Terminal = () => {
+    const {dict} = useDictionary();
+    const terminalData = dict.skills.terminalData;
+    const terminalSkills = dict.skills.terminalSkills;
+
     return (
         <div
             className="flex w-full min-w-0 max-w-[880px] flex-col overflow-hidden rounded-xl border
@@ -42,7 +46,7 @@ const Terminal = () => {
                     <TerminalPrompt/><span className="text-foreground/95">cat package.json</span>
                 </div>
                 <div className="whitespace-pre-wrap break-words text-[#6f6f6f]">{"{"}</div>
-                {terminalWebData.map((m) => (
+                {terminalData.map((m) => (
                     <div key={m.key} className="whitespace-pre-wrap break-words">
                         {"  "}
                         <span className="text-primary">{`"${m.key}"`}</span>
@@ -51,7 +55,7 @@ const Terminal = () => {
                         <span className="text-[#6f6f6f]">,</span>
                     </div>
                 ))}
-                {terminalWebSkills.map((g, gi) => (
+                {terminalSkills.map((g, gi) => (
                     <div key={g.key} className="whitespace-pre-wrap break-words">
                         {"  "}
                         <span className="text-primary">{`"${g.key}"`}</span>
@@ -62,7 +66,7 @@ const Terminal = () => {
                                 {i < g.items.length - 1 && <span className="text-[#6f6f6f]">{", "}</span>}
                             </Fragment>
                         ))}
-                        <span className="text-[#6f6f6f]">{gi < terminalWebSkills.length - 1 ? "]," : "]"}</span>
+                        <span className="text-[#6f6f6f]">{gi < terminalSkills.length - 1 ? "]," : "]"}</span>
                     </div>
                 ))}
                 <div className="whitespace-pre-wrap break-words text-[#6f6f6f]">{"}"}</div>

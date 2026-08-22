@@ -7,11 +7,20 @@ import NavLink from "@/components/layout/navbar/partials/NavLink";
 import MenuToggle from "@/components/layout/navbar/partials/MenuToggle";
 import MobileMenu from "@/components/layout/navbar/partials/MobileMenu";
 import useActiveSection from "@/hooks/useActiveSections";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const {dict} = useDictionary();
+
     const ids: Array<string> = navItems.map((item) => item.href.replace("#", ""));
     const activeId: string = useActiveSection(ids, NAVBAR_HEIGHT + 1);
+
+    const labelFor = (href: string): string => {
+        const id = href.replace("#", "") as keyof typeof dict.nav;
+
+        return dict.nav[id];
+    };
 
     const handleNavClick = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
@@ -42,8 +51,8 @@ const Navbar = () => {
                     <nav className="hidden md:flex items-center gap-8">
                         {navItems.map((item) => (
                             <NavLink
-                                key={item.label}
-                                item={item}
+                                key={item.href}
+                                item={{...item, label: labelFor(item.href)}}
                                 activeId={activeId}
                                 onNavClick={handleNavClick}
                             />
