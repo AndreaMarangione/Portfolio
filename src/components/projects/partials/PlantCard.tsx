@@ -8,6 +8,12 @@ const PlantCard = ({p}: { p: PlantProject }) => {
     const {dict} = useDictionary();
     const description: string = dict.projects.descriptions[p.name] ?? p.description ?? "";
     const flowLabel: string = dict.projects.labels[p.flowLabel] ?? p.flowLabel;
+    const product: string = dict.projects.products[p.product] ?? p.product;
+    const flow: string[] = p.flow.map((step) => dict.projects.steps[step] ?? step);
+
+    const unit: string = p.capacity
+        ? dict.projects.units[p.capacity.unit] ?? p.capacity.unit
+        : "";
 
     return (
         <div
@@ -25,18 +31,18 @@ const PlantCard = ({p}: { p: PlantProject }) => {
             <div className="mb-3.5 mt-0.5 font-mono text-[12.5px] text-muted-foreground">
                 <span className="text-primary">◆</span> {p.site}
             </div>
-            <div className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-white/40">{p.product}</div>
+            <div className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-white/40">{product}</div>
 
             {p.capacity ? (
                 <div className="mb-5 flex items-baseline gap-2">
                     <span className="text-[34px] font-bold leading-none text-primary">{p.capacity.value}</span>
-                    <span className="font-mono text-xs text-muted-foreground">{p.capacity.unit}</span>
+                    <span className="font-mono text-xs text-muted-foreground">{unit}</span>
                 </div>
             ) : (
                 <div className="mb-5 text-[17px] font-semibold text-foreground">{description}</div>
             )}
 
-            <ProjectProcess label={flowLabel} steps={p.flow}/>
+            <ProjectProcess label={flowLabel} steps={flow}/>
         </div>
     );
 };

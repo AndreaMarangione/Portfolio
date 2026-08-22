@@ -110,11 +110,21 @@ const en = {
         viewOnGithub: "View on GitHub",
         showMore: "+ {count} more projects",
         showLess: "− show less",
+
         labels: {
             "Production process": "Production process",
             "Scope": "Scope",
             "Stack": "Stack",
         } as Record<string, string>,
+
+        products: {
+            "Gas turbine test bench · R&D": "Gas turbine test bench · R&D",
+            "POY & FDY coils": "POY & FDY coils",
+            "BCF coils": "BCF coils",
+            "Fiberglass coils": "Fiberglass coils",
+            "HTY coils": "HTY coils",
+        } as Record<string, string>,
+
         descriptions: {
             "Baker Hughes": "Commissioning & turbine control",
             "Emplhub CRM": "Business management app for employees and customer activities.",
@@ -123,6 +133,26 @@ const en = {
             "PLC ↔ Arduino display":
                 "Bridges a Siemens PLC to Arduino over Ethernet to drive several 7-segment displays.",
             "My portfolio": "The site you're looking at — an Ubuntu-themed portfolio.",
+        } as Record<string, string>,
+
+        steps: {
+            "Commissioning": "Commissioning",
+            "Turbine test": "Turbine test",
+            "Control & monitoring": "Control & monitoring",
+            "Winders": "Winders",
+            "Conveying": "Conveying",
+            "Quality control": "Quality control",
+            "Printing label": "Printing label",
+            "Weighing": "Weighing",
+            "Warehouse": "Warehouse",
+            "Palletizer": "Palletizer",
+            "AGV": "AGV",
+            "Pre-pallet process": "Pre-pallet process",
+            "Trolleys": "Trolleys",
+        } as Record<string, string>,
+
+        units: {
+            "coils / day": "coils / day",
         } as Record<string, string>,
     },
 
@@ -140,7 +170,7 @@ const en = {
             {kind: "text", text: "ties it together: at Elettromar we'd be glad to"},
             {kind: "text", text: "build it with you."},
             {kind: "blank"},
-            {kind: "link", text: "elettromar.com", href: "https://www.elettromar.com"},
+            {kind: "link", text: "elettromar.com", href: "https://www.elettromar.it/en"},
             {kind: "blank"},
             {kind: "text", text: "Don't hesitate to get in touch — let's run a"},
             {kind: "text", text: "feasibility study together."},

@@ -5,7 +5,7 @@ const it: Dictionary = {
     meta: {
         title: "Andrea Marangione — Programmatore Software di Automazione Industriale",
         description:
-            "Programmatore software di automazione industriale. Programmazione PLC, progettazione impianti e commissioning in tutto il mondo, oltre allo sviluppo web full-stack.",
+            "Programmatore software di automazione industriale. Programmazione PLC, progettazione impianti e messa in servizio in tutto il mondo, oltre allo sviluppo web full-stack.",
     },
 
     nav: {
@@ -26,9 +26,9 @@ const it: Dictionary = {
     hero: {
         name: "Andrea Marangione",
         titleLine1: "Tutto è automatizzabile",
-        titleLine2: "basta la soluzione giusta",
+        titleLine2: "trova la giusta soluzione",
         description:
-            "Progetto e sviluppo software per l'automazione industriale, dall'idea iniziale fino al commissioning completo dell'impianto. Realizzo soluzioni affidabili per impianti di ogni dimensione, con attenzione a prestazioni, efficienza e risultati concreti.",
+            "Progetto e sviluppo software per l'automazione industriale, dall'idea iniziale fino alla messa in servizio completa dell'impianto. Realizzo soluzioni affidabili per progetti di ogni dimensione, con attenzione a prestazioni, efficienza e risultati concreti.",
         statExperience: "Esperienza",
         statProjects: "Progetti",
         statCustomers: "Clienti",
@@ -46,7 +46,7 @@ const it: Dictionary = {
             {kind: "blank"},
             {
                 kind: "text",
-                text: "In quegli anni la mia responsabilità copriva l'intero impianto — dalla produzione alla pallettizzazione, con ogni step intermedio: controllo qualità, pesatura, movimentazione — seguendo il commissioning in loco fino a rendere ogni linea completamente autonoma e operativa 24 ore su 24.",
+                text: "In quegli anni la mia responsabilità copriva l'intero impianto — dalla produzione alla pallettizzazione, con ogni step intermedio: controllo qualità, pesatura, movimentazione — seguendo la messa in servizio in loco fino a rendere ogni linea completamente autonoma e operativa 24 ore su 24.",
             },
             {kind: "blank"},
             {
@@ -110,13 +110,23 @@ const it: Dictionary = {
         viewOnGithub: "Vedi su GitHub",
         showMore: "+ altri {count} progetti",
         showLess: "− mostra meno",
+
         labels: {
             "Production process": "Processo produttivo",
             "Scope": "Ambito",
             "Stack": "Stack",
         },
+
+        products: {
+            "Gas turbine test bench · R&D": "Banco prova turbina a gas · R&S",
+            "POY & FDY coils": "Bobine tessuto POY & FDY",
+            "BCF coils": "Bobine tessuto BCF",
+            "Fiberglass coils": "Bobine fibra di vetro",
+            "HTY coils": "Bobine tessuto HTY",
+        },
+
         descriptions: {
-            "Baker Hughes": "Messa in servizio e controllo turbine",
+            "Baker Hughes": "Messa in servizio e controllo turbina",
             "Emplhub CRM": "Applicativo gestionale per dipendenti e attività verso i clienti.",
             "TeamsChatExporter":
                 "Esporta le chat di Teams selezionate in file HTML puliti e autonomi, pronti da archiviare e condividere.",
@@ -124,13 +134,33 @@ const it: Dictionary = {
                 "Collega un PLC Siemens ad Arduino via Ethernet per pilotare diversi display a 7 segmenti.",
             "My portfolio": "Il sito che stai guardando — un portfolio a tema Ubuntu.",
         },
+
+        steps: {
+            "Commissioning": "Messa in servizio",
+            "Turbine test": "Test turbina",
+            "Control & monitoring": "Controllo e monitoraggio",
+            "Winders": "Winders",
+            "Conveying": "Trasporto",
+            "Quality control": "Controllo qualità",
+            "Printing label": "Stampa etichette",
+            "Weighing": "Pesatura",
+            "Warehouse": "Magazzino",
+            "Palletizer": "Pallettizzazione",
+            "AGV": "AGV",
+            "Pre-pallet process": "Processo pre-pallettizzazione",
+            "Trolleys": "Carrelli",
+        },
+
+        units: {
+            "coils / day": "bobine / giorno",
+        },
     },
 
     contact: {
         lines: [
             {kind: "heading", text: "Parliamone"},
             {kind: "blank"},
-            {kind: "quote", text: "Automatizza qualsiasi cosa, trova la soluzione giusta."},
+            {kind: "quote", text: "Tutto è automatizzabile, trova la giusta soluzione."},
             {kind: "blank"},
             {kind: "text", text: "Qualsiasi processo può essere automatizzato. La parte"},
             {kind: "text", text: "difficile non è mai la macchina — è trovare la"},
@@ -140,7 +170,7 @@ const it: Dictionary = {
             {kind: "text", text: "li tiene insieme: in Elettromar saremo felici di"},
             {kind: "text", text: "realizzarlo con te."},
             {kind: "blank"},
-            {kind: "link", text: "elettromar.com", href: "https://www.elettromar.com"},
+            {kind: "link", text: "elettromar.com", href: "https://www.elettromar.it/it"},
             {kind: "blank"},
             {kind: "text", text: "Non esitare a contattarmi — facciamo insieme uno"},
             {kind: "text", text: "studio di fattibilità."},
