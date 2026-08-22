@@ -1,19 +1,21 @@
 "use client";
 
 import {useEffect, useRef, useState} from "react";
-import {cities, Globe3D, staticArcs, VIEW_TRANSITION_MS,} from "@/components/about/world/partials/globeMap/constant";
-import {PacketAnimation} from "@/components/about/world/partials/globeMap/type";
+import {
+    cities,
+    type GlobeCity,
+    Globe3D,
+    RING_MAX_RADIUS,
+    RING_PROPAGATION_SPEED,
+    VIEW_TRANSITION_MS,
+} from "@/components/about/world/partials/globeMap/constant";
 import type {GlobeMethods} from "react-globe.gl";
-import globeFindArcCurves from "@/utils/globeFindArcCurves";
-import globeSetupPacketAnimation from "@/utils/globeSetupPacketAnimation";
 import globeSetupRotationAnimation from "@/utils/globeSetupRotationAnimation";
 import globeSetupView from "@/utils/globeSetupView";
 import globeSetupInteraction from "@/utils/globeSetupInteraction";
 
 const GlobeMap = () => {
     const globeRef = useRef<GlobeMethods | undefined>(undefined);
-    const packetAnimationsRef = useRef<PacketAnimation[]>([]);
-    const stopPacketsRef = useRef<(() => void) | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [ready, setReady] = useState(false);
 
@@ -24,10 +26,11 @@ const GlobeMap = () => {
             if (!globeRef.current) return;
 
             const scene = globeRef.current.scene();
-            const globeMesh =
-                scene.children.find((child) => child.type === "Group");
 
-            if (!globeMesh) return;
+            const isGlobeReady: boolean =
+                scene.children.some((child) => child.type === "Group");
+
+            if (!isGlobeReady) return;
 
             clearInterval(interval);
 
@@ -38,19 +41,6 @@ const GlobeMap = () => {
             globeSetupRotationAnimation({
                 globe: globeRef.current,
             });
-
-            const curveMap =
-                globeFindArcCurves({
-                    globeMesh,
-                    globe: globeRef.current,
-                });
-
-            stopPacketsRef.current =
-                globeSetupPacketAnimation({
-                    globeMesh,
-                    curveMap,
-                    packetAnimationsRef,
-                });
 
             readyTimeout = setTimeout(() => {
                 if (!globeRef.current) return;
@@ -70,16 +60,6 @@ const GlobeMap = () => {
         return () => {
             clearInterval(interval);
             clearTimeout(readyTimeout);
-
-            stopPacketsRef.current?.();
-            stopPacketsRef.current = null;
-
-            packetAnimationsRef.current.forEach(
-                ({mesh}) => {
-                    mesh.removeFromParent();
-                }
-            );
-            packetAnimationsRef.current = [];
         };
     }, []);
 
@@ -107,10 +87,13 @@ const GlobeMap = () => {
                     labelSize={2.5}
                     labelDotRadius={0}
                     labelColor={() => "#E95420"}
-                    arcsData={staticArcs}
-                    arcColor={() => "rgba(233,84,32,0.45)"}
-                    arcStroke={0.6}
-                    arcAltitude="altitude"
+                    ringsData={cities}
+                    ringLat="lat"
+                    ringLng="lng"
+                    ringColor={() => (t: number) => `rgba(233,84,32,${1 - t})`}
+                    ringMaxRadius={RING_MAX_RADIUS}
+                    ringPropagationSpeed={RING_PROPAGATION_SPEED}
+                    ringRepeatPeriod={(city: object) => (city as GlobeCity).ringPeriod}
                 />
             </div>
         </div>
