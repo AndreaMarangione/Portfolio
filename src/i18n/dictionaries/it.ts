@@ -76,14 +76,14 @@ const it: Dictionary = {
                 title: "Reti e azionamenti",
                 rows: [
                     {name: "Profinet, Profisafe, EGD, Modbus"},
-                    {name: "Configurazione drive — asincroni / brushless"},
+                    {name: "Azionamenti — asincroni / brushless"},
                     {name: "Controllo assi — encoder"},
                 ],
             },
             {
                 title: "Progettazione e realizzazione",
                 rows: [
-                    {name: "Progettazione software e hardware"},
+                    {name: "Software e hardware"},
                     {name: "Dati di produzione e processo"},
                     {name: "Messa in servizio"},
                     {name: "Gestione progetti"},

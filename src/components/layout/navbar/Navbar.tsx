@@ -12,9 +12,9 @@ import {useDictionary} from "@/i18n/DictionaryProvider";
 const Navbar = () => {
     const [open, setOpen] = useState(false);
     const {dict} = useDictionary();
-
     const ids: Array<string> = navItems.map((item) => item.href.replace("#", ""));
     const activeId: string = useActiveSection(ids, NAVBAR_HEIGHT + 1);
+    const activeHash: string = activeId && activeId !== ids[0] ? `#${activeId}` : "";
 
     const labelFor = (href: string): string => {
         const id = href.replace("#", "") as keyof typeof dict.nav;
@@ -59,7 +59,7 @@ const Navbar = () => {
                         ))}
                     </nav>
                     <div className="flex items-center gap-3">
-                        <LanguageSwitch/>
+                        <LanguageSwitch hash={activeHash}/>
                         <MenuToggle open={open} onClick={() => setOpen(!open)}/>
                     </div>
                 </div>

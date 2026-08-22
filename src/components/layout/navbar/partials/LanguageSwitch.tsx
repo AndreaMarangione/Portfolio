@@ -4,7 +4,7 @@ import Link from "next/link";
 import {locales} from "@/i18n/config";
 import {useDictionary} from "@/i18n/DictionaryProvider";
 
-const LanguageSwitch = () => {
+const LanguageSwitch = ({hash = ""}: { hash?: string }) => {
     const {lang, dict} = useDictionary();
 
     return (
@@ -15,7 +15,7 @@ const LanguageSwitch = () => {
             {locales.map((l) => (
                 <Link
                     key={l}
-                    href={`/${l}`}
+                    href={`/${l}${hash}`}
                     hrefLang={l}
                     aria-current={lang === l ? "true" : undefined}
                     className={`flex h-full cursor-pointer items-center rounded-[5px] px-3 font-mono text-xs uppercase tracking-wide transition-colors ${
