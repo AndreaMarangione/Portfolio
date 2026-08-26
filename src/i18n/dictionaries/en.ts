@@ -32,6 +32,7 @@ const en = {
         statExperience: "Experience",
         statProjects: "Projects",
         statCustomers: "Customers",
+        imageAlt: "Andrea Marangione with his laptop connected to an industrial plant"
     },
 
     about: {

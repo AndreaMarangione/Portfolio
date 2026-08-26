@@ -159,6 +159,10 @@
     animation-delay: 0.55s;
 }
 
+.animate-fade-up-delay-portrait {
+    animation-delay: 0.75s;
+}
+
 .animate-fade-up-delay-stats {
     animation-delay: 1.1s;
 }

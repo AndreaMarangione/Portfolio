@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import usePageLoad from "@/hooks/usePageLoad";
 import {useDictionary} from "@/i18n/DictionaryProvider";
 
@@ -8,7 +9,6 @@ const CAREER_START_YEAR = 2016
 const Hero = () => {
     const {isLoaded} = usePageLoad()
     const {dict} = useDictionary()
-
     const experienceYears: number = new Date().getFullYear() - CAREER_START_YEAR;
 
     return (
@@ -69,9 +69,35 @@ const Hero = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-center">
-                    <div className="w-72 h-72 md:w-80 md:h-80 rounded-full bg-muted flex items-center justify-center">
-                        <span className="text-muted-foreground">IMG</span>
+
+                {/* colonna ritratto */}
+                <div
+                    className={`flex justify-center 
+                    ${isLoaded ? "animate-fade-up animate-fade-up-delay-portrait" : ""}`}
+                >
+                    {/* altezza definita sul wrapper: serve perché l'alone usa h-[%] */}
+                    <div className="relative h-[300px] sm:h-[360px] md:h-[420px] lg:h-[520px] xl:h-[580px]">
+                        {/* alone arancione — sta DIETRO alla figura, non la contiene */}
+                        <div
+                            aria-hidden="true"
+                            className="pointer-events-none absolute left-1/2 top-[8%] aspect-square h-[60%]
+                            -translate-x-1/2 rounded-full"
+                            style={{
+                                background:
+                                    "radial-gradient(closest-side, rgba(233,84,32,0.22), rgba(233,84,32,0.06) 60%, transparent 100%)",
+                            }}
+                        />
+                        <Image
+                            src="/andrea-hero.webp"
+                            alt={dict.hero.imageAlt}
+                            width={719}
+                            height={1600}
+                            priority
+                            quality={90}
+                            sizes="(min-width: 768px) 270px, 170px"
+                            className="relative h-full w-auto select-none"
+                            style={{filter: "drop-shadow(0 22px 38px rgba(0,0,0,0.55))"}}
+                        />
                     </div>
                 </div>
             </div>
