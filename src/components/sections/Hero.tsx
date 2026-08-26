@@ -93,10 +93,8 @@ const Hero = () => {
                             width={719}
                             height={1600}
                             priority
-                            quality={90}
-                            sizes="(min-width: 768px) 270px, 170px"
+                            unoptimized
                             className="relative h-full w-auto select-none"
-                            style={{filter: "drop-shadow(0 22px 38px rgba(0,0,0,0.55))"}}
                         />
                     </div>
                 </div>

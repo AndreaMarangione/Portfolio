@@ -7,7 +7,9 @@ import ContactsSection from "@/components/sections/Contact";
 export default function Home() {
     return (
         <div className="pt-16">
-            <section id="home" className="min-h-screen mt-10 scroll-mt-16">
+            <section id="home"
+                     className="flex flex-col justify-center min-h-[calc(100vh_-_4rem)] scroll-mt-16 md:pb-16"
+            >
                 <Hero/>
             </section>
 
