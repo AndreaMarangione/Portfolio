@@ -70,14 +70,11 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* colonna ritratto */}
                 <div
                     className={`flex justify-center 
                     ${isLoaded ? "animate-fade-up animate-fade-up-delay-portrait" : ""}`}
                 >
-                    {/* altezza definita sul wrapper: serve perché l'alone usa h-[%] */}
                     <div className="relative h-[300px] sm:h-[360px] md:h-[420px] lg:h-[520px] xl:h-[580px]">
-                        {/* alone arancione — sta DIETRO alla figura, non la contiene */}
                         <div
                             aria-hidden="true"
                             className="pointer-events-none absolute left-1/2 top-[8%] aspect-square h-[60%]
