@@ -11,15 +11,15 @@ const Intro = () => {
     const experienceYears: number = new Date().getFullYear() - CAREER_START_YEAR;
 
     return (
-        <div className="relative z-10 space-y-5 md:space-y-6">
-            <div className="overflow-hidden">
-                <p className={`text-sm text-muted-foreground whitespace-nowrap w-fit overflow-hidden 
+        <div className="relative z-10 self-start md:-mt-16">
+            <div className="overflow-hidden mb-5">
+                <p className={`text-lg text-muted-foreground whitespace-nowrap w-fit overflow-hidden 
                     ${isLoaded ? "animate-typing" : ""}`}
                 >
                     {dict.hero.name}
                 </p>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-[1.18] max-w-[650px]">
+            <h1 className="mb-7 text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-[1.18] max-w-[650px]">
                     <span className="block overflow-hidden">
                         <span className={`block ${isLoaded ? "animate-fade-up" : ""}`}>
                             {dict.hero.titleLine1}
@@ -37,7 +37,7 @@ const Intro = () => {
                 {dict.hero.description}
             </p>
             <div
-                className={`mt-6 grid grid-cols-3 w-full max-w-md rounded-xl bg-muted border border-border overflow-hidden 
+                className={`mt-12 md:mt-14 grid grid-cols-3 w-full max-w-md rounded-xl bg-muted border border-border overflow-hidden 
                     ${isLoaded ? "animate-fade-up animate-fade-up-delay-stats" : ""}`}
             >
                 <div className="py-5 text-center">
