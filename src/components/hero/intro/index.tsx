@@ -1,3 +1,5 @@
+"use client"
+
 import usePageLoad from "@/hooks/usePageLoad";
 import {useDictionary} from "@/i18n/DictionaryProvider";
 

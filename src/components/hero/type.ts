@@ -1,5 +1,3 @@
-export type HeroStageProps = { alt: string }
-
 export type PidBenchInstrument = {
     tag: string
     num: string
