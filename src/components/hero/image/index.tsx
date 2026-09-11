@@ -26,47 +26,50 @@ const HeroImage = () => {
                 <svg
                     viewBox="0 0 680 280"
                     aria-hidden="true"
-                    className="absolute inset-0 h-full w-full"
+                    className="absolute inset-0 h-full w-full overflow-visible"
                 >
                     <defs>
-                        <linearGradient id="hero-floor" x1="0" y1="0" x2="0" y2="1">
+                        <linearGradient id="hero-floor" gradientUnits="userSpaceOnUse" x1="0" y1="185" x2="0" y2="280">
                             <stop offset="0%" stopColor="#1C1C1C"/>
                             <stop offset="100%" stopColor="#121212"/>
                         </linearGradient>
-                        <linearGradient id="hero-tile-fade" x1="0" y1="0" x2="0" y2="1">
+
+                        <linearGradient id="hero-fade-near" gradientUnits="userSpaceOnUse" x1="0" y1="185" x2="0"
+                                        y2="335">
+                            <stop offset="0%" stopColor="#fff"/>
+                            <stop offset="53%" stopColor="#fff"/>
+                            <stop offset="100%" stopColor="#000"/>
+                        </linearGradient>
+                        <mask id="hero-floor-mask" maskUnits="userSpaceOnUse" x="-600" y="185" width="1850"
+                              height="150">
+                            <rect x="-600" y="185" width="1850" height="150" fill="url(#hero-fade-near)"/>
+                        </mask>
+
+                        <linearGradient id="hero-fade-far" gradientUnits="userSpaceOnUse" x1="0" y1="185" x2="0"
+                                        y2="280">
                             <stop offset="0%" stopColor="#fff" stopOpacity="0.3"/>
                             <stop offset="70%" stopColor="#fff" stopOpacity="1"/>
                         </linearGradient>
-                        <mask
-                            id="hero-tile-mask"
-                            maskUnits="userSpaceOnUse"
-                            x="0"
-                            y="185"
-                            width="680"
-                            height="95"
-                        >
-                            <rect x="0" y="185" width="680" height="95" fill="url(#hero-tile-fade)"/>
+                        <mask id="hero-tile-mask" maskUnits="userSpaceOnUse" x="-600" y="185" width="1850" height="150">
+                            <rect x="-600" y="185" width="1850" height="150" fill="url(#hero-fade-far)"/>
                         </mask>
                     </defs>
 
-                    <rect x="0" y="185" width="680" height="95" fill="url(#hero-floor)"/>
+                    <g mask="url(#hero-floor-mask)">
+                        <rect x="-600" y="185" width="1850" height="150" fill="url(#hero-floor)"/>
 
-                    <g
-                        fill="none"
-                        stroke="var(--primary)"
-                        strokeWidth="0.7"
-                        mask="url(#hero-tile-mask)"
-                    >
-                        <path d={FLOOR_A} strokeOpacity="0.13"/>
-                        <path d={FLOOR_B} strokeOpacity="0.11"/>
+                        <g
+                            mask="url(#hero-tile-mask)"
+                            fill="none"
+                            stroke="var(--primary)"
+                            strokeWidth="0.7"
+                        >
+                            <path d={FLOOR_A} strokeOpacity="0.13"/>
+                            <path d={FLOOR_B} strokeOpacity="0.11"/>
+                        </g>
+
+                        <path d="M-600 185 H1250" stroke="var(--primary)" strokeOpacity="0.3" strokeWidth="1"/>
                     </g>
-
-                    <path
-                        d="M0 185 H680"
-                        stroke="var(--primary)"
-                        strokeOpacity="0.3"
-                        strokeWidth="1"
-                    />
                 </svg>
 
                 <PidBench/>
