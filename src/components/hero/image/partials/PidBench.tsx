@@ -24,19 +24,24 @@ const PidBench = () => (
             <path d="M122 152 H160"/>
             <rect x="160" y="140" width="34" height="24"/>
             <path d="M164 152 L169 146 L174 158 L179 146 L184 158 L189 152"/>
-            <path d="M194 152 H230"/>
-            <path d="M234 146 L246 152 L234 158 Z M246 146 V158"/>
-            <path d="M246 152 H343"/>
+            <path d="M194 152 H235"/>
+
+            <path d="M235 148 V156"/>
+            <path d="M249 148 V156"/>
+            <path d="M235 148 L249 156"/>
+            <path d="M249 156 L243.4 155.5 L245.3 152.9 Z" fill="var(--primary)" stroke="none"/>
+
+            <path d="M249 152 H343"/>
             <path d="M210 140 V126"/>
 
             <path d="M343 152 H354"/>
             <path d="M356 147 L362 152 L356 157 Z M368 147 L362 152 L368 157 Z"/>
-            <path d="M362 147 V142 M358 142 H366"/>
+            <path d="M362 152 V142 M358 142 H366"/>
 
             <path d="M368 152 H398"/>
             <path d="M378 152 V139"/>
             <path d="M398 147 L406 152 L398 157 Z M414 147 L406 152 L414 157 Z"/>
-            <path d="M406 147 V140 M398 140 H414 M398 140 A8 8 0 0 1 414 140"/>
+            <path d="M406 152 V140 M398 140 H414 M398 140 A8 8 0 0 1 414 140"/>
 
             <path d="M414 152 H426"/>
             <rect x="428" y="146" width="4" height="12"/>
@@ -44,7 +49,7 @@ const PidBench = () => (
             <path d="M432 152 H566"/>
 
             <path d="M566 147 L574 152 L566 157 Z M582 147 L574 152 L582 157 Z"/>
-            <path d="M574 147 V140 M566 140 H582 M566 140 A8 8 0 0 1 582 140"/>
+            <path d="M574 152 V140 M566 140 H582 M566 140 A8 8 0 0 1 582 140"/>
             <path d="M582 152 H630 V104"/>
 
             <circle cx="574" cy="98" r="8"/>
@@ -53,10 +58,6 @@ const PidBench = () => (
             <circle cx="630" cy="98" r="6"/>
             <path d="M622 98 H624 M636 98 H638"/>
             <path d="M638 90 L668 82 L668 114 L638 106 Z"/>
-            <path d="M660 82 V56"/>
-            <rect x="655" y="36" width="10" height="20"/>
-            <rect x="601" y="62" width="12" height="10"/>
-            <path d="M601 72 L613 62 M607 72 V82"/>
         </g>
 
         <g fill="var(--primary)" fillOpacity="0.5">
@@ -84,8 +85,6 @@ const PidBench = () => (
                 </g>
             ))}
             <text x="574" y="100.5" fontSize="7">G</text>
-            <text x="607" y="58">AIR</text>
-            <text x="660" y="32">EXH</text>
         </g>
 
         <g
@@ -100,9 +99,9 @@ const PidBench = () => (
             <path d="M406 113 V132"/>
             <path d="M439 130 H444 V113"/>
             <path d="M444 113 V132 H574"/>
-            <path d="M586 115 V98"/>
-            <path d="M616 115 V108"/>
-            <path d="M651 48 H660"/>
+            <path d="M586 65 V98"/>
+            <path d="M614 65 V88"/>
+            <path d="M642 65 V89"/>
         </g>
 
         <g fill="var(--primary)" fillOpacity="0.58" fontSize="6">

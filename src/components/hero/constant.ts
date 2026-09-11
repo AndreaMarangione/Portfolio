@@ -27,36 +27,28 @@ export const INSTRUMENTS: PidBenchInstrument[] = [
     {tag: "PIC", num: "101", x: 406, y: 104, panel: true},
     {tag: "FT", num: "102", x: 430, y: 130},
     {tag: "FIC", num: "102", x: 444, y: 104, panel: true},
-    {tag: "ST", num: "201", x: 586, y: 124},
-    {tag: "VT", num: "203", x: 616, y: 124},
-    {tag: "TE", num: "202", x: 642, y: 48},
+    {tag: "ST", num: "201", x: 586, y: 56},
+    {tag: "VT", num: "203", x: 614, y: 56},
+    {tag: "TE", num: "202", x: 642, y: 56},
 ]
 
 export const READINGS: PidBenchReading[] = [
-    {x: 78, y: 162, text: "31.5 bar"},
     {x: 210, y: 104, text: "42 °C"},
-    {x: 378, y: 117, text: "24.8 bar"},
-    {x: 430, y: 117, text: "1 240 kg/h"},
     {x: 406, y: 176, text: "62 %"},
     {x: 574, y: 176, text: "48 %"},
-    {x: 616, y: 142, text: "3.1 mm/s"},
-    {x: 642, y: 66, text: "512 °C"},
-    {x: 574, y: 78, text: "11.2 MW"},
+    {x: 664, y: 58, text: "985 °F"},
 ]
 
 export const EQUIPMENT: PidBenchEquipment[] = [
     {x: 56, y: 145, text: "FROM PIPELINE"},
-    {x: 126, y: 134, text: "V-100 KO DRUM"},
     {x: 160, y: 176, text: "E-101 HEATER"},
     {x: 102, y: 92, text: "PSV-100"},
     {x: 398, y: 167, text: "PCV-101"},
     {x: 558, y: 167, text: "FCV-102"},
-    {x: 632, y: 126, text: "GT-200"},
-    {x: 556, y: 86, text: "G-300"},
 ]
 
 export const FLOW_PATH =
-    "M56 152 H100 M122 152 H160 M194 152 H234 M246 152 H356 M368 152 H398 " +
+    "M56 152 H100 M122 152 H160 M194 152 H235 M249 152 H356 M368 152 H398 " +
     "M414 152 H426 M432 152 H566 M582 152 H630 V104"
 
 export const FADE = "linear-gradient(to right, rgba(0,0,0,0.26) 0%, rgba(0,0,0,0.26) 34%, black 52%)"
