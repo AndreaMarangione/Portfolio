@@ -190,6 +190,20 @@
     blink 1.1s step-end infinite 3.25s;
 }
 
+.animate-fade-up-delay-portrait {
+    animation-delay: 0.75s;
+}
+
+.animate-pid-flow {
+    animation: pid-flow 1.1s linear infinite;
+}
+
+@keyframes pid-flow {
+    to {
+        stroke-dashoffset: -16;
+    }
+}
+
 @layer base {
     * {
         @apply border-border outline-ring/50;
