@@ -34,21 +34,20 @@ export const INSTRUMENTS: PidBenchInstrument[] = [
 
 export const READINGS: PidBenchReading[] = [
     {x: 210, y: 104, text: "42 °C"},
-    {x: 406, y: 176, text: "62 %"},
-    {x: 574, y: 176, text: "48 %"},
+    {x: 408, y: 176, text: "62 %"},
+    {x: 575, y: 176, text: "48 %"},
     {x: 664, y: 58, text: "985 °F"},
 ]
 
 export const EQUIPMENT: PidBenchEquipment[] = [
-    {x: 56, y: 145, text: "FROM PIPELINE"},
-    {x: 160, y: 176, text: "E-101 HEATER"},
+    {x: 156, y: 172, text: "E-101 HEATER"},
     {x: 102, y: 92, text: "PSV-100"},
-    {x: 398, y: 167, text: "PCV-101"},
-    {x: 558, y: 167, text: "FCV-102"},
+    {x: 394, y: 167, text: "PCV-101"},
+    {x: 561, y: 167, text: "FCV-102"},
 ]
 
 export const FLOW_PATH =
-    "M56 152 H100 M122 152 H160 M194 152 H235 M249 152 H356 M368 152 H398 " +
+    "M72 152 H100 M122 152 H160 M194 152 H235 M249 152 H356 M368 152 H398 " +
     "M414 152 H426 M432 152 H566 M582 152 H630 V104"
 
 export const FADE = "linear-gradient(to right, rgba(0,0,0,0.26) 0%, rgba(0,0,0,0.26) 34%, black 52%)"

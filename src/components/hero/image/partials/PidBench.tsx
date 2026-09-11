@@ -15,7 +15,9 @@ const PidBench = () => (
             strokeLinejoin="round"
             fill="none"
         >
-            <path d="M56 152 H100"/>
+            <path d="M0 146 H66 L72 152 L66 158 H0 Z"/>
+            <path d="M72 152 H100"/>
+
             <rect x="100" y="126" width="22" height="52" rx="6"/>
             <path d="M111 178 V184"/>
             <path d="M111 126 V118"/>
@@ -24,15 +26,14 @@ const PidBench = () => (
             <path d="M122 152 H160"/>
             <rect x="160" y="140" width="34" height="24"/>
             <path d="M164 152 L169 146 L174 158 L179 146 L184 158 L189 152"/>
+            <path d="M210 140 V126"/>
             <path d="M194 152 H235"/>
 
             <path d="M235 148 V156"/>
             <path d="M249 148 V156"/>
             <path d="M235 148 L249 156"/>
-            <path d="M249 156 L243.4 155.5 L245.3 152.9 Z" fill="var(--primary)" stroke="none"/>
-
+            <path d="M249 156 L244.9 154.9 L246 153.1 Z" fill="var(--primary)" stroke="none"/>
             <path d="M249 152 H343"/>
-            <path d="M210 140 V126"/>
 
             <path d="M343 152 H354"/>
             <path d="M356 147 L362 152 L356 157 Z M368 147 L362 152 L368 157 Z"/>
@@ -61,12 +62,8 @@ const PidBench = () => (
         </g>
 
         <g fill="var(--primary)" fillOpacity="0.5">
-            <path d="M78 149 L84 152 L78 155 Z"/>
             <path d="M300 149 L306 152 L300 155 Z"/>
-            <path d="M352 149 L358 152 L352 155 Z"/>
-            <path d="M392 149 L398 152 L392 155 Z"/>
-            <path d="M560 149 L566 152 L560 155 Z"/>
-            <path d="M627 110 L630 104 L633 110 Z"/>
+            <path d="M627 134 L630 128 L633 134 Z"/>
         </g>
 
         <g stroke="var(--primary)" strokeOpacity="0.42" strokeWidth="0.8" fill="none">
