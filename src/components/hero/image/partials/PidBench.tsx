@@ -52,10 +52,10 @@ const PidBench = () => (
             <path d="M406 152 V140 M398 140 H414 M398 140 A8 8 0 0 1 414 140"/>
 
             {/* FT-101 — Coriolis in linea, con flange */}
-            <path d="M414 152 H584"/>
-            <path d="M584 149 V155"/>
-            <path d="M602 149 V155"/>
-            <path d="M602 152 H630 V104"/>
+            <path d="M414 152 H571"/>
+            <path d="M571 149 V155"/>
+            <path d="M589 149 V155"/>
+            <path d="M589 152 H630 V104"/>
 
             {/* area 2xx — GT-200 / area 3xx — generatore */}
             <circle cx="574" cy="98" r="8"/>
@@ -68,9 +68,9 @@ const PidBench = () => (
 
         {/* ── connessioni strumento → processo: continue, sottili ─── */}
         <g stroke="var(--primary)" strokeOpacity="0.4" strokeWidth="0.7" fill="none">
-            <path d="M210 140 V126"/>
+            <path d="M210 139 V152"/>
             <path d="M280 139 V152"/>
-            <path d="M430 152 V139"/>
+            <path d="M444 152 V139"/>
             <path d="M586 65 V98"/>
             <path d="M614 65 V88"/>
             <path d="M642 65 V89"/>
@@ -110,7 +110,7 @@ const PidBench = () => (
             strokeDasharray="2.5 2"
             fill="none"
         >
-            <path d="M421 130 H417 V104 H415"/>
+            <path d="M415 104 H426 V130 H435"/>
             <path d="M406 113 V132"/>
         </g>
 

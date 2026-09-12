@@ -21,30 +21,31 @@ export const FLOOR_B =
     "M1181 185 L1250 195 M1223 185 L1250 189 "
 
 export const INSTRUMENTS: PidBenchInstrument[] = [
-    {tag: "TT", num: "103", x: 210, y: 117},
-    {tag: "PSL", num: "104", x: 280, y: 130},
+    {tag: "TE", num: "103", x: 210, y: 130},
+    {tag: "PT", num: "104", x: 280, y: 130},
     {tag: "PIC", num: "101", x: 406, y: 104, panel: true},
-    {tag: "PT", num: "101", x: 430, y: 130},
-    {tag: "FT", num: "101", x: 593, y: 152},
+    {tag: "PT", num: "101", x: 444, y: 130},
+    {tag: "FT", num: "101", x: 580, y: 152},
     {tag: "ST", num: "201", x: 586, y: 56},
     {tag: "VT", num: "203", x: 614, y: 56},
     {tag: "TE", num: "202", x: 642, y: 56},
 ]
 
 export const READINGS: PidBenchReading[] = [
-    {x: 210, y: 104, text: "42 °C"},
+    {x: 210, y: 117, text: "42 °C"},
     {x: 406, y: 176, text: "62 %"},
     {x: 642, y: 43, text: "985 °F"},
+    {x: 580, y: 172, text: "1.290 kg/h"}
 ]
 
 export const EQUIPMENT: PidBenchEquipment[] = [
-    {x: 160, y: 176, text: "E-101 HEATER"},
-    {x: 102, y: 92, text: "PSV-100"},
+    {x: 156, y: 174, text: "E-101 HEATER"},
+    {x: 100, y: 90, text: "PSV-100"},
     {x: 351, y: 167, text: "XY-101"},
     {x: 398, y: 167, text: "PCV-101"},
 ]
 
 export const FLOW_PATH =
-    "M72 152 H100 M122 152 H160 M194 152 H235 M249 152 H356 M368 152 H398 M414 152 H584 M602 152 H630 V104"
+    "M72 152 H100 M122 152 H160 M194 152 H235 M249 152 H356 M368 152 H398 M414 152 H571 M589 152 H630 V104"
 
 export const FADE = "linear-gradient(to right, rgba(0,0,0,0.26) 0%, rgba(0,0,0,0.26) 34%, black 52%)"
