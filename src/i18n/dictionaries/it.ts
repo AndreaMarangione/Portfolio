@@ -32,6 +32,7 @@ const it: Dictionary = {
         statExperience: "Esperienza",
         statProjects: "Progetti",
         statCustomers: "Clienti",
+        imageAlt: "Andrea Marangione con il laptop collegato a un impianto industriale"
     },
 
     about: {
