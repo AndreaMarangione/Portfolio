@@ -27,22 +27,24 @@ export const INSTRUMENTS: PidBenchInstrument[] = [
     {tag: "PT", num: "101", x: 444, y: 130},
     {tag: "FT", num: "101", x: 580, y: 152},
     {tag: "ST", num: "201", x: 586, y: 56},
-    {tag: "VT", num: "203", x: 614, y: 56},
-    {tag: "TE", num: "202", x: 642, y: 56},
+    {tag: "VT", num: "203", x: 619, y: 56},
+    {tag: "TE", num: "202", x: 652, y: 56},
 ]
 
 export const READINGS: PidBenchReading[] = [
     {x: 210, y: 117, text: "42 °C"},
-    {x: 406, y: 176, text: "62 %"},
-    {x: 642, y: 43, text: "985 °F"},
-    {x: 580, y: 172, text: "1.290 kg/h"}
+    {x: 407, y: 176, text: "62 %"},
+    {x: 652, y: 43, text: "985 °F"},
+    {x: 580, y: 172, text: "1.290 kg/h"},
+    {x: 584, y: 43, text: "3.000 rpm"},
+    {x: 620, y: 43, text: "2.4 mm/s"},
 ]
 
 export const EQUIPMENT: PidBenchEquipment[] = [
     {x: 156, y: 174, text: "E-101 HEATER"},
     {x: 100, y: 90, text: "PSV-100"},
     {x: 351, y: 167, text: "XY-101"},
-    {x: 398, y: 167, text: "PCV-101"},
+    {x: 394, y: 167, text: "PCV-101"},
 ]
 
 export const FLOW_PATH =

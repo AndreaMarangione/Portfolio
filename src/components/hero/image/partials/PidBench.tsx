@@ -72,8 +72,8 @@ const PidBench = () => (
             <path d="M280 139 V152"/>
             <path d="M444 152 V139"/>
             <path d="M586 65 V98"/>
-            <path d="M614 65 V88"/>
-            <path d="M642 65 V89"/>
+            <path d="M619 65 V89"/>
+            <path d="M652 65 V86"/>
         </g>
 
         {/* ── frecce di direzione ──────────────────────────────────── */}
