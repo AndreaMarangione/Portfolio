@@ -38,6 +38,7 @@ export const READINGS: PidBenchReading[] = [
     {x: 580, y: 172, text: "1.290 kg/h"},
     {x: 584, y: 43, text: "3.000 rpm"},
     {x: 620, y: 43, text: "2.4 mm/s"},
+    {x: 444, y: 117, text: "360 psi"},
 ]
 
 export const EQUIPMENT: PidBenchEquipment[] = [
