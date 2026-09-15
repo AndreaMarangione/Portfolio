@@ -4,7 +4,7 @@ import Image from "next/image"
 import usePageLoad from "@/hooks/usePageLoad"
 import {useDictionary} from "@/i18n/DictionaryProvider"
 import {FLOOR_A, FLOOR_B} from "@/components/hero/constant"
-import PidBench from "@/components/hero/image/partials/PidBench"
+import PidBenchDekstop from "@/components/hero/image/partials/PidBenchDekstop"
 
 const HeroImage = () => {
     const {isLoaded} = usePageLoad()
@@ -73,7 +73,7 @@ const HeroImage = () => {
                     </g>
                 </svg>
 
-                <PidBench readings={dict.pid}/>
+                <PidBenchDekstop readings={dict.pid}/>
             </div>
 
             <Image

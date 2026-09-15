@@ -1,7 +1,7 @@
-import {EQUIPMENT, FADE, FLOW_PATH, INSTRUMENTS, READINGS} from "@/components/hero/constant"
+import {EQUIPMENT, FADE, DESKTOP_FLOW_PATH, INSTRUMENTS, READINGS} from "@/components/hero/constant"
 import {PidBenchProps} from "@/components/hero/type";
 
-const PidBench = ({readings}: PidBenchProps) => (
+const PidBenchDekstop = ({readings}: PidBenchProps) => (
     <svg
         viewBox="0 0 680 280"
         aria-hidden="true"
@@ -139,7 +139,7 @@ const PidBench = ({readings}: PidBenchProps) => (
 
         {/* animation flow */}
         <path
-            d={FLOW_PATH}
+            d={DESKTOP_FLOW_PATH}
             fill="none"
             stroke="#FF9A63"
             strokeOpacity="0.75"
@@ -150,4 +150,4 @@ const PidBench = ({readings}: PidBenchProps) => (
     </svg>
 )
 
-export default PidBench
+export default PidBenchDekstop

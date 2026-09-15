@@ -50,7 +50,10 @@ export const EQUIPMENT: PidBenchEquipment[] = [
     {x: 394, y: 167, text: "PCV-105"},
 ]
 
-export const FLOW_PATH =
+export const DESKTOP_FLOW_PATH =
     "M72 152 H100 M122 152 H160 M194 152 H235 M249 152 H356 M368 152 H398 M414 152 H571 M589 152 H630 V104"
+
+export const MOBILE_FLOW_PATH =
+    "M32 54 V60 M32 80 V96 M32 116 V162 H49 M67 162 H214 V125"
 
 export const FADE = "linear-gradient(to right, rgba(0,0,0,0.26) 0%, rgba(0,0,0,0.26) 34%, black 52%)"
