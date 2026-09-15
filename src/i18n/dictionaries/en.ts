@@ -35,6 +35,17 @@ const en = {
         imageAlt: "Andrea Marangione with his laptop connected to an industrial plant"
     },
 
+    pid: {
+        heaterOut: "108 °F",
+        supplyPressure: "650 psi",
+        downstreamPressure: "360 psi",
+        valveOpening: "62 %",
+        fuelFlow: "1 290 kg/h",
+        speed: "3 000 rpm",
+        vibration: "2.4 mm/s",
+        exhaustTemp: "985 °F",
+    },
+
     about: {
         mapLabel: "Map of the places where I have worked",
         lines: [

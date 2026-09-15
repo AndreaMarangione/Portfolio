@@ -21,31 +21,33 @@ export const FLOOR_B =
     "M1181 185 L1250 195 M1223 185 L1250 189 "
 
 export const INSTRUMENTS: PidBenchInstrument[] = [
-    {tag: "TE", num: "103", x: 210, y: 130},
-    {tag: "PT", num: "104", x: 280, y: 130},
-    {tag: "PIC", num: "101", x: 406, y: 104, panel: true},
-    {tag: "PT", num: "101", x: 444, y: 130},
-    {tag: "FT", num: "101", x: 580, y: 152},
+    {tag: "TE", num: "101", x: 210, y: 130},
+    {tag: "PT", num: "103", x: 280, y: 130},
+    {tag: "PIC", num: "105", x: 406, y: 104, panel: true},
+    {tag: "PT", num: "105", x: 444, y: 130},
+    {tag: "FT", num: "106", x: 580, y: 152},
     {tag: "ST", num: "201", x: 586, y: 56},
-    {tag: "VT", num: "203", x: 619, y: 56},
-    {tag: "TE", num: "202", x: 652, y: 56},
+    {tag: "VT", num: "202", x: 619, y: 56},
+    {tag: "TE", num: "203", x: 652, y: 56},
 ]
 
 export const READINGS: PidBenchReading[] = [
-    {x: 210, y: 117, text: "42 °C"},
-    {x: 407, y: 176, text: "62 %"},
-    {x: 652, y: 43, text: "985 °F"},
-    {x: 580, y: 172, text: "1.290 kg/h"},
-    {x: 584, y: 43, text: "3.000 rpm"},
-    {x: 620, y: 43, text: "2.4 mm/s"},
-    {x: 444, y: 117, text: "360 psi"},
+    {key: "heaterOut", x: 210, y: 117},
+    {key: "supplyPressure", x: 280, y: 117},
+    {key: "downstreamPressure", x: 444, y: 117},
+    {key: "valveOpening", x: 406, y: 176},
+    {key: "fuelFlow", x: 580, y: 172},
+    {key: "speed", x: 586, y: 43},
+    {key: "vibration", x: 619, y: 43},
+    {key: "exhaustTemp", x: 652, y: 43},
 ]
 
 export const EQUIPMENT: PidBenchEquipment[] = [
     {x: 156, y: 174, text: "E-101 HEATER"},
     {x: 100, y: 90, text: "PSV-100"},
-    {x: 351, y: 167, text: "XY-101"},
-    {x: 394, y: 167, text: "PCV-101"},
+    {x: 231, y: 167, text: "CK-102"},
+    {x: 351, y: 167, text: "XY-104"},
+    {x: 394, y: 167, text: "PCV-105"},
 ]
 
 export const FLOW_PATH =

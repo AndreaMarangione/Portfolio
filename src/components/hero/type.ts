@@ -6,10 +6,14 @@ export type PidBenchInstrument = {
     panel?: boolean
 }
 
+export type PidReadingKey =
+    | "heaterOut" | "supplyPressure" | "downstreamPressure" | "valveOpening"
+    | "fuelFlow" | "speed" | "vibration" | "exhaustTemp"
+
 export type PidBenchReading = {
+    key: PidReadingKey
     x: number
     y: number
-    text: string
 }
 
 export type PidBenchEquipment = {
@@ -18,3 +22,5 @@ export type PidBenchEquipment = {
     text: string
     anchor?: "start" | "middle" | "end"
 }
+
+export type PidBenchProps = { readings: Record<PidReadingKey, string> }

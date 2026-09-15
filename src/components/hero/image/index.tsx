@@ -72,7 +72,7 @@ const HeroImage = () => {
                     </g>
                 </svg>
 
-                <PidBench/>
+                <PidBench readings={dict.pid}/>
             </div>
 
             <Image

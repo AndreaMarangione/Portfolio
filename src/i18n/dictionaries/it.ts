@@ -35,6 +35,17 @@ const it: Dictionary = {
         imageAlt: "Andrea Marangione con il laptop collegato a un impianto industriale"
     },
 
+    pid: {
+        heaterOut: "42 °C",
+        supplyPressure: "44,8 bar",
+        downstreamPressure: "24,8 bar",
+        valveOpening: "62 %",
+        fuelFlow: "1.290 kg/h",
+        speed: "3.000 rpm",
+        vibration: "2,4 mm/s",
+        exhaustTemp: "529 °C",
+    },
+
     about: {
         mapLabel: "Mappa dei luoghi in cui ho lavorato",
         lines: [
