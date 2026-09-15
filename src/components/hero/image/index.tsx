@@ -5,6 +5,7 @@ import usePageLoad from "@/hooks/usePageLoad"
 import {useDictionary} from "@/i18n/DictionaryProvider"
 import {FLOOR_A, FLOOR_B} from "@/components/hero/constant"
 import PidBenchDekstop from "@/components/hero/image/partials/PidBenchDekstop"
+import PidBenchMobile from "@/components/hero/image/partials/PidBenchMobile";
 
 const HeroImage = () => {
     const {isLoaded} = usePageLoad()
@@ -75,6 +76,8 @@ const HeroImage = () => {
 
                 <PidBenchDekstop readings={dict.pid}/>
             </div>
+
+            <PidBenchMobile readings={dict.pid}/>
 
             <Image
                 src="/andrea-hero.webp"
