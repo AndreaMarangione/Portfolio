@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <div className="pt-16">
             <section id="home"
-                     className="flex flex-col justify-center min-h-[calc(100vh_-_4rem)] scroll-mt-16 overflow-x-clip md:pb-16">
+                     className="pt-7 md:pt-8 lg:pt-9 xl:pt-10 min-h-[calc(100vh_-_4rem)] scroll-mt-16 overflow-x-clip">
                 <Hero/>
             </section>
 

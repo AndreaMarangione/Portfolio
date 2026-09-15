@@ -11,7 +11,7 @@ const Intro = () => {
     const experienceYears: number = new Date().getFullYear() - CAREER_START_YEAR;
 
     return (
-        <div className="relative z-10 self-start md:-mt-16">
+        <div className="relative z-10 self-start">
             <div className="overflow-hidden mb-5">
                 <p className={`text-lg text-muted-foreground whitespace-nowrap w-fit overflow-hidden 
                     ${isLoaded ? "animate-typing" : ""}`}
