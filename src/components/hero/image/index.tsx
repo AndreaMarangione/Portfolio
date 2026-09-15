@@ -15,6 +15,7 @@ const HeroImage = () => {
             className={`relative z-0 w-full
             [--fig-h:260px] sm:[--fig-h:300px] md:[--fig-h:360px]
             lg:[--fig-h:440px] xl:[--fig-h:500px]
+            [--pid-s:0.68] lg:[--pid-s:0.75] xl:[--pid-s:0.84] 2xl:[--pid-s:1]
             h-[calc(var(--fig-h)*280/228)]
             ${isLoaded ? "animate-fade-up animate-fade-up-delay-portrait" : ""}`}
         >

@@ -6,7 +6,12 @@ const PidBench = ({readings}: PidBenchProps) => (
         viewBox="0 0 680 280"
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full hidden md:block"
-        style={{maskImage: FADE, WebkitMaskImage: FADE}}
+        style={{
+            maskImage: FADE,
+            WebkitMaskImage: FADE,
+            transform: "scale(var(--pid-s, 1))",
+            transformOrigin: "74.26% 66.07%",
+        }}
         fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
     >
         <g
