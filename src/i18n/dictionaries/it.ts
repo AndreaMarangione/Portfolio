@@ -63,7 +63,7 @@ const it: Dictionary = {
             {kind: "blank"},
             {
                 kind: "text",
-                text: "Oggi lavoro in Elettromar S.p.A., dove mi occupo di ricerca e sviluppo per nuove applicazioni di automazione, sia lato PLC sia lato architetture server e client, applicate tanto all'industria quanto alla nautica di lusso. Sono inoltre coinvolto a Houston per la realizzazione di banchi prova destinati al collaudo delle turbine prototipo di Baker Hughes.",
+                text: "Oggi lavoro in Elettromar S.p.A., dove mi occupo di ricerca e sviluppo per nuove applicazioni di automazione, sia lato PLC sia lato architetture server e client, applicate tanto all'industria quanto alla nautica di lusso. Sono inoltre coinvolto a Houston per la realizzazione di banchi prova destinati al collaudo delle turbine prototipo di un'azienda leader nel settore delle tecnologie energetiche.",
             },
             {kind: "blank"},
             {
@@ -138,7 +138,7 @@ const it: Dictionary = {
         },
 
         descriptions: {
-            "Baker Hughes": "Messa in servizio e controllo turbina",
+            "Azienda energetica": "Messa in servizio e controllo turbina",
             "Emplhub CRM": "Applicativo gestionale per dipendenti e attività verso i clienti.",
             "TeamsChatExporter":
                 "Esporta le chat di Teams selezionate in file HTML puliti e autonomi, pronti da archiviare e condividere.",
