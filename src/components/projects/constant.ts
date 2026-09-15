@@ -5,7 +5,7 @@ export const PROJECTS_VISIBLE = 4;
 export const myProjects: Project[] = [
     {
         kind: "plant",
-        name: "Baker Hughes",
+        name: "Energy company",
         type: "OIL & GAS",
         description: "Commissioning & turbine control",
         site: "Houston · Texas, USA",
