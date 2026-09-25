@@ -20,10 +20,10 @@ const PidBenchMobile = () => (
             <path d="M50 6 H62 V27 L56 33 L50 27 Z"/>
             <path d="M56 33 V54"/>
 
-            {/* XY-104 — solenoide, attuatore a sinistra */}
+            {/* XY-104 — solenoide, attuatore a destra */}
             <path d="M51 54 L56 64 L61 54 Z M51 74 L56 64 L61 74 Z"/>
-            <path d="M56 64 H46"/>
-            <rect x="38" y="60" width="8" height="8"/>
+            <path d="M56 64 H66"/>
+            <rect x="66" y="60" width="8" height="8"/>
             <path d="M56 74 V96"/>
 
             {/* PCV-105 — membrana rivolta a destra */}
@@ -50,7 +50,7 @@ const PidBenchMobile = () => (
 
         {/* ── connessioni strumento → processo ─────────────────────── */}
         <g stroke="var(--primary)" strokeOpacity="0.4" strokeWidth="0.9" fill="none">
-            <path d="M56 138 H32"/>
+            <path d="M56 138 H82"/>
             <path d="M240 82 V118"/>
             <path d="M264 82 V106"/>
             <path d="M309 82 V106"/>
@@ -63,9 +63,9 @@ const PidBenchMobile = () => (
 
         {/* ── bolle strumentali ────────────────────────────────────── */}
         <g stroke="var(--primary)" strokeOpacity="0.42" strokeWidth="1" fill="none">
-            <circle cx="22" cy="138" r="10"/>
+            <circle cx="92" cy="106" r="10"/>
+            <path d="M82 106 H102"/>
             <circle cx="92" cy="138" r="10"/>
-            <path d="M82 138 H102"/>
             <circle cx="248" cy="160" r="10"/>
             <circle cx="240" cy="72" r="10"/>
             <circle cx="264" cy="72" r="10"/>
@@ -73,9 +73,9 @@ const PidBenchMobile = () => (
         </g>
 
         <g fill="var(--primary)" fillOpacity="0.62" fontSize="7.5" textAnchor="middle">
-            <text x="22" y="137">PT</text>
-            <text x="22" y="144">105</text>
-            <text x="92" y="137">PIC</text>
+            <text x="92" y="105">PIC</text>
+            <text x="92" y="112">105</text>
+            <text x="92" y="137">PT</text>
             <text x="92" y="144">105</text>
             <text x="248" y="159">FT</text>
             <text x="248" y="166">106</text>
@@ -86,7 +86,7 @@ const PidBenchMobile = () => (
             <text x="309" y="71">TE</text>
             <text x="309" y="78">203</text>
             <text x="230" y="121" fontSize="8">G</text>
-            <text x="42" y="66.5" fontSize="6">S</text>
+            <text x="70" y="66.5" fontSize="6">S</text>
         </g>
 
         {/* ── segnali tra strumenti ────────────────────────────────── */}
@@ -97,15 +97,15 @@ const PidBenchMobile = () => (
             strokeDasharray="3 2.5"
             fill="none"
         >
-            <path d="M32 138 H82"/>
-            <path d="M92 128 V106 H76"/>
+            <path d="M92 128 V116"/>
+            <path d="M82 106 H76"/>
         </g>
 
         {/* ── sigle apparecchiature ────────────────────────────────── */}
         <g fill="var(--primary)" fillOpacity="0.58" fontSize="7.5">
             <text x="68" y="20">FUEL GAS</text>
-            <text x="34" y="66.5" textAnchor="end">XY-104</text>
-            <text x="46" y="94" textAnchor="end">PCV-105</text>
+            <text x="46" y="66.5" textAnchor="end">XY-104</text>
+            <text x="46" y="108.5" textAnchor="end">PCV-105</text>
         </g>
 
         {/* ── flusso animato ───────────────────────────────────────── */}
