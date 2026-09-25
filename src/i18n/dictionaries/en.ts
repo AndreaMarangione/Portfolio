@@ -32,6 +32,18 @@ const en = {
         statExperience: "Experience",
         statProjects: "Projects",
         statCustomers: "Customers",
+        imageAlt: "Andrea Marangione with his laptop connected to an industrial plant"
+    },
+
+    pid: {
+        heaterOut: "108 °F",
+        supplyPressure: "650 psi",
+        downstreamPressure: "360 psi",
+        valveOpening: "62 %",
+        fuelFlow: "1 290 kg/h",
+        speed: "3 000 rpm",
+        vibration: "2.4 mm/s",
+        exhaustTemp: "985 °F",
     },
 
     about: {
@@ -51,7 +63,7 @@ const en = {
             {kind: "blank"},
             {
                 kind: "text",
-                text: "Today I work at Elettromar S.p.A., where I handle R&D for new automation applications, both on the PLC side and on server/client architectures, applied to industrial plants as well as luxury yachts. I'm also involved in Houston, building test benches for the qualification of Baker Hughes' prototype turbines.",
+                text: "Today I work at Elettromar S.p.A., where I handle R&D for new automation applications, both on the PLC side and on server/client architectures, applied to industrial plants as well as luxury yachts. I'm also involved in Houston, building test benches for the qualification of a leading energy technology company's prototype turbines.",
             },
             {kind: "blank"},
             {
@@ -126,7 +138,7 @@ const en = {
         } as Record<string, string>,
 
         descriptions: {
-            "Baker Hughes": "Commissioning & turbine control",
+            "Energy company": "Commissioning & turbine control",
             "Emplhub CRM": "Business management app for employees and customer activities.",
             "TeamsChatExporter":
                 "Exports the Teams chats you choose into clean, self-contained HTML files for archiving and sharing.",
