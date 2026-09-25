@@ -78,7 +78,7 @@ const HeroImage = () => {
                 <PidBenchDekstop readings={dict.pid}/>
             </div>
 
-            <PidBenchMobile readings={dict.pid}/>
+            <PidBenchMobile/>
 
             <Image
                 src="/andrea-hero.webp"

@@ -1,7 +1,6 @@
-import {PidBenchProps} from "@/components/hero/type"
 import {MOBILE_FLOW_PATH} from "@/components/hero/constant";
 
-const PidBenchMobile = ({readings}: PidBenchProps) => (
+const PidBenchMobile = () => (
     <svg
         viewBox="0 0 328 280"
         aria-hidden="true"
@@ -17,15 +16,15 @@ const PidBenchMobile = ({readings}: PidBenchProps) => (
             strokeLinejoin="round"
             fill="none"
         >
-            {/* fuel gas entrance — connettore ruotato, punta in basso */}
-            <path d="M50 6 H62 V48 L56 54 L50 48 Z"/>
-            <path d="M56 54 V60"/>
+            {/* fuel gas entrance */}
+            <path d="M50 6 H62 V27 L56 33 L50 27 Z"/>
+            <path d="M56 33 V54"/>
 
             {/* XY-104 — solenoide, attuatore a sinistra */}
-            <path d="M51 60 L56 70 L61 60 Z M51 80 L56 70 L61 80 Z"/>
-            <path d="M56 70 H46"/>
-            <rect x="38" y="66" width="8" height="8"/>
-            <path d="M56 80 V96"/>
+            <path d="M51 54 L56 64 L61 54 Z M51 74 L56 64 L61 74 Z"/>
+            <path d="M56 64 H46"/>
+            <rect x="38" y="60" width="8" height="8"/>
+            <path d="M56 74 V96"/>
 
             {/* PCV-105 — membrana rivolta a destra */}
             <path d="M51 96 L56 106 L61 96 Z M51 116 L56 106 L61 116 Z"/>
@@ -34,10 +33,10 @@ const PidBenchMobile = ({readings}: PidBenchProps) => (
             <path d="M56 116 V160"/>
 
             {/* curva 90° e FT-106 — Coriolis in linea, con flange */}
-            <path d="M56 160 H86"/>
-            <path d="M86 157 V163"/>
-            <path d="M106 157 V163"/>
-            <path d="M106 160 H286"/>
+            <path d="M56 160 H238"/>
+            <path d="M238 157 V163"/>
+            <path d="M258 157 V163"/>
+            <path d="M258 160 H286"/>
             <path d="M286 160 V126"/>
 
             {/* turbina a gas con generatore — scala desktop */}
@@ -67,18 +66,19 @@ const PidBenchMobile = ({readings}: PidBenchProps) => (
             <circle cx="22" cy="138" r="10"/>
             <circle cx="92" cy="138" r="10"/>
             <path d="M82 138 H102"/>
-            <circle cx="96" cy="160" r="10"/>
+            <circle cx="248" cy="160" r="10"/>
             <circle cx="240" cy="72" r="10"/>
             <circle cx="264" cy="72" r="10"/>
             <circle cx="309" cy="72" r="10"/>
         </g>
+
         <g fill="var(--primary)" fillOpacity="0.62" fontSize="7.5" textAnchor="middle">
             <text x="22" y="137">PT</text>
             <text x="22" y="144">105</text>
             <text x="92" y="137">PIC</text>
             <text x="92" y="144">105</text>
-            <text x="96" y="159">FT</text>
-            <text x="96" y="166">106</text>
+            <text x="248" y="159">FT</text>
+            <text x="248" y="166">106</text>
             <text x="240" y="71">ST</text>
             <text x="240" y="78">201</text>
             <text x="264" y="71">VT</text>
@@ -86,7 +86,7 @@ const PidBenchMobile = ({readings}: PidBenchProps) => (
             <text x="309" y="71">TE</text>
             <text x="309" y="78">203</text>
             <text x="230" y="121" fontSize="8">G</text>
-            <text x="42" y="72.5" fontSize="6">S</text>
+            <text x="42" y="66.5" fontSize="6">S</text>
         </g>
 
         {/* ── segnali tra strumenti ────────────────────────────────── */}
@@ -103,19 +103,9 @@ const PidBenchMobile = ({readings}: PidBenchProps) => (
 
         {/* ── sigle apparecchiature ────────────────────────────────── */}
         <g fill="var(--primary)" fillOpacity="0.58" fontSize="7.5">
-            <text x="68" y="28">FUEL GAS</text>
-            <text x="34" y="72.5" textAnchor="end">XY-104</text>
+            <text x="68" y="20">FUEL GAS</text>
+            <text x="34" y="66.5" textAnchor="end">XY-104</text>
             <text x="46" y="94" textAnchor="end">PCV-105</text>
-        </g>
-
-        {/* ── letture di processo ──────────────────────────────────── */}
-        <g fill="#F2A57E" fillOpacity="0.85" fontSize="8.5">
-            <text x="46" y="111" textAnchor="end">{readings.valveOpening}</text>
-            <text x="6" y="157">{readings.downstreamPressure}</text>
-            <text x="96" y="183" textAnchor="middle">{readings.fuelFlow}</text>
-            <text x="240" y="50" textAnchor="middle">{readings.speed}</text>
-            <text x="264" y="34" textAnchor="middle">{readings.vibration}</text>
-            <text x="309" y="50" textAnchor="middle">{readings.exhaustTemp}</text>
         </g>
 
         {/* ── flusso animato ───────────────────────────────────────── */}
