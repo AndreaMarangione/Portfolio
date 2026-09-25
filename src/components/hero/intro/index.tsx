@@ -2,8 +2,7 @@
 
 import usePageLoad from "@/hooks/usePageLoad";
 import {useDictionary} from "@/i18n/DictionaryProvider";
-
-const CAREER_START_YEAR = 2016
+import {CAREER_START_YEAR} from "@/components/hero/constant";
 
 const Intro = () => {
     const {isLoaded} = usePageLoad()

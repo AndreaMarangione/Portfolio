@@ -40,18 +40,18 @@ const Hmi = () => {
                 <div
                     className="flex h-[50px] items-center justify-between gap-3 border-b border-[#333] bg-[#202020] px-4">
                     <div className="flex min-w-0 items-center gap-[11px]">
-                            <span
-                                className="rounded-[5px] border border-primary px-2 py-[3px] font-mono text-[11px] font-bold tracking-[0.16em] text-primary">
-                                HMI
-                            </span>
                         <span
-                            className="whitespace-nowrap text-[15px] font-bold uppercase tracking-[0.07em] text-primary">
-                                Automation
-                            </span>
+                            className="rounded-[5px] border border-primary px-2 py-[3px] font-mono text-[11px] font-bold tracking-[0.16em] text-primary">
+                                HMI
+                        </span>
+                        <span
+                            className="hidden whitespace-nowrap text-[15px] font-bold uppercase tracking-[0.07em] text-primary min-[425px]:inline">
+                                 Automation
+                        </span>
                         <span
                             className="hidden whitespace-nowrap font-mono text-xs text-muted-foreground sm:inline">
                                 / skills overview
-                            </span>
+                        </span>
                     </div>
                     <div
                         className="flex items-center gap-[15px] whitespace-nowrap font-mono text-[11.5px] text-muted-foreground">
@@ -133,9 +133,9 @@ const Hmi = () => {
                                     {fn.n}
                                 </span>
                             <span
-                                className={`mt-[3px] block font-mono text-[11px] ${fn.active ? "text-[#f0d3c6]" : "text-white/70"}`}>
+                                className={`mt-[3px] block font-mono text-[8px] min-[375px]:text-[11px] ${fn.active ? "text-[#f0d3c6]" : "text-white/70"}`}>
                                     {fn.label}
-                                </span>
+                            </span>
                         </div>
                     ))}
                 </div>

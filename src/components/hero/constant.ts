@@ -1,5 +1,7 @@
 import {PidBenchEquipment, PidBenchInstrument, PidBenchReading} from "@/components/hero/type";
 
+export const CAREER_START_YEAR = 2016
+
 export const FLOOR_A =
     "M-588 185 L-600 186 M-557 185 L-600 190 M-526 185 L-600 194 M-495 185 L-600 197 M-464 185 L-600 202 M-433 185 L-600 206 M-402 185 L-600 211 " +
     "M-371 185 L-600 216 M-340 185 L-600 221 M-308 185 L-600 226 M-277 185 L-600 232 M-246 185 L-600 239 M-215 185 L-600 245 M-184 185 L-600 253 " +

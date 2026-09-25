@@ -25,7 +25,7 @@ const it: Dictionary = {
 
     hero: {
         name: "Andrea Marangione",
-        titleLine1: "Tutto è automatizzabile",
+        titleLine1: "Automatizza tutto",
         titleLine2: "trova la giusta soluzione",
         description:
             "Progetto e sviluppo software per l'automazione industriale, dall'idea iniziale fino alla messa in servizio completa dell'impianto. Realizzo soluzioni affidabili per progetti di ogni dimensione, con attenzione a prestazioni, efficienza e risultati concreti.",

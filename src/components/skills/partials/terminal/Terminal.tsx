@@ -16,9 +16,11 @@ const Terminal = () => {
         >
             <div
                 className="flex h-[46px] shrink-0 items-center justify-between gap-2 border-b border-black/30 bg-card px-2.5">
-                <span className="w-[90px]"/>
+                <span className="hidden w-[90px] md:block"/>
                 <span
-                    className="flex-1 text-center font-mono text-[13px] text-foreground/80">andrea@portfolio: ~/web</span>
+                    className="flex-1 text-left font-mono text-[13px] text-foreground/80 md:text-center">
+                    andrea@portfolio: ~/web
+                </span>
                 <div className="flex items-center gap-2">
                     <TerminalWinCtrl label="Minimize">
                         <svg width="11" height="11" viewBox="0 0 12 12">

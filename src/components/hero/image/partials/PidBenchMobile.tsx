@@ -17,7 +17,7 @@ const PidBenchMobile = () => (
             fill="none"
         >
             {/* fuel gas entrance */}
-            <path d="M50 6 H62 V27 L56 33 L50 27 Z"/>
+            <path d="M50 15 H62 V27 L56 33 L50 27 Z"/>
             <path d="M56 33 V54"/>
 
             {/* XY-104 — solenoide, attuatore a destra */}
@@ -103,7 +103,7 @@ const PidBenchMobile = () => (
 
         {/* ── sigle apparecchiature ────────────────────────────────── */}
         <g fill="var(--primary)" fillOpacity="0.58" fontSize="7.5">
-            <text x="68" y="20">FUEL GAS</text>
+            <text x="56" y="9" textAnchor="middle">FUEL GAS</text>
             <text x="46" y="66.5" textAnchor="end">XY-104</text>
             <text x="46" y="108.5" textAnchor="end">PCV-105</text>
         </g>
