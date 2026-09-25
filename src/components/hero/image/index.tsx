@@ -14,7 +14,8 @@ const HeroImage = () => {
     return (
         <div
             className={`relative z-0 w-full md:mt-14
-            [--fig-h:260px] sm:[--fig-h:300px] md:[--fig-h:360px]
+            [--fig-h:min(calc((100vw_-_3rem)*228/328),270px)]
+            sm:[--fig-h:300px] md:[--fig-h:360px]
             lg:[--fig-h:440px] xl:[--fig-h:500px]
             [--pid-s:0.68] lg:[--pid-s:0.75] xl:[--pid-s:0.84] 2xl:[--pid-s:1]
             h-[calc(var(--fig-h)*280/228)]
