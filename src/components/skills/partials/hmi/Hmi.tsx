@@ -49,7 +49,7 @@ const Hmi = () => {
                                  Automation
                         </span>
                         <span
-                            className="hidden whitespace-nowrap font-mono text-xs text-muted-foreground sm:inline">
+                            className="hidden whitespace-nowrap font-mono text-xs text-muted-foreground lg:max-[1025px]:inline min-[1380px]:inline">
                                 / skills overview
                         </span>
                     </div>

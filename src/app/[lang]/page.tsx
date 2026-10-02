@@ -28,7 +28,7 @@ export default function Home() {
             </section>
 
             <section id="contact"
-                     className="min-h-[calc(100vh_-_4rem)] mt-10 pt-3 scroll-mt-16 min-[820px]:flex min-[820px]:flex-col"
+                     className="min-h-[calc(100vh_-_4rem)] mt-10 pt-3 scroll-mt-16 max-[820px]:pb-10 min-[820px]:flex min-[820px]:flex-col"
             >
                 <ContactsSection/>
             </section>
