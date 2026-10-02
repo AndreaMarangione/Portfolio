@@ -16,6 +16,11 @@ const it: Dictionary = {
         contact: "Contatti",
     },
 
+    menu: {
+        open: "Apri menu",
+        close: "Chiudi menu",
+    },
+
     dividers: {
         about: "chi-sono",
         skills: "competenze",
@@ -140,7 +145,7 @@ const it: Dictionary = {
         descriptions: {
             "Azienda energetica": "Messa in servizio e controllo turbina",
             "Emplhub CRM": "Applicativo gestionale per dipendenti e attività verso i clienti.",
-            "TeamsChatExporter":
+            "Teams ChatExporter":
                 "Esporta le chat di Teams selezionate in file HTML puliti e autonomi, pronti da archiviare e condividere.",
             "PLC ↔ Arduino display":
                 "Collega un PLC Siemens ad Arduino via Ethernet per pilotare diversi display a 7 segmenti.",

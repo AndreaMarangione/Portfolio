@@ -3,8 +3,11 @@
 import Link from "next/link";
 import {navItems} from "@/components/layout/navbar/constant";
 import {MobileMenuProps} from "@/components/layout/navbar/type";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const MobileMenu = ({open, activeId, onNavClick, onClose}: MobileMenuProps) => {
+    const {dict} = useDictionary();
+
     if (!open) return null;
 
     return (
@@ -34,7 +37,7 @@ const MobileMenu = ({open, activeId, onNavClick, onClose}: MobileMenuProps) => {
                             }`}
                         >
                             <span className={`mr-2 text-sm ${isActive ? "text-primary" : "text-white/40"}`}>~/</span>
-                            <span className="text-[15px]">{id}</span>
+                            <span className="text-[15px]">{dict.dividers[id] ?? id}</span>
                         </Link>
                     );
                 })}

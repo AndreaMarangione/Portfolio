@@ -74,7 +74,7 @@ export const myProjects: Project[] = [
     },
     {
         kind: "web",
-        name: "TeamsChatExporter",
+        name: "Teams ChatExporter",
         type: "TOOL",
         description:
             "Exports the Teams chats you choose into clean, self-contained HTML files for archiving and sharing.",

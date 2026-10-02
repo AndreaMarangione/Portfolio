@@ -1,13 +1,16 @@
 "use client";
 
 import {MenuToggleProps} from "@/components/layout/navbar/type";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const MenuToggle = ({open, onClick}: MenuToggleProps) => {
+    const {dict} = useDictionary();
+
     return (
         <button
             type="button"
             onClick={onClick}
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? dict.menu.close : dict.menu.open}
             aria-expanded={open}
             className={`flex h-9 w-9 items-center justify-center rounded-md border border-border bg-muted/40 text-foreground transition-colors md:hidden ${
                 open

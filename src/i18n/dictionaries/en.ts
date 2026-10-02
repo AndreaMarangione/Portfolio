@@ -16,6 +16,11 @@ const en = {
         contact: "Contact",
     },
 
+    menu: {
+        open: "Open menu",
+        close: "Close menu",
+    },
+
     dividers: {
         about: "about",
         skills: "skills",
@@ -140,7 +145,7 @@ const en = {
         descriptions: {
             "Energy company": "Commissioning & turbine control",
             "Emplhub CRM": "Business management app for employees and customer activities.",
-            "TeamsChatExporter":
+            "Teams ChatExporter":
                 "Exports the Teams chats you choose into clean, self-contained HTML files for archiving and sharing.",
             "PLC ↔ Arduino display":
                 "Bridges a Siemens PLC to Arduino over Ethernet to drive several 7-segment displays.",
