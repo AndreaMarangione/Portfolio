@@ -4,6 +4,9 @@ export const VIEW_TRANSITION_MS = 0;
 export const AUTOROTATE_SPEED = 3;
 export const RING_MAX_RADIUS = 4;
 export const RING_PROPAGATION_SPEED = 1.6;
+export const VIEW_LAT = 30;
+export const VIEW_LNG = 12;
+export const VIEW_ALTITUDE = 1.7;
 
 export const Globe3D = dynamic(
     () => import("react-globe.gl"),
