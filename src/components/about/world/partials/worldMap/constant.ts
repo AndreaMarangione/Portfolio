@@ -1,10 +1,4 @@
-export type WorldCity = {
-    name: string;
-    x: number;
-    y: number;
-    labelX: number;
-    labelY: number;
-};
+import {WorldCity} from "@/components/about/world/partials/worldMap/type";
 
 export const PULSE_MIN_RADIUS = 5;
 export const PULSE_MAX_RADIUS = 34;

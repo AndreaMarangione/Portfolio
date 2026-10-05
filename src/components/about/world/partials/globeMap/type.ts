@@ -7,3 +7,12 @@ export type GlobeSetupRotationAnimationProps = {
 export type GlobeSetupViewProps = {
     globe: GlobeMethods;
 };
+
+export type GlobeCity = {
+    lat: number;
+    lng: number;
+    labelLat: number;
+    labelLng: number;
+    name: string;
+    ringPeriod: number;
+};
