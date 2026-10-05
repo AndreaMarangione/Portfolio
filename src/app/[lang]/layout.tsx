@@ -52,7 +52,7 @@ const RootLayout = async ({children, params}: LayoutProps<"/[lang]">) => {
     return (
         <html
             lang={lang}
-            className={`dark ubuntu ${poppins.variable} h-full antialiased`}
+            className={`ubuntu ${poppins.variable} h-full antialiased`}
         >
         <body className="min-h-full flex flex-col">
         <DictionaryProvider dict={dict} lang={lang}>
