@@ -10,7 +10,7 @@ const LanguageSwitch = ({hash = ""}: { hash?: string }) => {
     return (
         <nav
             aria-label={dict.languageSwitch.label}
-            className="flex h-9 items-center gap-0.5 rounded-md border border-border bg-muted/40 p-[3px]"
+            className="flex h-9 items-center gap-0.5 rounded-md border border-border bg-muted/40 p-0.75"
         >
             {locales.map((l) => (
                 <Link

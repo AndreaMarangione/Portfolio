@@ -8,8 +8,8 @@ import Terminal from "@/components/skills/partials/terminal/Terminal";
 const skills = () => {
     return (
         <div className="flex w-full animate-fade-up flex-col items-center gap-y-8 md:gap-y-10 md:pt-5
-    min-[1025px]:flex-1 min-[1025px]:flex-row min-[1025px]:flex-wrap
-    min-[1025px]:items-stretch min-[1025px]:content-evenly min-[1025px]:gap-x-6"
+            min-[1025px]:flex-1 min-[1025px]:flex-row min-[1025px]:flex-wrap
+            min-[1025px]:items-stretch min-[1025px]:content-evenly min-[1025px]:gap-x-6"
         >
             <AutomationChips/>
             <Hmi/>

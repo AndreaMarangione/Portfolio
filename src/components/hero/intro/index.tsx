@@ -18,17 +18,17 @@ const Intro = () => {
                     {dict.hero.name}
                 </p>
             </div>
-            <h1 className="mb-7 text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-[1.18] max-w-[650px]">
-                    <span className="block overflow-hidden">
-                        <span className={`block ${isLoaded ? "animate-fade-up" : ""}`}>
-                            {dict.hero.titleLine1}
-                        </span>
-                    </span>
+            <h1 className="mb-7 text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-[1.18] max-w-162.5">
                 <span className="block overflow-hidden">
-                        <span className={`block ${isLoaded ? "animate-fade-up animate-fade-up-delay-motto" : ""}`}>
-                            {dict.hero.titleLine2}
-                        </span>
+                    <span className={`block ${isLoaded ? "animate-fade-up" : ""}`}>
+                            {dict.hero.titleLine1}
                     </span>
+                </span>
+                <span className="block overflow-hidden">
+                    <span className={`block ${isLoaded ? "animate-fade-up animate-fade-up-delay-motto" : ""}`}>
+                            {dict.hero.titleLine2}
+                    </span>
+                </span>
             </h1>
             <p className={`text-muted-foreground max-w-md leading-relaxed 
                 ${isLoaded ? "animate-fade-up animate-fade-up-delay-description" : ""}`}

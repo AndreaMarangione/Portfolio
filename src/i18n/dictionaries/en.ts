@@ -189,8 +189,8 @@ const en = {
             {kind: "blank"},
             {kind: "link", text: "elettromar.com", href: "https://www.elettromar.it/en"},
             {kind: "blank"},
-            {kind: "text", text: "Don't hesitate to get in touch — let's run a"},
-            {kind: "text", text: "feasibility study together."},
+            {kind: "text", text: "Don't hesitate to get in touch —"},
+            {kind: "text", text: "let's carry out a feasibility study together."},
         ] as TextEditorLineType[],
 
         reachMe: {

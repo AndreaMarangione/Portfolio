@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import {GlobeCity} from "@/components/about/world/partials/globeMap/type";
 
 export const VIEW_TRANSITION_MS = 0;
 export const AUTOROTATE_SPEED = 3;
@@ -14,15 +15,6 @@ export const Globe3D = dynamic(
         ssr: false,
     }
 );
-
-export type GlobeCity = {
-    lat: number;
-    lng: number;
-    labelLat: number;
-    labelLng: number;
-    name: string;
-    ringPeriod: number;
-};
 
 export const cities: GlobeCity[] = [
     {

@@ -6,7 +6,7 @@ const TextEditorWindowControl = (
     <button
         type="button"
         aria-label={label}
-        className={`flex h-[26px] w-[26px] items-center justify-center rounded-full bg-white/5 text-foreground/70 transition-colors hover:bg-white/10 ${
+        className={`flex h-6.5 w-6.5 items-center justify-center rounded-full bg-white/5 text-foreground/70 transition-colors hover:bg-white/10 ${
             close ? "hover:bg-primary hover:text-white" : ""
         }`}
     >

@@ -10,13 +10,13 @@ const Terminal = () => {
 
     return (
         <div
-            className="flex w-full min-w-0 max-w-[880px] flex-col overflow-hidden rounded-xl border
+            className="flex w-full min-w-0 max-w-220 flex-col overflow-hidden rounded-xl border
             border-border bg-background min-[1025px]:max-w-none min-[1025px]:flex-1 min-[1025px]:order-3"
             style={{boxShadow: "0 28px 60px -28px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.04)"}}
         >
             <div
-                className="flex h-[46px] shrink-0 items-center justify-between gap-2 border-b border-black/30 bg-card px-2.5">
-                <span className="hidden w-[90px] md:block"/>
+                className="flex h-11.5 shrink-0 items-center justify-between gap-2 border-b border-black/30 bg-card px-2.5">
+                <span className="hidden w-22.5 md:block"/>
                 <span
                     className="flex-1 text-left font-mono text-[13px] text-foreground/80 md:text-center">
                     andrea@portfolio: ~/web
@@ -43,13 +43,13 @@ const Terminal = () => {
                 </div>
             </div>
 
-            <div className="flex-1 bg-[#300a24] px-[18px] py-4 font-mono text-[13.5px] leading-[1.75]">
-                <div className="whitespace-pre-wrap break-words text-foreground/85">
+            <div className="flex-1 bg-[#300a24] px-4.5 py-4 font-mono text-[13.5px] leading-[1.75]">
+                <div className="whitespace-pre-wrap wrap-break-word text-foreground/85">
                     <TerminalPrompt/><span className="text-foreground/95">cat package.json</span>
                 </div>
-                <div className="whitespace-pre-wrap break-words text-[#6f6f6f]">{"{"}</div>
+                <div className="whitespace-pre-wrap wrap-break-word text-[#6f6f6f]">{"{"}</div>
                 {terminalData.map((m) => (
-                    <div key={m.key} className="whitespace-pre-wrap break-words">
+                    <div key={m.key} className="whitespace-pre-wrap wrap-break-word">
                         {"  "}
                         <span className="text-primary">{`"${m.key}"`}</span>
                         <span className="text-[#6f6f6f]">{": "}</span>
@@ -58,7 +58,7 @@ const Terminal = () => {
                     </div>
                 ))}
                 {terminalSkills.map((g, gi) => (
-                    <div key={g.key} className="whitespace-pre-wrap break-words">
+                    <div key={g.key} className="whitespace-pre-wrap wrap-break-word">
                         {"  "}
                         <span className="text-primary">{`"${g.key}"`}</span>
                         <span className="text-[#6f6f6f]">{": ["}</span>
@@ -71,8 +71,8 @@ const Terminal = () => {
                         <span className="text-[#6f6f6f]">{gi < terminalSkills.length - 1 ? "]," : "]"}</span>
                     </div>
                 ))}
-                <div className="whitespace-pre-wrap break-words text-[#6f6f6f]">{"}"}</div>
-                <div className="whitespace-pre-wrap break-words text-foreground/85">
+                <div className="whitespace-pre-wrap wrap-break-word text-[#6f6f6f]">{"}"}</div>
+                <div className="whitespace-pre-wrap wrap-break-word text-foreground/85">
                     <TerminalPrompt/>
                     <span
                         className="ml-0.5 inline-block h-[1.05em] w-2 align-[-2px] bg-primary animate-[blink_1.1s_step-end_infinite]"/>

@@ -18,7 +18,7 @@ const MenuToggle = ({open, onClick}: MenuToggleProps) => {
                     : "hover:border-[#4a4a4a] hover:text-primary"
             }`}
         >
-            <span className="relative block h-3.5 w-[18px]">
+            <span className="relative block h-3.5 w-4.5">
                 <span
                     className={`absolute left-0 h-0.5 w-full rounded-full bg-current transition-all duration-300 ease-[cubic-bezier(.6,.1,.3,1)] ${
                         open ? "top-1.5 rotate-45" : "top-0"

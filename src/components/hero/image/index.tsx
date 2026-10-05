@@ -14,7 +14,7 @@ const HeroImage = () => {
     return (
         <div
             className={`relative z-0 w-full md:mt-14
-            [--fig-h:min(calc((100vw_-_3rem)*228/328),270px)]
+            [--fig-h:min(calc((100vw-3rem)*228/328),270px)]
             sm:[--fig-h:300px] md:[--fig-h:360px]
             lg:[--fig-h:440px] xl:[--fig-h:500px]
             [--pid-s:0.68] lg:[--pid-s:0.75] xl:[--pid-s:0.84] 2xl:[--pid-s:1]
@@ -23,7 +23,7 @@ const HeroImage = () => {
         >
             <div
                 className="pointer-events-none absolute bottom-0
-                left-[calc(50%_-_var(--fig-h)*505/228)]
+                left-[calc(50%-var(--fig-h)*505/228)]
                 h-[calc(var(--fig-h)*280/228)] w-[calc(var(--fig-h)*680/228)]"
             >
                 <svg
@@ -89,7 +89,7 @@ const HeroImage = () => {
                 unoptimized
                 className="absolute left-1/2 -translate-x-1/2
                 bottom-[calc(var(--fig-h)*44/228)]
-                h-[var(--fig-h)] w-auto select-none"
+                h-(--fig-h) w-auto select-none"
             />
         </div>
     )

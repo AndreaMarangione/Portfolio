@@ -3,7 +3,6 @@
 import {useEffect, useRef, useState} from "react";
 import {
     cities,
-    type GlobeCity,
     Globe3D,
     RING_MAX_RADIUS,
     RING_PROPAGATION_SPEED,
@@ -13,6 +12,7 @@ import type {GlobeMethods} from "react-globe.gl";
 import globeSetupRotationAnimation from "@/utils/globeSetupRotationAnimation";
 import globeSetupView from "@/utils/globeSetupView";
 import globeSetupInteraction from "@/utils/globeSetupInteraction";
+import {GlobeCity} from "@/components/about/world/partials/globeMap/type";
 
 const GlobeMap = () => {
     const globeRef = useRef<GlobeMethods | undefined>(undefined);

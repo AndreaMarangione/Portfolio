@@ -14,6 +14,7 @@ const World = () => {
 
     useEffect(() => {
         const el = holderRef.current;
+
         if (!el) return;
 
         const observer = new IntersectionObserver(
@@ -42,7 +43,7 @@ const World = () => {
             </div>
 
             <div className="hidden md:block">
-                <div className="mx-auto aspect-[2000/857] w-full max-w-5xl">
+                <div className="mx-auto aspect-2000/857 w-full max-w-5xl">
                     {!isMobile && isLoaded && (
                         <div className="animate-in fade-in duration-700">
                             <WorldMap/>
