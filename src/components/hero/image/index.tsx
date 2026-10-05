@@ -84,8 +84,6 @@ const HeroImage = () => {
             <Image
                 src={heroImage}
                 alt={dict.hero.imageAlt}
-                // width={719}
-                // height={1600}
                 priority
                 unoptimized
                 className="absolute left-1/2 -translate-x-1/2
