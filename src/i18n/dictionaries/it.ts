@@ -177,20 +177,21 @@ const it: Dictionary = {
         lines: [
             {kind: "heading", text: "Parliamone"},
             {kind: "blank"},
-            {kind: "quote", text: "Tutto è automatizzabile, trova la giusta soluzione."},
+            {kind: "quote", text: "Automatizza tutto, trova la giusta soluzione."},
             {kind: "blank"},
-            {kind: "text", text: "Qualsiasi processo può essere automatizzato. La parte"},
-            {kind: "text", text: "difficile non è mai la macchina — è trovare la"},
-            {kind: "text", text: "soluzione adatta all'impianto, al prodotto e alle persone."},
+            {
+                kind: "text",
+                text: "Qualsiasi processo può essere automatizzato. La parte difficile non è mai la macchina — è trovare la soluzione adatta all'impianto, al prodotto e alle persone.",
+            },
             {kind: "blank"},
-            {kind: "text", text: "Un banco prova, una linea completa o il software che"},
-            {kind: "text", text: "li tiene insieme: in Elettromar saremo felici di"},
-            {kind: "text", text: "realizzarlo con te."},
+            {
+                kind: "text",
+                text: "Un banco prova, una linea completa o il software che li tiene insieme: in Elettromar saremo felici di realizzarlo con te.",
+            },
             {kind: "blank"},
             {kind: "link", text: "elettromar.com", href: "https://www.elettromar.it/it"},
             {kind: "blank"},
-            {kind: "text", text: "Non esitare a contattarmi — facciamo insieme uno"},
-            {kind: "text", text: "studio di fattibilità."},
+            {kind: "text", text: "Non esitare a contattarmi — facciamo insieme uno studio di fattibilità."},
         ] as TextEditorLineType[],
 
         reachMe: {

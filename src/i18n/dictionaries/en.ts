@@ -179,18 +179,19 @@ const en = {
             {kind: "blank"},
             {kind: "quote", text: "Automate anything, find the right solution."},
             {kind: "blank"},
-            {kind: "text", text: "Any process can be automated. The hard part is"},
-            {kind: "text", text: "never the machine — it's finding the solution"},
-            {kind: "text", text: "that fits the plant, the product and the people."},
+            {
+                kind: "text",
+                text: "Any process can be automated. The hard part is never the machine — it's finding the solution that fits the plant, the product and the people.",
+            },
             {kind: "blank"},
-            {kind: "text", text: "A test bench, a full line, or the software that"},
-            {kind: "text", text: "ties it together: at Elettromar we'd be glad to"},
-            {kind: "text", text: "build it with you."},
+            {
+                kind: "text",
+                text: "A test bench, a full line, or the software that ties it together: at Elettromar we'd be glad to build it with you.",
+            },
             {kind: "blank"},
             {kind: "link", text: "elettromar.com", href: "https://www.elettromar.it/en"},
             {kind: "blank"},
-            {kind: "text", text: "Don't hesitate to get in touch —"},
-            {kind: "text", text: "let's carry out a feasibility study together."},
+            {kind: "text", text: "Don't hesitate to get in touch — let's carry out a feasibility study together."},
         ] as TextEditorLineType[],
 
         reachMe: {
