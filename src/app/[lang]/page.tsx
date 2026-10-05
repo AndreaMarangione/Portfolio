@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <div className="pt-16">
             <section id="home"
-                     className="pt-7 md:pt-8 lg:pt-9 xl:pt-10 min-h-[calc(100vh_-_4rem)] scroll-mt-16 overflow-x-clip">
+                     className="pt-7 md:pt-8 lg:pt-9 xl:pt-10 min-h-[calc(100vh-4rem)] scroll-mt-16 overflow-x-clip">
                 <Hero/>
             </section>
 
@@ -18,7 +18,7 @@ export default function Home() {
 
             <section id="skills"
                      className="min-h-screen mt-10 pt-3 scroll-mt-16 min-[1025px]:flex
-                     min-[1025px]:min-h-[calc(100vh_-_4rem)] min-[1025px]:flex-col"
+                     min-[1025px]:min-h-[calc(100vh-4rem)] min-[1025px]:flex-col"
             >
                 <SkillsSection/>
             </section>
@@ -28,7 +28,7 @@ export default function Home() {
             </section>
 
             <section id="contact"
-                     className="min-h-[calc(100vh_-_4rem)] mt-10 pt-3 scroll-mt-16 max-[820px]:pb-10 min-[820px]:flex min-[820px]:flex-col"
+                     className="min-h-[calc(100vh-4rem)] mt-10 pt-3 scroll-mt-16 max-[820px]:pb-10 min-[820px]:flex min-[820px]:flex-col"
             >
                 <ContactsSection/>
             </section>

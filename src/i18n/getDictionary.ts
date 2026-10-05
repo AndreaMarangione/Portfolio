@@ -1,5 +1,5 @@
-import type {Locale} from "@/i18n/config";
 import type {Dictionary} from "@/i18n/dictionaries/en";
+import {Locale} from "@/i18n/type";
 
 const dictionaries = {
     en: () => import("@/i18n/dictionaries/en").then((m) => m.default),

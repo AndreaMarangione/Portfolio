@@ -3,9 +3,10 @@ import Navbar from "@/components/layout/navbar/Navbar";
 import {poppins} from "@/app/constant";
 import type {Metadata} from "next";
 import MatrixBg from "@/components/matrixBg/MatrixBg";
-import {locales, SITE_URL, type Locale} from "@/i18n/config";
+import {locales, SITE_URL} from "@/i18n/config";
 import {getDictionary} from "@/i18n/getDictionary";
 import {DictionaryProvider} from "@/i18n/DictionaryProvider";
+import {Locale} from "@/i18n/type";
 
 export const generateStaticParams = () => locales.map((lang) => ({lang}));
 export const dynamicParams = false;
