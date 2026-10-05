@@ -12,7 +12,7 @@ const WebChips = () => {
             }}
         >
             <div
-                className="flex w-max animate-[marquee_40s_linear_infinite_reverse] group-hover:[animation-play-state:paused] motion-reduce:animate-none">
+                className="flex w-max animate-[marquee_40s_linear_infinite_reverse] group-hover:paused motion-reduce:animate-none">
                 <ul className="flex shrink-0 items-center gap-3 pr-3">
                     {webSkills.map((s) => <SkillChip key={s} label={s} icon={<WebIcon/>}/>)}
                 </ul>
