@@ -2,19 +2,21 @@ import "../globals.css";
 import Navbar from "@/components/layout/navbar/Navbar";
 import {poppins} from "@/app/constant";
 import type {Metadata} from "next";
+import {redirect} from "next/navigation";
 import MatrixBg from "@/components/matrixBg/MatrixBg";
-import {locales, SITE_URL} from "@/i18n/config";
+import {defaultLocale, hasLocale, locales, SITE_URL} from "@/i18n/config";
 import {getDictionary} from "@/i18n/getDictionary";
 import {DictionaryProvider} from "@/i18n/DictionaryProvider";
-import {Locale} from "@/i18n/type";
 
 export const generateStaticParams = () => locales.map((lang) => ({lang}));
-export const dynamicParams = false;
 
 export const generateMetadata = async (
-    {params}: { params: Promise<{ lang: Locale }> }
+    {params}: { params: Promise<{ lang: string }> }
 ): Promise<Metadata> => {
     const {lang} = await params;
+
+    if (!hasLocale(lang)) redirect(`/${defaultLocale}`);
+
     const dict = await getDictionary(lang);
 
     return {
@@ -40,13 +42,11 @@ export const generateMetadata = async (
     };
 };
 
-const RootLayout = async (
-    {children, params}: Readonly<{
-        children: React.ReactNode;
-        params: Promise<{ lang: Locale }>;
-    }>
-) => {
+const RootLayout = async ({children, params}: LayoutProps<"/[lang]">) => {
     const {lang} = await params;
+
+    if (!hasLocale(lang)) redirect(`/${defaultLocale}`);
+
     const dict = await getDictionary(lang);
 
     return (
