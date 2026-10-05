@@ -6,6 +6,7 @@ import {useDictionary} from "@/i18n/DictionaryProvider"
 import {FLOOR_A, FLOOR_B} from "@/components/hero/constant"
 import PidBenchDekstop from "@/components/hero/image/partials/PidBenchDekstop"
 import PidBenchMobile from "@/components/hero/image/partials/PidBenchMobile";
+import heroImage from "./assets/andrea-hero.webp";
 
 const HeroImage = () => {
     const {isLoaded} = usePageLoad()
@@ -81,10 +82,10 @@ const HeroImage = () => {
             <PidBenchMobile/>
 
             <Image
-                src="/andrea-hero.webp"
+                src={heroImage}
                 alt={dict.hero.imageAlt}
-                width={719}
-                height={1600}
+                // width={719}
+                // height={1600}
                 priority
                 unoptimized
                 className="absolute left-1/2 -translate-x-1/2
