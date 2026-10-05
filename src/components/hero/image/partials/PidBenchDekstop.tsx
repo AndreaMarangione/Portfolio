@@ -25,7 +25,7 @@ const PidBenchDekstop = ({readings}: PidBenchProps) => (
             <path d="M0 146 H66 L72 152 L66 158 H0 Z"/>
             <path d="M72 152 H100"/>
 
-            {/* con PSV-100 */}
+            {/* PSV-100 */}
             <rect x="100" y="126" width="22" height="52" rx="6"/>
             <path d="M111 178 V184"/>
             <path d="M111 126 V118"/>

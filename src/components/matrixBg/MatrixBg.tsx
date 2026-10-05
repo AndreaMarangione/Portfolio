@@ -1,12 +1,7 @@
 "use client";
 
 import {useEffect, useRef} from "react";
-
-const CELL_W = 14;
-const CELL_H = 20;
-const FONT = "12px 'Ubuntu Mono', ui-monospace, monospace";
-const DIGIT_COLOR = "#1E1E1E";
-const GLOW_SIZE = 150;
+import {CELL_H, CELL_W, DIGIT_COLOR, FONT, GLOW_SIZE} from "@/components/matrixBg/constant";
 
 const BitBackground = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);

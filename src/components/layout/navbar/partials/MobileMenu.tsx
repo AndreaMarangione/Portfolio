@@ -32,8 +32,8 @@ const MobileMenu = ({open, activeId, onNavClick, onClose}: MobileMenuProps) => {
                             aria-current={isActive ? "page" : undefined}
                             className={`flex items-center border-l-[3px] px-6 py-3 font-mono transition-colors ${
                                 isActive
-                                    ? "border-primary bg-primary/[0.06] text-primary"
-                                    : "border-transparent text-muted-foreground hover:bg-white/[0.03] hover:text-foreground"
+                                    ? "border-primary bg-primary/6 text-primary"
+                                    : "border-transparent text-muted-foreground hover:bg-white/3 hover:text-foreground"
                             }`}
                         >
                             <span className={`mr-2 text-sm ${isActive ? "text-primary" : "text-white/40"}`}>~/</span>

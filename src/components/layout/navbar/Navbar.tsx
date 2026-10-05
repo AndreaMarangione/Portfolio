@@ -44,7 +44,7 @@ const Navbar = () => {
     return (
         <>
             <header className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur border-b border-border">
-                <div className="mx-auto w-full max-w-[1600px] px-6 lg:px-12 h-16 flex items-center justify-between">
+                <div className="mx-auto w-full max-w-400 px-6 lg:px-12 h-16 flex items-center justify-between">
                     <div className="text-primary font-bold text-2xl">
                         AM
                     </div>
