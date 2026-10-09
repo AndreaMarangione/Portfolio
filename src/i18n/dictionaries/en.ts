@@ -205,6 +205,15 @@ const en = {
     languageSwitch: {
         label: "Change language",
     },
+
+    notFound: {
+        title: "Page not found",
+        network: "Network",
+        lookup: "Page lookup",
+        fault: "Fault handling",
+        recovery: "Recovery",
+        goHome: "Go home",
+    }
 };
 
 export type Dictionary = typeof en;

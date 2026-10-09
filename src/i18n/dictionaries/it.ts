@@ -205,6 +205,15 @@ const it: Dictionary = {
     languageSwitch: {
         label: "Cambia lingua",
     },
+
+    notFound: {
+        title: "Pagina non trovata",
+        network: "Segmento",
+        lookup: "Ricerca pagina",
+        fault: "Gestione errore",
+        recovery: "Ripristino",
+        goHome: "Torna alla home",
+    }
 };
 
 export default it;
