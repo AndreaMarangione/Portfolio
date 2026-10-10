@@ -21,9 +21,11 @@ const PlantCard = ({p}: { p: PlantProject }) => {
             transition-[transform,border-color] duration-300 hover:z-10 hover:scale-[1.02] hover:border-primary/50
             motion-reduce:hover:scale-100">
             <div className="flex items-start justify-between gap-3">
-                <h3 className="text-[20px] font-bold text-foreground">{p.name}</h3>
+                <h3 className="text-[20px] font-bold text-foreground/85">{p.name}</h3>
                 <span
-                    className="flex-none whitespace-nowrap rounded-full border border-primary/50 px-2.5 py-1 font-mono text-[10px] tracking-widest text-primary">
+                    className="flex-none whitespace-nowrap rounded-full border border-primary/50 px-2.5 py-1
+                    font-mono text-[10px] tracking-widest text-primary"
+                >
                     {p.type}
                 </span>
             </div>
@@ -39,7 +41,7 @@ const PlantCard = ({p}: { p: PlantProject }) => {
                     <span className="font-mono text-xs text-muted-foreground">{unit}</span>
                 </div>
             ) : (
-                <div className="mb-5 text-[17px] font-semibold text-foreground">{description}</div>
+                <div className="mb-5 text-[17px] font-semibold text-foreground/85">{description}</div>
             )}
 
             <ProjectProcess label={flowLabel} steps={flow}/>
