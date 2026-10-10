@@ -1,9 +1,5 @@
 import type {ReactNode} from "react";
 
-export type NotFoundProps = {
-    pathname: string;
-};
-
 export type LadderWireProps = {
     on: boolean;
     className?: string;

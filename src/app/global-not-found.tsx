@@ -22,12 +22,12 @@ export const generateMetadata = async (): Promise<Metadata> => {
 };
 
 const GlobalNotFound = async () => {
-    const {lang, pathname} = await resolveRequest();
+    const {lang} = await resolveRequest();
     const dict = await getDictionary(lang);
 
     return (
         <AppShell dict={dict} lang={lang}>
-            <NotFound pathname={pathname}/>
+            <NotFound/>
         </AppShell>
     );
 };

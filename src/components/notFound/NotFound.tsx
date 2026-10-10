@@ -9,9 +9,8 @@ import LadderWire from "@/components/notFound/partials/LadderWire";
 import LadderContact from "@/components/notFound/partials/LadderContact";
 import LadderCoil from "@/components/notFound/partials/LadderCoil";
 import LadderLabels from "@/components/notFound/partials/LadderLabels";
-import {NotFoundProps} from "@/components/notFound/type";
 
-const NotFound = ({pathname}: NotFoundProps) => {
+const NotFound = () => {
     const {dict, lang} = useDictionary();
     const [armed, setArmed] = useState(false);
     const t = dict.notFound;
@@ -40,7 +39,7 @@ const NotFound = ({pathname}: NotFoundProps) => {
                     </div>
 
                     <div className="space-y-6 rounded-xl border border-border bg-card/40 p-4 sm:p-6">
-                        <LadderNetwork label={t.network} index={1} title={t.lookup} comment={pathname}>
+                        <LadderNetwork label={t.network} index={1} title={t.lookup}>
                             <LadderWire on className="w-6 sm:w-16"/>
                             <LadderContact tag="PAGE_FOUND" address="%M0.0" closed={false}/>
                             <LadderWire on={false} className="flex-1"/>
