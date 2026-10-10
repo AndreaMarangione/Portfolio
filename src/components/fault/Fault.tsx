@@ -9,7 +9,7 @@ import LadderCoil from "@/components/notFound/partials/LadderCoil";
 import LadderLabels from "@/components/notFound/partials/LadderLabels";
 import {FaultProps} from "@/components/fault/type";
 
-const BUTTON_CLASS = "cursor-pointer rounded-md border border-primary bg-[#251c17] px-3 py-1.5 font-mono text-xs text-[#f0d3c6] transition-colors hover:bg-primary hover:text-white";
+const BUTTON_CLASS = "cursor-pointer rounded-md border border-primary bg-[#251c17] px-3 py-1.5 font-mono text-xs text-[#f0d3c6] transition-colors hover:bg-primary hover:text-primary-foreground";
 
 const Fault = ({t, lang, onRetry}: FaultProps) => {
     const [retryArmed, setRetryArmed] = useState(false);
@@ -36,7 +36,7 @@ const Fault = ({t, lang, onRetry}: FaultProps) => {
                         </span>
                     </div>
 
-                    <div className="space-y-6 rounded-xl border border-border bg-card/40 p-4 sm:p-6">
+                    <div className="space-y-6 rounded-xl border border-border bg-background/40 p-4 sm:p-6">
                         <LadderNetwork label={t.network} index={1} title={t.runtime}>
                             <LadderWire on className="w-6 sm:w-16"/>
                             <LadderContact tag="RUNTIME_OK" address="%M0.1" closed={false}/>

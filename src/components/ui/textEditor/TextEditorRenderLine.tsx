@@ -7,22 +7,22 @@ const TextEditorRenderLine = (line: TextEditorLineType, isLast: boolean): ReactN
         case "heading":
             return (
                 <span className="text-foreground/80">
-                    <span className="text-primary/55"># </span>
+                    <span className="text-dim"># </span>
                     <span className="text-primary font-bold">{line.text}</span>
                 </span>
             );
         case "bold":
             return (
                 <span className="text-foreground/80">
-                    <span className="text-white/35">**</span>
+                    <span className="text-dim">**</span>
                     <span className="text-foreground font-bold">{line.text}</span>
-                    <span className="text-white/35">**</span>
+                    <span className="text-dim">**</span>
                 </span>
             );
         case "quote":
             return (
                 <span className="block border-l-2 border-primary/55 pl-3 italic text-muted-foreground">
-                    <span className="not-italic text-white/35">&gt; </span>
+                    <span className="not-italic text-dim">&gt; </span>
                     {line.text}
                     {isLast && <Caret/>}
                 </span>

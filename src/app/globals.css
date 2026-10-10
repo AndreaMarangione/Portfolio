@@ -12,6 +12,7 @@
     --color-primary-foreground: var(--primary-foreground);
     --color-muted: var(--muted);
     --color-muted-foreground: var(--muted-foreground);
+    --color-dim: var(--dim);
     --color-border: var(--border);
     --color-ring: var(--ring);
 
@@ -29,9 +30,10 @@
     --foreground: #F5F5F5;
     --card: #262626;
     --primary: #E95420;
-    --primary-foreground: #ffffff;
+    --primary-foreground: #1E1E1E;
     --muted: #2A2A2A;
     --muted-foreground: #B3B3B3;
+    --dim: #999999;
     --border: #3A3A3A;
     --ring: #E95420;
     --radius: 0.625rem;

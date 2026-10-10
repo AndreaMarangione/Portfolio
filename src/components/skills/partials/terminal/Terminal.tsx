@@ -47,31 +47,31 @@ const Terminal = () => {
                 <div className="whitespace-pre-wrap wrap-break-word text-foreground/85">
                     <TerminalPrompt/><span className="text-foreground/95">cat package.json</span>
                 </div>
-                <div className="whitespace-pre-wrap wrap-break-word text-[#8a8a8a]">{"{"}</div>
+                <div className="whitespace-pre-wrap wrap-break-word text-dim">{"{"}</div>
                 {terminalData.map((m) => (
                     <div key={m.key} className="whitespace-pre-wrap wrap-break-word">
                         {"  "}
                         <span className="text-primary">{`"${m.key}"`}</span>
-                        <span className="text-[#8a8a8a]">{": "}</span>
+                        <span className="text-dim">{": "}</span>
                         <span className="text-[#a5cf7e]">{`"${m.value}"`}</span>
-                        <span className="text-[#8a8a8a]">,</span>
+                        <span className="text-dim">,</span>
                     </div>
                 ))}
                 {terminalSkills.map((g, gi) => (
                     <div key={g.key} className="whitespace-pre-wrap wrap-break-word">
                         {"  "}
                         <span className="text-primary">{`"${g.key}"`}</span>
-                        <span className="text-[#8a8a8a]">{": ["}</span>
+                        <span className="text-dim">{": ["}</span>
                         {g.items.map((it, i) => (
                             <Fragment key={it}>
                                 <span className="text-[#a5cf7e]">{`"${it}"`}</span>
-                                {i < g.items.length - 1 && <span className="text-[#8a8a8a]">{", "}</span>}
+                                {i < g.items.length - 1 && <span className="text-dim">{", "}</span>}
                             </Fragment>
                         ))}
-                        <span className="text-[#8a8a8a]">{gi < terminalSkills.length - 1 ? "]," : "]"}</span>
+                        <span className="text-dim">{gi < terminalSkills.length - 1 ? "]," : "]"}</span>
                     </div>
                 ))}
-                <div className="whitespace-pre-wrap wrap-break-word text-[#8a8a8a]">{"}"}</div>
+                <div className="whitespace-pre-wrap wrap-break-word text-dim">{"}"}</div>
                 <div className="whitespace-pre-wrap wrap-break-word text-foreground/85">
                     <TerminalPrompt/>
                     <span

@@ -11,9 +11,9 @@ const SectionDivider = ({dir}: SectionDividerProps) => {
         <div className="mb-10 md:mb-5">
             <h2 className="mt-1 font-mono text-sm">
                 <span className="text-[#33d17a]">andrea@portfolio</span>
-                <span className="text-white/40">:</span>
+                <span className="text-dim">:</span>
                 <span className="text-[#5fa8e0]">~</span>
-                <span className="text-white/40">$</span>{" "}
+                <span className="text-dim">$</span>{" "}
                 <span className="text-foreground/75">cd</span>{" "}
                 <span className="text-primary">~/{label}</span>
                 <span

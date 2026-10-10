@@ -31,7 +31,7 @@ const PlantCard = ({p}: { p: PlantProject }) => {
             <div className="mb-3.5 mt-0.5 font-mono text-[12.5px] text-muted-foreground">
                 <span className="text-primary">◆</span> {p.site}
             </div>
-            <div className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-white/55">{product}</div>
+            <div className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-dim">{product}</div>
 
             {p.capacity ? (
                 <div className="mb-5 flex items-baseline gap-2">
