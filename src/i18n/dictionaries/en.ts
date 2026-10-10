@@ -3,7 +3,7 @@ import {SkillModule} from "@/components/skills/type";
 
 const en = {
     meta: {
-        title: "Andrea Marangione — Industrial Automation Software Developer",
+        title: "Andrea Marangione - Industrial Automation Software Developer",
         description:
             "Industrial automation software developer. PLC programming, plant design and on-site commissioning worldwide, plus full-stack web development.",
     },

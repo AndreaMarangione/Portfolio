@@ -3,9 +3,9 @@ import type {TextEditorLineType} from "@/components/ui/textEditor/type";
 
 const it: Dictionary = {
     meta: {
-        title: "Andrea Marangione — Programmatore Software di Automazione Industriale",
+        title: "Andrea Marangione - Sviluppatore Software per Automazione Industriale",
         description:
-            "Programmatore software di automazione industriale. Programmazione PLC, progettazione impianti e messa in servizio in tutto il mondo, oltre allo sviluppo web full-stack.",
+            "Sviluppatore software di automazione industriale. Programmazione PLC, progettazione impianti e messa in servizio in tutto il mondo, oltre allo sviluppo web full-stack.",
     },
 
     nav: {
