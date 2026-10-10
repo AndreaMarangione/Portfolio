@@ -2,12 +2,11 @@
 
 import usePageLoad from "@/hooks/usePageLoad";
 import {useDictionary} from "@/i18n/DictionaryProvider";
-import {CAREER_START_YEAR} from "@/components/hero/constant";
+import {IntroProps} from "@/components/hero/type";
 
-const Intro = () => {
+const Intro = ({experienceYears}: IntroProps) => {
     const {isLoaded} = usePageLoad()
     const {dict} = useDictionary()
-    const experienceYears: number = new Date().getFullYear() - CAREER_START_YEAR;
 
     return (
         <div className="relative z-10 self-start">

@@ -24,3 +24,5 @@ export type PidBenchEquipment = {
 }
 
 export type PidBenchProps = { readings: Record<PidReadingKey, string> }
+
+export type IntroProps = { experienceYears: number }

@@ -70,7 +70,8 @@ export const myProjects: Project[] = [
         description:
             "Business management app for employees and customer activities.",
         stackLabel: "Stack",
-        stack: ["Node.js", "Express", "PostgreSQL", "AWS", "React", "Bootstrap", "Redux"]
+        stack: ["Node.js", "Express", "PostgreSQL", "AWS", "React", "Bootstrap", "Redux"],
+        githubUrl: "https://github.com/AndreaMarangione/emplhub"
     },
     {
         kind: "web",
@@ -79,7 +80,8 @@ export const myProjects: Project[] = [
         description:
             "Exports the Teams chats you choose into clean, self-contained HTML files for archiving and sharing.",
         stackLabel: "Stack",
-        stack: ["Python"]
+        stack: ["Python"],
+        githubUrl: "https://github.com/AndreaMarangione/teams-chat-exporter"
     },
     {
         kind: "web",
@@ -88,15 +90,17 @@ export const myProjects: Project[] = [
         description:
             "Bridges a Siemens PLC to Arduino over Ethernet to drive several 7-segment displays.",
         stackLabel: "Stack",
-        stack: ["Structured text", "C++"]
+        stack: ["Structured text", "C++"],
+        githubUrl: "https://github.com/AndreaMarangione/plc-siemens-arduino-display"
     },
     {
         kind: "web",
-        name: "My portfolio",
+        name: "Portfolio",
         type: "PORTFOLIO",
         description:
             "The site you’re looking at — an Ubuntu-themed portfolio.",
         stackLabel: "Stack",
-        stack: ["Next.js", "TypeScript", "Tailwind", "Shadcn"]
+        stack: ["Next.js", "TypeScript", "Tailwind"],
+        githubUrl: "https://github.com/AndreaMarangione/Portfolio"
     }
 ];

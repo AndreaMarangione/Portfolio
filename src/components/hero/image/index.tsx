@@ -84,7 +84,7 @@ const HeroImage = () => {
             <Image
                 src={heroImage}
                 alt={dict.hero.imageAlt}
-                priority
+                preload
                 unoptimized
                 className="absolute left-1/2 -translate-x-1/2
                 bottom-[calc(var(--fig-h)*44/228)]

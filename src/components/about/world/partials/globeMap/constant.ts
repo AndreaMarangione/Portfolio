@@ -78,7 +78,7 @@ export const cities: GlobeCity[] = [
         lng: -0.8891,
         labelLat: 41.6488,
         labelLng: -0.8891,
-        name: "Zaragozza",
+        name: "Zaragoza",
         ringPeriod: 3670,
     },
     {

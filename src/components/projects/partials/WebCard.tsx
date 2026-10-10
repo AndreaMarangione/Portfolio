@@ -27,13 +27,17 @@ const WebCard = ({p}: { p: WebProject }) => {
 
             <ProjectProcess label={stackLabel} steps={p.stack} arrows={false}/>
 
-            <button
-                type="button"
-                className="mt-4 flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-lg border border-primary/50 bg-primary/8 p-2.5 text-[13.5px] font-medium text-[#f0b49c] transition-colors hover:border-primary/70 hover:bg-primary/15 hover:text-white"
-            >
-                <GithubIcon/>
-                {dict.projects.viewOnGithub}
-            </button>
+            {p.githubUrl && (
+                <a
+                    href={p.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-lg border border-primary/50 bg-primary/8 p-2.5 text-[13.5px] font-medium text-[#f0b49c] transition-colors hover:border-primary/70 hover:bg-primary/15 hover:text-white"
+                >
+                    <GithubIcon/>
+                    {dict.projects.viewOnGithub}
+                </a>
+            )}
         </div>
     );
 };

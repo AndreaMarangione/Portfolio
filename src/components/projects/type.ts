@@ -17,6 +17,7 @@ export type WebProject = {
     description: string;
     stackLabel: string;
     stack: string[];
+    githubUrl?: string;
 };
 
 export type Project = PlantProject | WebProject;

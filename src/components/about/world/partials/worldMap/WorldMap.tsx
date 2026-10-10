@@ -1,17 +1,22 @@
+"use client";
+
 import {
     cities,
     PULSE_DURATION_S, PULSE_MAX_RADIUS,
     PULSE_MIN_RADIUS,
     PULSE_STAGGER_S
 } from "@/components/about/world/partials/worldMap/constant";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const WorldMap = () => {
+    const {dict} = useDictionary();
+
     return (
         <div className="w-full max-w-5xl mx-auto">
             <svg
                 className="w-full h-auto"
                 role="img"
-                aria-label="Map of the places where i have worked"
+                aria-label={dict.about.mapLabel}
                 preserveAspectRatio="xMidYMid meet"
                 baseProfile="tiny"
                 fill="#3A3A3A"

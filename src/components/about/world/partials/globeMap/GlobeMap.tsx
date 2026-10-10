@@ -13,8 +13,10 @@ import globeSetupRotationAnimation from "@/utils/globeSetupRotationAnimation";
 import globeSetupView from "@/utils/globeSetupView";
 import globeSetupInteraction from "@/utils/globeSetupInteraction";
 import {GlobeCity} from "@/components/about/world/partials/globeMap/type";
+import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const GlobeMap = () => {
+    const {dict} = useDictionary();
     const globeRef = useRef<GlobeMethods | undefined>(undefined);
     const containerRef = useRef<HTMLDivElement>(null);
     const [ready, setReady] = useState(false);
@@ -65,7 +67,12 @@ const GlobeMap = () => {
 
     return (
         <div className="flex w-full justify-center">
-            <div ref={containerRef} className={ready ? undefined : "pointer-events-none"}>
+            <div
+                ref={containerRef}
+                role="img"
+                aria-label={dict.about.mapLabel}
+                className={ready ? undefined : "pointer-events-none"}
+            >
                 <Globe3D
                     ref={globeRef}
                     width={320}

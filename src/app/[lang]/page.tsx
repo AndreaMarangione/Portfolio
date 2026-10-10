@@ -4,6 +4,8 @@ import SkillsSection from "@/components/sections/SkillsSection";
 import ProjectsSection from "@/components/sections/Projects";
 import ContactsSection from "@/components/sections/Contact";
 
+export const revalidate = 86400;
+
 export default function Home() {
     return (
         <div className="pt-16">
