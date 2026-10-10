@@ -14,6 +14,7 @@ import globeSetupView from "@/utils/globeSetupView";
 import globeSetupInteraction from "@/utils/globeSetupInteraction";
 import {GlobeCity} from "@/components/about/world/partials/globeMap/type";
 import {useDictionary} from "@/i18n/DictionaryProvider";
+import earthDark from "@/components/about/world/partials/globeMap/assets/earth-dark.jpg";
 
 const GlobeMap = () => {
     const {dict} = useDictionary();
@@ -77,7 +78,7 @@ const GlobeMap = () => {
                     ref={globeRef}
                     width={320}
                     height={320}
-                    globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
+                    globeImageUrl={earthDark.src}
                     backgroundColor="rgba(0,0,0,0)"
                     atmosphereColor="#E95420"
                     atmosphereAltitude={0.09}
