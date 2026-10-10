@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import {Viewport} from "next";
 
 export const poppins = localFont({
     src: [
@@ -10,3 +11,8 @@ export const poppins = localFont({
     variable: "--font-poppins",
     display: "swap",
 });
+
+export const VIEWPORT: Viewport = {
+    themeColor: "#1E1E1E",
+    colorScheme: "dark",
+};

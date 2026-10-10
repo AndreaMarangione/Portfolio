@@ -21,7 +21,7 @@ const PlantCard = ({p}: { p: PlantProject }) => {
             transition-[transform,border-color] duration-300 hover:z-10 hover:scale-[1.02] hover:border-primary/50
             motion-reduce:hover:scale-100">
             <div className="flex items-start justify-between gap-3">
-                <span className="text-[20px] font-bold text-foreground">{p.name}</span>
+                <h3 className="text-[20px] font-bold text-foreground">{p.name}</h3>
                 <span
                     className="flex-none whitespace-nowrap rounded-full border border-primary/50 px-2.5 py-1 font-mono text-[10px] tracking-widest text-primary">
                     {p.type}

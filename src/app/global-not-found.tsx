@@ -6,6 +6,9 @@ import NotFound from "@/components/notFound/NotFound";
 import {defaultLocale, hasLocale, PATHNAME_HEADER} from "@/i18n/config";
 import {getDictionary} from "@/i18n/getDictionary";
 import {Locale} from "@/i18n/type";
+import {VIEWPORT} from "@/app/constant";
+
+export const viewport = VIEWPORT;
 
 const resolveRequest = async (): Promise<{ lang: Locale; pathname: string }> => {
     const pathname: string = (await headers()).get(PATHNAME_HEADER) ?? "";
