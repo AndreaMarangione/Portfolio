@@ -2,8 +2,9 @@ import LadderLabels from "@/components/notFound/partials/LadderLabels";
 import {LADDER_OFF, LADDER_ON} from "@/components/notFound/constant";
 import {LadderCoilProps} from "@/components/notFound/type";
 
-const LadderCoil = ({tag, address, on, set = false, highlight = false}: LadderCoilProps) => {
+const LadderCoil = ({tag, address, on, set = false, reset = false, highlight = false}: LadderCoilProps) => {
     const color: string = on ? LADDER_ON : LADDER_OFF;
+    const letter: string = set ? "S" : reset ? "R" : "";
 
     return (
         <LadderLabels tag={tag} address={address} highlight={highlight}>
@@ -19,8 +20,8 @@ const LadderCoil = ({tag, address, on, set = false, highlight = false}: LadderCo
             >
                 <path d="M0 11 H6 M22 11 H28"/>
                 <path d="M9 2 Q3 11 9 20 M19 2 Q25 11 19 20"/>
-                {set && (
-                    <text x="14" y="15" textAnchor="middle" fontSize="10" fill={color} stroke="none">S</text>
+                {letter && (
+                    <text x="14" y="15" textAnchor="middle" fontSize="10" fill={color} stroke="none">{letter}</text>
                 )}
             </svg>
         </LadderLabels>

@@ -4,7 +4,9 @@ import {useEffect, useRef, useState} from "react";
 import useIsMobile from "@/hooks/useIsMobile";
 import usePageLoad from "@/hooks/usePageLoad";
 import GlobeMap from "@/components/about/world/partials/globeMap/GlobeMap";
-import WorldMap from "@/components/about/world/partials/worldMap/WorldMap";
+import dynamic from "next/dynamic";
+
+const WorldMap = dynamic(() => import("@/components/about/world/partials/worldMap/WorldMap"));
 
 const World = () => {
     const isMobile: boolean = useIsMobile();
