@@ -6,6 +6,7 @@ const en = {
         title: "Andrea Marangione - Industrial Automation Software Developer",
         description:
             "Industrial automation software developer. PLC programming, plant design and on-site commissioning worldwide, plus full-stack web development.",
+        role: "Industrial Automation Software Developer"
     },
 
     nav: {

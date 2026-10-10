@@ -40,6 +40,9 @@ export const generateMetadata = async (
             locale: lang === "it" ? "it_IT" : "en_US",
             type: "website",
         },
+        twitter: {
+            card: "summary_large_image",
+        },
     };
 };
 

@@ -6,6 +6,7 @@ const it: Dictionary = {
         title: "Andrea Marangione - Sviluppatore Software per Automazione Industriale",
         description:
             "Sviluppatore software di automazione industriale. Programmazione PLC, progettazione impianti e messa in servizio in tutto il mondo, oltre allo sviluppo web full-stack.",
+        role: "Sviluppatore Software per Automazione Industriale"
     },
 
     nav: {
