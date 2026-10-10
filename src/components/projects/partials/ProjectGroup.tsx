@@ -12,17 +12,16 @@ const ProjectGroup = ({projects}: { projects: Project[] }) => {
     const {dict} = useDictionary();
     const hiddenCount: number = projects.length - PROJECTS_VISIBLE;
     const hasMore: boolean = hiddenCount > 0;
-    const shown: Project[] = expanded ? projects : projects.slice(0, PROJECTS_VISIBLE);
     const moreLabel: string = dict.projects.showMore.replace("{count}", String(hiddenCount));
 
     return (
         <div>
             <div className="grid grid-cols-1 gap-4.5 sm:grid-cols-[repeat(auto-fit,minmax(330px,1fr))]">
-                {shown.map((p) =>
-                    p.kind === "plant"
-                        ? <PlantCard key={p.name} p={p}/>
-                        : <WebCard key={p.name} p={p}/>
-                )}
+                {projects.map((p, i) => (
+                    <div key={p.name} className={expanded || i < PROJECTS_VISIBLE ? "contents" : "hidden"}>
+                        {p.kind === "plant" ? <PlantCard p={p}/> : <WebCard p={p}/>}
+                    </div>
+                ))}
             </div>
 
             {hasMore && (
