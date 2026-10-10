@@ -3,7 +3,7 @@ import {ProjectProcessProps} from "@/components/projects/type";
 
 const ProjectProcess = ({label, steps, arrows = true}: ProjectProcessProps) => (
     <div className="mt-auto border-t border-[#333] pt-4">
-        <div className="mb-2.5 font-mono text-[9.5px] uppercase tracking-[0.14em] text-white/40">{label}</div>
+        <div className="mb-2.5 font-mono text-[9.5px] uppercase tracking-[0.14em] text-white/55">{label}</div>
         <div className="flex flex-wrap items-center gap-1.75 font-mono text-[11.5px]">
             {steps.map((step, i) => (
                 <Fragment key={i}>

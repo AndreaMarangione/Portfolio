@@ -38,7 +38,7 @@ const Hmi = () => {
                 style={{boxShadow: "inset 0 0 0 1px rgba(233,84,32,0.06), inset 0 1px 0 rgba(255,255,255,0.04)"}}
             >
                 <div
-                    className="flex h-12.5 items-center justify-between gap-3 border-b border-[#333] bg-[#202020] px-4">
+                    className="flex h-12.5 items-center justify-between gap-3 border-b border-[#333] bg-background px-4">
                     <div className="flex min-w-0 items-center gap-2.75">
                         <span
                             className="rounded-[5px] border border-primary px-2 py-0.75 font-mono text-[11px] font-bold tracking-[0.16em] text-primary">
@@ -78,7 +78,7 @@ const Hmi = () => {
                             <span><span className="text-foreground/80">RUNNING</span> <span
                                 className="text-muted-foreground">— no active alarms</span></span>
                         </span>
-                    <span className="hidden text-white/40 sm:inline">MODE AUTO · SCAN 8 ms</span>
+                    <span className="hidden text-white/55 sm:inline">MODE AUTO · SCAN 8 ms</span>
                 </div>
 
                 <div
@@ -89,7 +89,7 @@ const Hmi = () => {
                         backgroundSize: "30px 30px",
                     }}
                 >
-                    <p className="mb-3 font-mono text-[10.5px] uppercase tracking-[0.12em] text-white/40">
+                    <p className="mb-3 font-mono text-[10.5px] uppercase tracking-[0.12em] text-white/55">
                         Modules — 3 groups
                     </p>
                     <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
@@ -129,7 +129,7 @@ const Hmi = () => {
                             }`}
                         >
                                 <span
-                                    className={`block font-mono text-[10px] tracking-[0.12em] ${fn.active ? "text-primary" : "text-white/40"}`}>
+                                    className={`block font-mono text-[10px] tracking-[0.12em] ${fn.active ? "text-primary" : "text-white/55"}`}>
                                     {fn.n}
                                 </span>
                             <span
@@ -142,7 +142,7 @@ const Hmi = () => {
             </div>
 
             <div
-                className="flex items-center justify-between px-2 pb-0.5 pt-2.75 font-mono text-[10.5px] tracking-[0.08em] text-white/40">
+                className="flex items-center justify-between px-2 pb-0.5 pt-2.75 font-mono text-[10.5px] tracking-[0.08em] text-white/55">
                 <span className="flex items-center gap-1.75"><HmiLed/>PWR</span>
                 <span>HMI PANEL</span>
             </div>

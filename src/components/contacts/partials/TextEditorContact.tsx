@@ -67,7 +67,7 @@ const TextEditorContact = () => {
             <div className="flex-1 bg-background py-3.5 font-mono text-sm leading-[1.7]">
                 {lines.map((line, index) => (
                     <div key={index} className="flex">
-                        <span className="w-8.5 flex-none select-none pr-4 text-right text-white/30">
+                        <span className="w-8.5 flex-none select-none pr-4 text-right text-white/50">
                             {index + 1}
                         </span>
                         <span className="min-w-0 flex-1 wrap-break-word pr-6">

@@ -39,7 +39,7 @@ const Intro = ({experienceYears}: IntroProps) => {
                     ${isLoaded ? "animate-fade-up animate-fade-up-delay-stats" : ""}`}
             >
                 <div className="py-5 text-center">
-                    <p className="text-primary font-semibold text-xl">
+                    <p className="text-primary font-bold text-xl">
                         {experienceYears}
                     </p>
                     <p className="text-xs sm:text-sm text-muted-foreground">
@@ -47,7 +47,7 @@ const Intro = ({experienceYears}: IntroProps) => {
                     </p>
                 </div>
                 <div className="py-5 text-center border-l border-border">
-                    <p className="text-primary font-semibold text-xl">
+                    <p className="text-primary font-bold text-xl">
                         40+
                     </p>
                     <p className="text-xs sm:text-sm text-muted-foreground">
@@ -55,7 +55,7 @@ const Intro = ({experienceYears}: IntroProps) => {
                     </p>
                 </div>
                 <div className="py-5 text-center border-l border-border">
-                    <p className="text-primary font-semibold text-xl">
+                    <p className="text-primary font-bold text-xl">
                         20+
                     </p>
                     <p className="text-xs sm:text-sm text-muted-foreground">

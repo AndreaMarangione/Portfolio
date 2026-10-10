@@ -68,7 +68,7 @@ const TextEditorAboutMe = () => {
                     {lines.map((line, index) => (
                         <div key={index} className="flex">
                             <span
-                                className="w-8.5 flex-none select-none pr-4 text-right text-white/30"
+                                className="w-8.5 flex-none select-none pr-4 text-right text-white/50"
                             >
                                 {index + 1}
                             </span>

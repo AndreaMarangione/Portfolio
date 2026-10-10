@@ -17,7 +17,7 @@ const PlantCard = ({p}: { p: PlantProject }) => {
 
     return (
         <div
-            className="relative flex flex-col rounded-xl border border-border bg-[#202020] p-5 shadow-[0_20px_44px_-28px_rgba(0,0,0,0.7)]
+            className="relative flex flex-col rounded-xl border border-border bg-background p-5 shadow-[0_20px_44px_-28px_rgba(0,0,0,0.7)]
             transition-[transform,border-color] duration-300 hover:z-10 hover:scale-[1.02] hover:border-primary/50
             motion-reduce:hover:scale-100">
             <div className="flex items-start justify-between gap-3">
@@ -31,7 +31,7 @@ const PlantCard = ({p}: { p: PlantProject }) => {
             <div className="mb-3.5 mt-0.5 font-mono text-[12.5px] text-muted-foreground">
                 <span className="text-primary">◆</span> {p.site}
             </div>
-            <div className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-white/40">{product}</div>
+            <div className="mb-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-white/55">{product}</div>
 
             {p.capacity ? (
                 <div className="mb-5 flex items-baseline gap-2">

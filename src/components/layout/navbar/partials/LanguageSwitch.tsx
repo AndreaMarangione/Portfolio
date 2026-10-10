@@ -20,7 +20,7 @@ const LanguageSwitch = ({hash = ""}: { hash?: string }) => {
                     aria-current={lang === l ? "true" : undefined}
                     className={`flex h-full cursor-pointer items-center rounded-[5px] px-3 font-mono text-xs uppercase tracking-wide transition-colors ${
                         lang === l
-                            ? "bg-primary text-primary-foreground"
+                            ? "bg-primary text-background"
                             : "text-muted-foreground hover:text-foreground"
                     }`}
                 >
