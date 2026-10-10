@@ -1,12 +1,9 @@
 import "../globals.css";
-import Navbar from "@/components/layout/navbar/Navbar";
-import {poppins} from "@/app/constant";
 import type {Metadata} from "next";
 import {redirect} from "next/navigation";
-import MatrixBg from "@/components/matrixBg/MatrixBg";
+import AppShell from "@/components/layout/appShell/AppShell";
 import {defaultLocale, hasLocale, locales, SITE_URL} from "@/i18n/config";
 import {getDictionary} from "@/i18n/getDictionary";
-import {DictionaryProvider} from "@/i18n/DictionaryProvider";
 
 export const generateStaticParams = () => locales.map((lang) => ({lang}));
 
@@ -49,20 +46,7 @@ const RootLayout = async ({children, params}: LayoutProps<"/[lang]">) => {
 
     const dict = await getDictionary(lang);
 
-    return (
-        <html
-            lang={lang}
-            className={`ubuntu ${poppins.variable} h-full antialiased`}
-        >
-        <body className="min-h-full flex flex-col">
-        <DictionaryProvider dict={dict} lang={lang}>
-            <MatrixBg/>
-            <Navbar/>
-            <main className="flex-1">{children}</main>
-        </DictionaryProvider>
-        </body>
-        </html>
-    );
+    return <AppShell dict={dict} lang={lang}>{children}</AppShell>;
 };
 
 export default RootLayout;

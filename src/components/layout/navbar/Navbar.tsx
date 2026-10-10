@@ -1,6 +1,7 @@
 "use client";
 
 import {useState} from "react";
+import {usePathname, useRouter} from "next/navigation";
 import {NAVBAR_HEIGHT, navItems} from "@/components/layout/navbar/constant";
 import LanguageSwitch from "@/components/layout/navbar/partials/LanguageSwitch";
 import NavLink from "@/components/layout/navbar/partials/NavLink";
@@ -11,9 +12,13 @@ import {useDictionary} from "@/i18n/DictionaryProvider";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    const {dict} = useDictionary();
+    const {dict, lang} = useDictionary();
+    const router = useRouter();
+    const pathname: string = usePathname();
+    const isHome: boolean = pathname === `/${lang}`;
     const ids: Array<string> = navItems.map((item) => item.href.replace("#", ""));
-    const activeId: string = useActiveSection(ids, NAVBAR_HEIGHT + 1);
+    const visibleId: string = useActiveSection(ids, NAVBAR_HEIGHT + 1);
+    const activeId: string = isHome ? visibleId : "";
     const activeHash: string = activeId && activeId !== ids[0] ? `#${activeId}` : "";
 
     const labelFor = (href: string): string => {
@@ -25,6 +30,11 @@ const Navbar = () => {
     const handleNavClick = (e: React.MouseEvent, href: string) => {
         e.preventDefault();
         setOpen(false);
+
+        if (!isHome) {
+            router.push(`/${lang}${href}`);
+            return;
+        }
 
         const id = href.replace("#", "");
         const element = document.getElementById(id);
