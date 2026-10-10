@@ -22,19 +22,19 @@ const Terminal = () => {
                     andrea@portfolio: ~/web
                 </span>
                 <div className="flex items-center gap-2">
-                    <TerminalWinCtrl label="Minimize">
+                    <TerminalWinCtrl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <line x1="2.5" y1="6" x2="9.5" y2="6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
                     </TerminalWinCtrl>
-                    <TerminalWinCtrl label="Maximize">
+                    <TerminalWinCtrl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <rect x="2.5" y="2.5" width="7" height="7" rx="1" fill="none" stroke="currentColor"
                                   strokeWidth="1.3"/>
                         </svg>
                     </TerminalWinCtrl>
-                    <TerminalWinCtrl label="Close" close>
+                    <TerminalWinCtrl close>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
