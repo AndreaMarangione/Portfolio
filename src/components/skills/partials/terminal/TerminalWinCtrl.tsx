@@ -1,15 +1,15 @@
 import type {ReactNode} from "react";
 
-const TerminalWinCtrl = ({children, label, close = false}: { children: ReactNode; label: string; close?: boolean }) => (
-    <button
-        type="button"
-        aria-label={label}
-        className={`flex h-6.5 w-6.5 items-center justify-center rounded-full bg-white/5 text-foreground/70 transition-colors hover:bg-white/10 ${
+const TerminalWinCtrl = ({children, close = false}: { children: ReactNode; close?: boolean }) => (
+    <span
+        aria-hidden="true"
+        className={`flex h-6.5 w-6.5 cursor-default items-center justify-center rounded-full 
+        bg-white/5 text-foreground/70 transition-colors hover:bg-white/10 ${
             close ? "hover:bg-primary hover:text-white" : ""
         }`}
     >
         {children}
-    </button>
+    </span>
 );
 
 export default TerminalWinCtrl;
