@@ -7,7 +7,6 @@ import {defaultLocale, hasLocale, PATHNAME_HEADER} from "@/i18n/config";
 import {getDictionary} from "@/i18n/getDictionary";
 import {Locale} from "@/i18n/type";
 
-/* la pagina non ha params: lingua e percorso arrivano dall'header impostato in proxy.ts */
 const resolveRequest = async (): Promise<{ lang: Locale; pathname: string }> => {
     const pathname: string = (await headers()).get(PATHNAME_HEADER) ?? "";
     const segment: string = pathname.split("/")[1] ?? "";

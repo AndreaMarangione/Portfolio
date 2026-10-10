@@ -2,7 +2,6 @@ import LadderLabels from "@/components/notFound/partials/LadderLabels";
 import {LADDER_OFF, LADDER_ON} from "@/components/notFound/constant";
 import {LadderContactProps} from "@/components/notFound/type";
 
-/* il tratto d'ingresso è sempre in tensione: ogni contatto sta direttamente sulla barra */
 const LadderContact = ({tag, address, closed, normallyClosed = false}: LadderContactProps) => {
     const color: string = closed ? LADDER_ON : LADDER_OFF;
 

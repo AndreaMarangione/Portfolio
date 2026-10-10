@@ -15,7 +15,6 @@ const NotFound = ({pathname}: NotFoundProps) => {
     const {dict, lang} = useDictionary();
     const [armed, setArmed] = useState(false);
     const t = dict.notFound;
-
     const arm = () => setArmed(true);
     const disarm = () => setArmed(false);
 
@@ -33,7 +32,9 @@ const NotFound = ({pathname}: NotFoundProps) => {
                             </p>
                         </div>
                         <span
-                            className="flex items-center gap-1.5 rounded-[5px] border border-[#2c4a33] bg-[#16271a] px-2.5 py-1 font-mono text-[11px] tracking-[0.08em] text-[#46c46e] sm:ml-auto">
+                            className="flex items-center gap-1.5 rounded-[5px] border border-[#2c4a33]
+                            bg-[#16271a] px-2.5 py-1 font-mono text-[11px] tracking-[0.08em] text-[#46c46e] sm:ml-auto"
+                        >
                             <HmiLed pulse/>ONLINE · Main [OB1]
                         </span>
                     </div>
@@ -64,7 +65,8 @@ const NotFound = ({pathname}: NotFoundProps) => {
                                     onMouseLeave={disarm}
                                     onFocus={arm}
                                     onBlur={disarm}
-                                    className="rounded-md border border-primary bg-[#251c17] px-3 py-1.5 font-mono text-xs text-[#f0d3c6] transition-colors hover:bg-primary hover:text-white"
+                                    className="rounded-md border border-primary bg-[#251c17] px-3 py-1.5 font-mono
+                                    text-xs text-[#f0d3c6] transition-colors hover:bg-primary hover:text-white"
                                 >
                                     {t.goHome}
                                 </Link>
