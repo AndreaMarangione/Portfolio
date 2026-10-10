@@ -18,7 +18,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
     const {lang} = await resolveRequest();
     const dict = await getDictionary(lang);
 
-    return {title: `404 — ${dict.notFound.title}`};
+    return {title: `404 - ${dict.notFound.title}`};
 };
 
 const GlobalNotFound = async () => {
