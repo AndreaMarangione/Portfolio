@@ -4,7 +4,7 @@ import Image from "next/image"
 import usePageLoad from "@/hooks/usePageLoad"
 import {useDictionary} from "@/i18n/DictionaryProvider"
 import {FLOOR_A, FLOOR_B} from "@/components/hero/constant"
-import PidBenchDekstop from "@/components/hero/image/partials/PidBenchDekstop"
+import PidBenchDesktop from "@/components/hero/image/partials/PidBenchDesktop"
 import PidBenchMobile from "@/components/hero/image/partials/PidBenchMobile";
 import heroImage from "./assets/andrea-hero.webp";
 
@@ -76,7 +76,7 @@ const HeroImage = () => {
                     </g>
                 </svg>
 
-                <PidBenchDekstop readings={dict.pid}/>
+                <PidBenchDesktop readings={dict.pid}/>
             </div>
 
             <PidBenchMobile/>

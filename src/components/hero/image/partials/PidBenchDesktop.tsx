@@ -1,7 +1,7 @@
 import {EQUIPMENT, FADE, DESKTOP_FLOW_PATH, INSTRUMENTS, READINGS} from "@/components/hero/constant"
 import {PidBenchProps} from "@/components/hero/type";
 
-const PidBenchDekstop = ({readings}: PidBenchProps) => (
+const PidBenchDesktop = ({readings}: PidBenchProps) => (
     <svg
         viewBox="0 0 680 280"
         aria-hidden="true"
@@ -150,4 +150,4 @@ const PidBenchDekstop = ({readings}: PidBenchProps) => (
     </svg>
 )
 
-export default PidBenchDekstop
+export default PidBenchDesktop
