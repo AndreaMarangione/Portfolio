@@ -17,3 +17,9 @@ export const hmiFunctionKeys = [
     {n: "F5", label: "Network"},
     {n: "F6", label: "Diagnostics"},
 ];
+
+export const HMI_LED_COLORS = {
+    g: "bg-[#2fbf5f] shadow-[0_0_5px_rgba(47,191,95,0.65)]",
+    o: "bg-primary shadow-[0_0_5px_rgba(233,84,32,0.65)]",
+    r: "bg-[#e5484d] shadow-[0_0_5px_rgba(229,72,77,0.65)]",
+};

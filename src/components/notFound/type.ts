@@ -24,6 +24,7 @@ export type LadderCoilProps = {
     address: string;
     on: boolean;
     set?: boolean;
+    reset?: boolean;
     highlight?: boolean;
 };
 

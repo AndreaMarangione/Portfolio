@@ -207,6 +207,17 @@ const it: Dictionary = {
         label: "Cambia lingua",
     },
 
+    fault: {
+        title: "Qualcosa è andato storto",
+        network: "Segmento",
+        runtime: "Controllo runtime",
+        fault: "Gestione errore",
+        reset: "Reset errore",
+        recovery: "Ripristino",
+        retry: "Riprova",
+        goHome: "Torna alla home",
+    },
+
     notFound: {
         title: "Pagina non trovata",
         network: "Segmento",

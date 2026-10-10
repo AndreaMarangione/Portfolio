@@ -207,6 +207,17 @@ const en = {
         label: "Change language",
     },
 
+    fault: {
+        title: "Something went wrong",
+        network: "Network",
+        runtime: "Runtime check",
+        fault: "Fault handling",
+        reset: "Fault reset",
+        recovery: "Recovery",
+        retry: "Try again",
+        goHome: "Go home",
+    },
+
     notFound: {
         title: "Page not found",
         network: "Network",
