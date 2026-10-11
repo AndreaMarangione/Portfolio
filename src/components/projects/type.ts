@@ -5,7 +5,7 @@ export type PlantProject = {
     description?: string;
     site: string;
     product: string;
-    capacity?: { value: string; unit: string };
+    capacity?: { value: number; unit: string };
     flowLabel: string;
     flow: string[]
 };

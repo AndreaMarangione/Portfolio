@@ -32,7 +32,7 @@ const MobileMenu = ({open, activeId, onNavClick, onClose}: MobileMenuProps) => {
                             aria-current={isActive ? "page" : undefined}
                             className={`flex items-center border-l-[3px] px-6 py-3 font-mono transition-colors ${
                                 isActive
-                                    ? "order-primary bg-[#251c17] text-primary"
+                                    ? "border-primary bg-[#251c17] text-primary"
                                     : "border-transparent text-muted-foreground hover:bg-white/3 hover:text-foreground"
                             }`}
                         >

@@ -135,6 +135,19 @@ const it: Dictionary = {
             "Stack": "Stack",
         },
 
+        names: {
+            "Energy company": "Azienda energetica",
+        },
+
+        sites: {
+            "Houston · Texas, USA": "Houston · Texas, USA",
+            "Fuzhou · China": "Fuzhou · Cina",
+            "Rudong · China": "Rudong · Cina",
+            "Andalusia · Alabama, USA": "Andalusia · Alabama, USA",
+            "Balıkesir · Turkey": "Balıkesir · Turchia",
+            "Zaragoza · Spain": "Zaragoza · Spagna",
+        },
+
         products: {
             "Gas turbine test bench · R&D": "Banco prova turbina a gas · R&S",
             "POY & FDY coils": "Bobine tessuto POY & FDY",
@@ -144,13 +157,13 @@ const it: Dictionary = {
         },
 
         descriptions: {
-            "Azienda energetica": "Messa in servizio e controllo turbina",
+            "Energy company": "Messa in servizio e controllo turbina",
             "Emplhub CRM": "Applicativo gestionale per dipendenti e attività verso i clienti.",
             "Teams ChatExporter":
                 "Esporta le chat di Teams selezionate in file HTML puliti e autonomi, pronti da archiviare e condividere.",
             "PLC ↔ Arduino display":
                 "Collega un PLC Siemens ad Arduino via Ethernet per pilotare diversi display a 7 segmenti.",
-            "My portfolio": "Il sito che stai guardando — un portfolio a tema Ubuntu.",
+            "Portfolio": "Il sito che stai guardando — un portfolio a tema Ubuntu.",
         },
 
         steps: {
@@ -190,7 +203,7 @@ const it: Dictionary = {
                 text: "Un banco prova, una linea completa o il software che li tiene insieme: in Elettromar saremo felici di realizzarlo con te.",
             },
             {kind: "blank"},
-            {kind: "link", text: "elettromar.com", href: "https://www.elettromar.it/it"},
+            {kind: "link", text: "elettromar.it", href: "https://www.elettromar.it/it"},
             {kind: "blank"},
             {kind: "text", text: "Non esitare a contattarmi — facciamo insieme uno studio di fattibilità."},
         ] as TextEditorLineType[],
@@ -200,6 +213,7 @@ const it: Dictionary = {
             available: "Disponibile per nuovi progetti",
             email: "Email",
             location: "Sede",
+            country: "Italia",
         },
     },
 

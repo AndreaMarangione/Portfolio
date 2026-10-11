@@ -5,7 +5,7 @@ const en = {
     meta: {
         title: "Andrea Marangione - Industrial Automation Software Developer",
         description:
-            "Industrial automation software developer. PLC programming, plant design and on-site commissioning worldwide, plus full-stack web development.",
+            "PLC programming and on-site commissioning of industrial plants and gas turbine test benches worldwide. Plus full-stack web development.",
         role: "Industrial Automation Software Developer"
     },
 
@@ -135,6 +135,19 @@ const en = {
             "Stack": "Stack",
         } as Record<string, string>,
 
+        names: {
+            "Energy company": "Energy company",
+        } as Record<string, string>,
+
+        sites: {
+            "Houston · Texas, USA": "Houston · Texas, USA",
+            "Fuzhou · China": "Fuzhou · China",
+            "Rudong · China": "Rudong · China",
+            "Andalusia · Alabama, USA": "Andalusia · Alabama, USA",
+            "Balıkesir · Turkey": "Balıkesir · Turkey",
+            "Zaragoza · Spain": "Zaragoza · Spain",
+        } as Record<string, string>,
+
         products: {
             "Gas turbine test bench · R&D": "Gas turbine test bench · R&D",
             "POY & FDY coils": "POY & FDY coils",
@@ -150,7 +163,7 @@ const en = {
                 "Exports the Teams chats you choose into clean, self-contained HTML files for archiving and sharing.",
             "PLC ↔ Arduino display":
                 "Bridges a Siemens PLC to Arduino over Ethernet to drive several 7-segment displays.",
-            "My portfolio": "The site you're looking at — an Ubuntu-themed portfolio.",
+            "Portfolio": "The site you're looking at — an Ubuntu-themed portfolio.",
         } as Record<string, string>,
 
         steps: {
@@ -190,7 +203,7 @@ const en = {
                 text: "A test bench, a full line, or the software that ties it together: at Elettromar we'd be glad to build it with you.",
             },
             {kind: "blank"},
-            {kind: "link", text: "elettromar.com", href: "https://www.elettromar.it/en"},
+            {kind: "link", text: "elettromar.it", href: "https://www.elettromar.it/en"},
             {kind: "blank"},
             {kind: "text", text: "Don't hesitate to get in touch — let's carry out a feasibility study together."},
         ] as TextEditorLineType[],
@@ -200,6 +213,7 @@ const en = {
             available: "Available for new projects",
             email: "Email",
             location: "Location",
+            country: "Italy",
         },
     },
 

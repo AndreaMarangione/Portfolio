@@ -1,6 +1,6 @@
 "use client";
 
-import {EMAIL, GITHUB_LABEL, GITHUB_URL, LINKEDIN_LABEL, LINKEDIN_URL, LOCATION} from "@/components/contacts/constant";
+import {EMAIL, GITHUB_LABEL, GITHUB_URL, LINKEDIN_LABEL, LINKEDIN_URL} from "@/components/contacts/constant";
 import MailIcon from "@/components/ui/icons/MailIcon";
 import LinkedInIcon from "@/components/ui/icons/LinkedInIcon";
 import GithubIcon from "@/components/ui/icons/GithubIcon";
@@ -68,7 +68,7 @@ const ReachMe = () => {
                     <span className="min-w-0">
                         <span
                             className="block font-mono text-[10px] uppercase tracking-widest text-dim">{dict.contact.reachMe.location}</span>
-                        <span className="block truncate text-[13.5px] text-foreground">{LOCATION}</span>
+                        <span className="block truncate text-[13.5px] text-foreground">{dict.contact.reachMe.country}</span>
                     </span>
                 </div>
             </div>
