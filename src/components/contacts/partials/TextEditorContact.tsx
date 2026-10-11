@@ -4,10 +4,12 @@ import TextEditorWindowButton from "@/components/ui/textEditor/TextEditorWindowB
 import WindowControl from "@/components/ui/WindowControl";
 import TextEditorRenderLine from "@/components/ui/textEditor/TextEditorRenderLine";
 import {useDictionary} from "@/i18n/DictionaryProvider";
+import textEditorCursor from "@/utils/textEditorCursor";
 
 const TextEditorContact = () => {
     const {dict} = useDictionary();
     const lines = dict.contact.lines;
+    const cursor = textEditorCursor(lines);
 
     return (
         <div
@@ -81,7 +83,7 @@ const TextEditorContact = () => {
                 className="flex h-7.5 items-center justify-end gap-4.5 border-t border-black/30 bg-card px-4 text-xs text-muted-foreground">
                 <span className="hidden sm:inline">Markdown</span>
                 <span className="hidden sm:inline">Tab Width: 4</span>
-                <span>Ln 8, Col 19</span>
+                <span>Ln {cursor.line}, Col {cursor.column}</span>
                 <span>INS</span>
             </div>
         </div>

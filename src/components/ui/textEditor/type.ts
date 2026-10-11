@@ -5,3 +5,8 @@ export type TextEditorLineType =
     | { kind: "text"; text: string }
     | { kind: "blank" }
     | { kind: "link"; text: string; href: string }
+
+export type TextEditorCursorType = {
+    line: number;
+    column: number;
+};

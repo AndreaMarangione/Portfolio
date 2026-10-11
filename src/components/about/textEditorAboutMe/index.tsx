@@ -4,10 +4,12 @@ import TextEditorWindowButton from "@/components/ui/textEditor/TextEditorWindowB
 import WindowControl from "@/components/ui/WindowControl";
 import TextEditorRenderLine from "@/components/ui/textEditor/TextEditorRenderLine";
 import {useDictionary} from "@/i18n/DictionaryProvider";
+import textEditorCursor from "@/utils/textEditorCursor";
 
 const TextEditorAboutMe = () => {
     const {dict} = useDictionary();
     const lines = dict.about.lines;
+    const cursor = textEditorCursor(lines);
 
     return (
         <div className="mx-auto mt-10 w-full max-w-3xl lg:max-w-none animate-fade-up md:mt-5">
@@ -84,7 +86,7 @@ const TextEditorAboutMe = () => {
                 >
                     <span className="hidden sm:inline">Markdown</span>
                     <span className="hidden sm:inline">Tab Width: 4</span>
-                    <span>Ln 11, Col 1</span>
+                    <span>Ln {cursor.line}, Col {cursor.column}</span>
                     <span>INS</span>
                 </div>
             </div>
