@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import usePageLoad from "@/hooks/usePageLoad"
 import {useDictionary} from "@/i18n/DictionaryProvider"
 import {FLOOR_A, FLOOR_B} from "@/components/hero/constant"
 import PidBenchDesktop from "@/components/hero/image/partials/PidBenchDesktop"
@@ -9,18 +8,17 @@ import PidBenchMobile from "@/components/hero/image/partials/PidBenchMobile";
 import heroImage from "./assets/andrea-hero.webp";
 
 const HeroImage = () => {
-    const {isLoaded} = usePageLoad()
     const {dict} = useDictionary()
 
     return (
         <div
-            className={`relative z-0 w-full md:mt-14
+            className="relative z-0 w-full md:mt-14
             [--fig-h:min(calc((100vw-3rem)*228/328),270px)]
             sm:[--fig-h:300px] md:[--fig-h:360px]
             lg:[--fig-h:440px] xl:[--fig-h:500px]
             [--pid-s:0.68] lg:[--pid-s:0.75] xl:[--pid-s:0.84] 2xl:[--pid-s:1]
             h-[calc(var(--fig-h)*280/228)]
-            ${isLoaded ? "animate-fade-up animate-fade-up-delay-portrait" : ""}`}
+            animate-fade-up animate-fade-up-delay-portrait"
         >
             <div
                 className="pointer-events-none absolute bottom-0

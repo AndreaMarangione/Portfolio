@@ -1,42 +1,35 @@
 "use client"
 
-import usePageLoad from "@/hooks/usePageLoad";
 import {useDictionary} from "@/i18n/DictionaryProvider";
 import {IntroProps} from "@/components/hero/type";
 
 const Intro = ({experienceYears}: IntroProps) => {
-    const {isLoaded} = usePageLoad()
     const {dict} = useDictionary()
 
     return (
         <div className="relative z-10 self-start">
             <div className="overflow-hidden mb-5">
-                <p className={`text-lg text-muted-foreground whitespace-nowrap w-fit overflow-hidden 
-                    ${isLoaded ? "animate-typing" : ""}`}
-                >
+                <p className="text-lg text-muted-foreground whitespace-nowrap w-fit overflow-hidden animate-typing">
                     {dict.hero.name}
                 </p>
             </div>
             <h1 className="mb-7 text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-[1.18] max-w-162.5">
                 <span className="block overflow-hidden">
-                    <span className={`block ${isLoaded ? "animate-fade-up" : ""}`}>
+                    <span className="block animate-fade-up">
                             {dict.hero.titleLine1}
                     </span>
                 </span>
                 <span className="block overflow-hidden">
-                    <span className={`block ${isLoaded ? "animate-fade-up animate-fade-up-delay-motto" : ""}`}>
+                    <span className="block animate-fade-up animate-fade-up-delay-motto">
                             {dict.hero.titleLine2}
                     </span>
                 </span>
             </h1>
-            <p className={`text-muted-foreground max-w-md leading-relaxed 
-                ${isLoaded ? "animate-fade-up animate-fade-up-delay-description" : ""}`}
-            >
+            <p className="text-muted-foreground max-w-md leading-relaxed animate-fade-up animate-fade-up-delay-description">
                 {dict.hero.description}
             </p>
             <div
-                className={`mt-12 md:mt-14 grid grid-cols-3 w-full max-w-md rounded-xl bg-muted border border-border overflow-hidden 
-                    ${isLoaded ? "animate-fade-up animate-fade-up-delay-stats" : ""}`}
+                className="mt-12 md:mt-14 grid grid-cols-3 w-full max-w-md rounded-xl bg-muted border border-border overflow-hidden animate-fade-up animate-fade-up-delay-stats"
             >
                 <div className="py-5 text-center">
                     <p className="text-primary font-bold text-xl">
