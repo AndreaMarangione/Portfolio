@@ -1,4 +1,4 @@
-import TextEditorWindowControl from "@/components/ui/textEditor/TextEditorWindowControl";
+import WindowControl from "@/components/ui/WindowControl";
 import TerminalPrompt from "@/components/skills/partials/terminal/TerminalPrompt";
 import {Fragment} from "react";
 import {useDictionary} from "@/i18n/DictionaryProvider";
@@ -22,24 +22,24 @@ const Terminal = () => {
                     andrea@portfolio: ~/web
                 </span>
                 <div className="flex items-center gap-2">
-                    <TextEditorWindowControl>
+                    <WindowControl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <line x1="2.5" y1="6" x2="9.5" y2="6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
-                    </TextEditorWindowControl>
-                    <TextEditorWindowControl>
+                    </WindowControl>
+                    <WindowControl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <rect x="2.5" y="2.5" width="7" height="7" rx="1" fill="none" stroke="currentColor"
                                   strokeWidth="1.3"/>
                         </svg>
-                    </TextEditorWindowControl>
-                    <TextEditorWindowControl close>
+                    </WindowControl>
+                    <WindowControl close>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
-                    </TextEditorWindowControl>
+                    </WindowControl>
                 </div>
             </div>
 

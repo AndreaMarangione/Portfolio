@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 
-const TextEditorWindowControl = ({children, close = false}: { children: ReactNode; close?: boolean }) => (
+const WindowControl = ({children, close = false}: { children: ReactNode; close?: boolean }) => (
     <span
         aria-hidden="true"
         className={`flex h-6.5 w-6.5 cursor-default items-center justify-center rounded-full 
@@ -12,4 +12,4 @@ const TextEditorWindowControl = ({children, close = false}: { children: ReactNod
     </span>
 );
 
-export default TextEditorWindowControl;
+export default WindowControl;

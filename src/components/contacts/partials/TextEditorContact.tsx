@@ -1,7 +1,7 @@
 "use client";
 
 import TextEditorWindowButton from "@/components/ui/textEditor/TextEditorWindowButton";
-import TextEditorWindowControl from "@/components/ui/textEditor/TextEditorWindowControl";
+import WindowControl from "@/components/ui/WindowControl";
 import TextEditorRenderLine from "@/components/ui/textEditor/TextEditorRenderLine";
 import {useDictionary} from "@/i18n/DictionaryProvider";
 
@@ -43,24 +43,24 @@ const TextEditorContact = () => {
                                   strokeLinecap="round"/>
                         </svg>
                     </TextEditorWindowButton>
-                    <TextEditorWindowControl>
+                    <WindowControl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <line x1="2.5" y1="6" x2="9.5" y2="6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
-                    </TextEditorWindowControl>
-                    <TextEditorWindowControl>
+                    </WindowControl>
+                    <WindowControl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <rect x="2.5" y="2.5" width="7" height="7" rx="1" fill="none" stroke="currentColor"
                                   strokeWidth="1.3"/>
                         </svg>
-                    </TextEditorWindowControl>
-                    <TextEditorWindowControl close>
+                    </WindowControl>
+                    <WindowControl close>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
-                    </TextEditorWindowControl>
+                    </WindowControl>
                 </div>
             </div>
 
