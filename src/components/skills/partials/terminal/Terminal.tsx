@@ -1,4 +1,4 @@
-import TerminalWinCtrl from "@/components/skills/partials/terminal/TerminalWinCtrl";
+import TextEditorWindowControl from "@/components/ui/textEditor/TextEditorWindowControl";
 import TerminalPrompt from "@/components/skills/partials/terminal/TerminalPrompt";
 import {Fragment} from "react";
 import {useDictionary} from "@/i18n/DictionaryProvider";
@@ -22,30 +22,30 @@ const Terminal = () => {
                     andrea@portfolio: ~/web
                 </span>
                 <div className="flex items-center gap-2">
-                    <TerminalWinCtrl>
+                    <TextEditorWindowControl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <line x1="2.5" y1="6" x2="9.5" y2="6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
-                    </TerminalWinCtrl>
-                    <TerminalWinCtrl>
+                    </TextEditorWindowControl>
+                    <TextEditorWindowControl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <rect x="2.5" y="2.5" width="7" height="7" rx="1" fill="none" stroke="currentColor"
                                   strokeWidth="1.3"/>
                         </svg>
-                    </TerminalWinCtrl>
-                    <TerminalWinCtrl close>
+                    </TextEditorWindowControl>
+                    <TextEditorWindowControl close>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
-                    </TerminalWinCtrl>
+                    </TextEditorWindowControl>
                 </div>
             </div>
 
             <div className="flex-1 bg-[#300a24] px-4.5 py-4 font-mono text-[13.5px] leading-[1.75]">
-                <div className="whitespace-pre-wrap wrap-break-word ttext-foreground">
-                    <TerminalPrompt/><span className="ttext-foreground">cat package.json</span>
+                <div className="whitespace-pre-wrap wrap-break-word text-foreground">
+                    <TerminalPrompt/><span className="text-foreground">cat package.json</span>
                 </div>
                 <div className="whitespace-pre-wrap wrap-break-word text-dim">{"{"}</div>
                 {terminalData.map((m) => (
@@ -72,7 +72,7 @@ const Terminal = () => {
                     </div>
                 ))}
                 <div className="whitespace-pre-wrap wrap-break-word text-dim">{"}"}</div>
-                <div className="whitespace-pre-wrap wrap-break-word ttext-foreground">
+                <div className="whitespace-pre-wrap wrap-break-word text-foreground">
                     <TerminalPrompt/>
                     <span
                         className="ml-0.5 inline-block h-[1.05em] w-2 align-[-2px] bg-primary animate-[blink_1.1s_step-end_infinite]"/>

@@ -4,7 +4,7 @@ const TextEditorWindowButton = ({children, className = ""}: { children: ReactNod
     <span
         aria-hidden="true"
         className={`flex h-7.5 cursor-default select-none items-center gap-1.5 rounded-md 
-        bg-white/5 px-2.5 text-[13px] ttext-foreground transition-colors hover:bg-white/10 ${className}`}
+        bg-white/5 px-2.5 text-[13px] text-foreground transition-colors hover:bg-white/10 ${className}`}
     >
         {children}
     </span>

@@ -15,7 +15,7 @@ const ReachMe = () => {
             className="flex flex-col rounded-xl border border-border bg-[#222222] p-5.5 shadow-[0_24px_54px_-30px_rgba(0,0,0,0.8)] min-[820px]:flex-1">
             <div
                 className="mb-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-dim">{dict.contact.reachMe.title}</div>
-            <div className="mb-5 flex items-center gap-2.5 text-[13.5px] ttext-foreground">
+            <div className="mb-5 flex items-center gap-2.5 text-[13.5px] text-foreground">
                 <span className="h-2.25 w-2.25 rounded-full bg-[#2fbf5f] shadow-[0_0_6px_rgba(47,191,95,0.6)]"/>
                 {dict.contact.reachMe.available}
             </div>

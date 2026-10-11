@@ -59,9 +59,9 @@ const Hmi = () => {
                                 <HmiLed/><span className="text-[#46c46e]">PLC ONLINE</span>
                             </span>
                         <span className="hidden md:inline">USER <span
-                            className="ttext-foreground">A.MARANGIONE</span></span>
+                            className="text-foreground">A.MARANGIONE</span></span>
                         <span>
-                                <span className="ttext-foreground">{clock.time}</span>{" "}
+                                <span className="text-foreground">{clock.time}</span>{" "}
                             <span className="hidden sm:inline">{clock.date}</span>
                             </span>
                         <span
