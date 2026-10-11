@@ -14,7 +14,7 @@ const SectionDivider = ({dir}: SectionDividerProps) => {
                 <span className="text-dim">:</span>
                 <span className="text-[#5fa8e0]">~</span>
                 <span className="text-dim">$</span>{" "}
-                <span className="text-foreground/75">cd</span>{" "}
+                <span className="text-foreground/90">cd</span>{" "}
                 <span className="text-primary">~/{label}</span>
                 <span
                     className="ml-1 inline-block h-[1.05em] w-2 align-[-2px] bg-primary animate-[blink_1.1s_step-end_infinite]"/>

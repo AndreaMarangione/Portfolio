@@ -59,9 +59,9 @@ const Hmi = () => {
                                 <HmiLed/><span className="text-[#46c46e]">PLC ONLINE</span>
                             </span>
                         <span className="hidden md:inline">USER <span
-                            className="text-foreground/85">A.MARANGIONE</span></span>
+                            className="ttext-foreground">A.MARANGIONE</span></span>
                         <span>
-                                <span className="text-foreground/85">{clock.time}</span>{" "}
+                                <span className="ttext-foreground">{clock.time}</span>{" "}
                             <span className="hidden sm:inline">{clock.date}</span>
                             </span>
                         <span
@@ -75,7 +75,7 @@ const Hmi = () => {
                     className="flex h-8 items-center justify-between border-b border-[#2b2b2b] bg-[#1c1c1c] px-4 font-mono text-[11.5px]">
                         <span className="flex items-center gap-2">
                             <HmiLed pulse/>
-                            <span><span className="text-foreground/80">RUNNING</span> <span
+                            <span><span className="text-foreground/95">RUNNING</span> <span
                                 className="text-muted-foreground">— no active alarms</span></span>
                         </span>
                     <span className="hidden text-dim sm:inline">MODE AUTO · SCAN 8 ms</span>
@@ -99,7 +99,7 @@ const Hmi = () => {
                                 <div
                                     className="mb-2.75 flex items-center justify-between border-b border-[#333] pb-2.25">
                                         <span
-                                            className="font-mono text-[11.5px] uppercase tracking-widest text-white/70">
+                                            className="font-mono text-[11.5px] uppercase tracking-widest text-foreground/85">
                                             {mod.title}
                                         </span>
                                     <span
@@ -109,7 +109,7 @@ const Hmi = () => {
                                 </div>
                                 {mod.rows.map((row) => (
                                     <div key={row.name}
-                                         className="flex items-center gap-2.5 py-1.25 font-mono text-[13px] text-foreground/75">
+                                         className="flex items-center gap-2.5 py-1.25 font-mono text-[13px] text-foreground/90">
                                         <HmiLed color="o"/>
                                         {row.name}
                                     </div>
@@ -133,7 +133,7 @@ const Hmi = () => {
                                     {fn.n}
                                 </span>
                             <span
-                                className={`mt-0.75 block font-mono text-[8px] min-[375px]:text-[11px] ${fn.active ? "text-[#f0d3c6]" : "text-white/70"}`}>
+                                className={`mt-0.75 block font-mono text-[8px] min-[375px]:text-[11px] ${fn.active ? "text-[#f0d3c6]" : "text-foreground/85"}`}>
                                     {fn.label}
                             </span>
                         </div>

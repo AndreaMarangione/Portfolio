@@ -14,7 +14,7 @@ const MenuToggle = ({open, onClick}: MenuToggleProps) => {
             aria-expanded={open}
             className={`flex h-9 w-9 items-center justify-center rounded-md border border-border bg-muted/40 text-foreground transition-colors md:hidden ${
                 open
-                    ? "hover:border-primary hover:bg-primary hover:text-white"
+                    ? "hover:border-primary hover:bg-primary hover:text-primary-foreground"
                     : "hover:border-[#4a4a4a] hover:text-primary"
             }`}
         >

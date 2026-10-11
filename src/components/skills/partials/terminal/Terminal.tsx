@@ -18,7 +18,7 @@ const Terminal = () => {
                 className="flex h-11.5 shrink-0 items-center justify-between gap-2 border-b border-black/30 bg-card px-2.5">
                 <span className="hidden w-22.5 md:block"/>
                 <span
-                    className="flex-1 text-left font-mono text-[13px] text-foreground/80 md:text-center">
+                    className="flex-1 text-left font-mono text-[13px] text-foreground/95 md:text-center">
                     andrea@portfolio: ~/web
                 </span>
                 <div className="flex items-center gap-2">
@@ -44,8 +44,8 @@ const Terminal = () => {
             </div>
 
             <div className="flex-1 bg-[#300a24] px-4.5 py-4 font-mono text-[13.5px] leading-[1.75]">
-                <div className="whitespace-pre-wrap wrap-break-word text-foreground/85">
-                    <TerminalPrompt/><span className="text-foreground/95">cat package.json</span>
+                <div className="whitespace-pre-wrap wrap-break-word ttext-foreground">
+                    <TerminalPrompt/><span className="ttext-foreground">cat package.json</span>
                 </div>
                 <div className="whitespace-pre-wrap wrap-break-word text-dim">{"{"}</div>
                 {terminalData.map((m) => (
@@ -72,7 +72,7 @@ const Terminal = () => {
                     </div>
                 ))}
                 <div className="whitespace-pre-wrap wrap-break-word text-dim">{"}"}</div>
-                <div className="whitespace-pre-wrap wrap-break-word text-foreground/85">
+                <div className="whitespace-pre-wrap wrap-break-word ttext-foreground">
                     <TerminalPrompt/>
                     <span
                         className="ml-0.5 inline-block h-[1.05em] w-2 align-[-2px] bg-primary animate-[blink_1.1s_step-end_infinite]"/>

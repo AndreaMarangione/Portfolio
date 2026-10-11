@@ -7,7 +7,7 @@ const ProjectProcess = ({label, steps, arrows = true}: ProjectProcessProps) => (
         <div className="flex flex-wrap items-center gap-1.75 font-mono text-[11.5px]">
             {steps.map((step, i) => (
                 <Fragment key={i}>
-                    <span className="rounded-[5px] border border-border bg-[#171717] px-2 py-1 text-foreground/80">
+                    <span className="rounded-[5px] border border-border bg-[#171717] px-2 py-1 text-foreground/95">
                         {step}
                     </span>
                     {arrows && i < steps.length - 1 && <span className="text-dim">→</span>}

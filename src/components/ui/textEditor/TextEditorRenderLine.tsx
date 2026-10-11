@@ -6,14 +6,14 @@ const TextEditorRenderLine = (line: TextEditorLineType, isLast: boolean): ReactN
     switch (line.kind) {
         case "heading":
             return (
-                <span className="text-foreground/80">
+                <span className="text-foreground/95">
                     <span className="text-dim"># </span>
                     <span className="text-primary font-bold">{line.text}</span>
                 </span>
             );
         case "bold":
             return (
-                <span className="text-foreground/80">
+                <span className="text-foreground/95">
                     <span className="text-dim">**</span>
                     <span className="text-foreground font-bold">{line.text}</span>
                     <span className="text-dim">**</span>
@@ -29,7 +29,7 @@ const TextEditorRenderLine = (line: TextEditorLineType, isLast: boolean): ReactN
             );
         case "link":
             return (
-                <span className="text-foreground/80">
+                <span className="text-foreground/95">
                     <a
                         href={line.href}
                         target="_blank"
@@ -43,7 +43,7 @@ const TextEditorRenderLine = (line: TextEditorLineType, isLast: boolean): ReactN
             );
         case "text":
             return (
-                <span className="text-foreground/80">
+                <span className="text-foreground/95">
                     {line.text}
                     {isLast && <Caret/>}
                 </span>

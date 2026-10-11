@@ -4,7 +4,7 @@ const LadderNetwork = ({label, index, title, comment, children}: LadderNetworkPr
     <div>
         <div className="flex items-baseline gap-2 border-b border-[#333] pb-2 font-mono text-[10.5px] sm:text-xs">
             <span className="text-dim">▼</span>
-            <span className="shrink-0 text-foreground/80">{label} {index}:</span>
+            <span className="shrink-0 text-foreground/95">{label} {index}:</span>
             <span className="shrink-0 text-muted-foreground">{title}</span>
             {comment && <span className="ml-auto min-w-0 truncate text-dim">{"// "}{comment}</span>}
         </div>
