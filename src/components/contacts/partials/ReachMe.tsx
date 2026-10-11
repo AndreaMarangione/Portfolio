@@ -14,8 +14,8 @@ const ReachMe = () => {
         <div
             className="flex flex-col rounded-xl border border-border bg-[#222222] p-5.5 shadow-[0_24px_54px_-30px_rgba(0,0,0,0.8)] min-[820px]:flex-1">
             <div
-                className="mb-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white/40">{dict.contact.reachMe.title}</div>
-            <div className="mb-5 flex items-center gap-2.5 text-[13.5px] text-foreground/85">
+                className="mb-3.5 font-mono text-[10px] uppercase tracking-[0.14em] text-dim">{dict.contact.reachMe.title}</div>
+            <div className="mb-5 flex items-center gap-2.5 text-[13.5px] text-foreground">
                 <span className="h-2.25 w-2.25 rounded-full bg-[#2fbf5f] shadow-[0_0_6px_rgba(47,191,95,0.6)]"/>
                 {dict.contact.reachMe.available}
             </div>
@@ -29,8 +29,8 @@ const ReachMe = () => {
                     </span>
                     <span className="min-w-0">
                         <span
-                            className="block font-mono text-[10px] uppercase tracking-widest text-white/40">{dict.contact.reachMe.email}</span>
-                        <span className="block truncate text-[13.5px] text-white">{EMAIL}</span>
+                            className="block font-mono text-[10px] uppercase tracking-widest text-dim">{dict.contact.reachMe.email}</span>
+                        <span className="block truncate text-[13.5px] text-foreground">{EMAIL}</span>
                     </span>
                 </a>
 
@@ -42,8 +42,8 @@ const ReachMe = () => {
                     </span>
                     <span className="min-w-0">
                         <span
-                            className="block font-mono text-[10px] uppercase tracking-widest text-white/40">LinkedIn</span>
-                        <span className="block truncate text-[13.5px] text-white">{LINKEDIN_LABEL}</span>
+                            className="block font-mono text-[10px] uppercase tracking-widest text-dim">LinkedIn</span>
+                        <span className="block truncate text-[13.5px] text-foreground">{LINKEDIN_LABEL}</span>
                     </span>
                 </a>
 
@@ -55,8 +55,8 @@ const ReachMe = () => {
                     </span>
                     <span className="min-w-0">
                         <span
-                            className="block font-mono text-[10px] uppercase tracking-widest text-white/40">GitHub</span>
-                        <span className="block truncate text-[13.5px] text-white">{GITHUB_LABEL}</span>
+                            className="block font-mono text-[10px] uppercase tracking-widest text-dim">GitHub</span>
+                        <span className="block truncate text-[13.5px] text-foreground">{GITHUB_LABEL}</span>
                     </span>
                 </a>
 
@@ -67,8 +67,8 @@ const ReachMe = () => {
                     </span>
                     <span className="min-w-0">
                         <span
-                            className="block font-mono text-[10px] uppercase tracking-widest text-white/40">{dict.contact.reachMe.location}</span>
-                        <span className="block truncate text-[13.5px] text-white">{LOCATION}</span>
+                            className="block font-mono text-[10px] uppercase tracking-widest text-dim">{dict.contact.reachMe.location}</span>
+                        <span className="block truncate text-[13.5px] text-foreground">{LOCATION}</span>
                     </span>
                 </div>
             </div>

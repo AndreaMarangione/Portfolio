@@ -1,7 +1,7 @@
 "use client";
 
 import TextEditorWindowButton from "@/components/ui/textEditor/TextEditorWindowButton";
-import TextEditorWindowControl from "@/components/ui/textEditor/TextEditorWindowControl";
+import WindowControl from "@/components/ui/WindowControl";
 import TextEditorRenderLine from "@/components/ui/textEditor/TextEditorRenderLine";
 import {useDictionary} from "@/i18n/DictionaryProvider";
 
@@ -21,7 +21,7 @@ const TextEditorContact = () => {
                                   strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                     </TextEditorWindowButton>
-                    <TextEditorWindowButton className="w-8! px-0! justify-center" label="New document">
+                    <TextEditorWindowButton className="w-8! px-0! justify-center">
                         <svg width="15" height="15" viewBox="0 0 16 16">
                             <rect x="3.5" y="2.5" width="9" height="11" rx="1.5" fill="none" stroke="currentColor"
                                   strokeWidth="1.2"/>
@@ -37,37 +37,37 @@ const TextEditorContact = () => {
 
                 <div className="flex items-center gap-2">
                     <TextEditorWindowButton className="hidden sm:flex">Save</TextEditorWindowButton>
-                    <TextEditorWindowButton className="w-8! px-0! justify-center" label="Menu">
+                    <TextEditorWindowButton className="w-8! px-0! justify-center">
                         <svg width="15" height="15" viewBox="0 0 16 16">
                             <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11" stroke="currentColor" strokeWidth="1.3"
                                   strokeLinecap="round"/>
                         </svg>
                     </TextEditorWindowButton>
-                    <TextEditorWindowControl label="Minimize">
+                    <WindowControl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <line x1="2.5" y1="6" x2="9.5" y2="6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
-                    </TextEditorWindowControl>
-                    <TextEditorWindowControl label="Maximize">
+                    </WindowControl>
+                    <WindowControl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <rect x="2.5" y="2.5" width="7" height="7" rx="1" fill="none" stroke="currentColor"
                                   strokeWidth="1.3"/>
                         </svg>
-                    </TextEditorWindowControl>
-                    <TextEditorWindowControl label="Close" close>
+                    </WindowControl>
+                    <WindowControl close>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
-                    </TextEditorWindowControl>
+                    </WindowControl>
                 </div>
             </div>
 
             <div className="flex-1 bg-background py-3.5 font-mono text-sm leading-[1.7]">
                 {lines.map((line, index) => (
                     <div key={index} className="flex">
-                        <span className="w-8.5 flex-none select-none pr-4 text-right text-white/30">
+                        <span className="w-8.5 flex-none select-none pr-4 text-right text-dim">
                             {index + 1}
                         </span>
                         <span className="min-w-0 flex-1 wrap-break-word pr-6">

@@ -38,7 +38,7 @@ const Hmi = () => {
                 style={{boxShadow: "inset 0 0 0 1px rgba(233,84,32,0.06), inset 0 1px 0 rgba(255,255,255,0.04)"}}
             >
                 <div
-                    className="flex h-12.5 items-center justify-between gap-3 border-b border-[#333] bg-[#202020] px-4">
+                    className="flex h-12.5 items-center justify-between gap-3 border-b border-[#333] bg-background px-4">
                     <div className="flex min-w-0 items-center gap-2.75">
                         <span
                             className="rounded-[5px] border border-primary px-2 py-0.75 font-mono text-[11px] font-bold tracking-[0.16em] text-primary">
@@ -59,9 +59,9 @@ const Hmi = () => {
                                 <HmiLed/><span className="text-[#46c46e]">PLC ONLINE</span>
                             </span>
                         <span className="hidden md:inline">USER <span
-                            className="text-foreground/85">A.MARANGIONE</span></span>
+                            className="text-foreground">A.MARANGIONE</span></span>
                         <span>
-                                <span className="text-foreground/85">{clock.time}</span>{" "}
+                                <span className="text-foreground">{clock.time}</span>{" "}
                             <span className="hidden sm:inline">{clock.date}</span>
                             </span>
                         <span
@@ -75,10 +75,10 @@ const Hmi = () => {
                     className="flex h-8 items-center justify-between border-b border-[#2b2b2b] bg-[#1c1c1c] px-4 font-mono text-[11.5px]">
                         <span className="flex items-center gap-2">
                             <HmiLed pulse/>
-                            <span><span className="text-foreground/80">RUNNING</span> <span
+                            <span><span className="text-foreground/95">RUNNING</span> <span
                                 className="text-muted-foreground">— no active alarms</span></span>
                         </span>
-                    <span className="hidden text-white/40 sm:inline">MODE AUTO · SCAN 8 ms</span>
+                    <span className="hidden text-dim sm:inline">MODE AUTO · SCAN 8 ms</span>
                 </div>
 
                 <div
@@ -89,7 +89,7 @@ const Hmi = () => {
                         backgroundSize: "30px 30px",
                     }}
                 >
-                    <p className="mb-3 font-mono text-[10.5px] uppercase tracking-[0.12em] text-white/40">
+                    <p className="mb-3 font-mono text-[10.5px] uppercase tracking-[0.12em] text-dim">
                         Modules — 3 groups
                     </p>
                     <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-[repeat(auto-fit,minmax(250px,1fr))]">
@@ -99,7 +99,7 @@ const Hmi = () => {
                                 <div
                                     className="mb-2.75 flex items-center justify-between border-b border-[#333] pb-2.25">
                                         <span
-                                            className="font-mono text-[11.5px] uppercase tracking-widest text-white/70">
+                                            className="font-mono text-[11.5px] uppercase tracking-widest text-foreground/85">
                                             {mod.title}
                                         </span>
                                     <span
@@ -109,7 +109,7 @@ const Hmi = () => {
                                 </div>
                                 {mod.rows.map((row) => (
                                     <div key={row.name}
-                                         className="flex items-center gap-2.5 py-1.25 font-mono text-[13px] text-foreground/75">
+                                         className="flex items-center gap-2.5 py-1.25 font-mono text-[13px] text-foreground/90">
                                         <HmiLed color="o"/>
                                         {row.name}
                                     </div>
@@ -129,11 +129,11 @@ const Hmi = () => {
                             }`}
                         >
                                 <span
-                                    className={`block font-mono text-[10px] tracking-[0.12em] ${fn.active ? "text-primary" : "text-white/40"}`}>
+                                    className={`block font-mono text-[10px] tracking-[0.12em] ${fn.active ? "text-primary" : "text-dim"}`}>
                                     {fn.n}
                                 </span>
                             <span
-                                className={`mt-0.75 block font-mono text-[8px] min-[375px]:text-[11px] ${fn.active ? "text-[#f0d3c6]" : "text-white/70"}`}>
+                                className={`mt-0.75 block font-mono text-[8px] min-[375px]:text-[11px] ${fn.active ? "text-[#f0d3c6]" : "text-foreground/85"}`}>
                                     {fn.label}
                             </span>
                         </div>
@@ -142,7 +142,7 @@ const Hmi = () => {
             </div>
 
             <div
-                className="flex items-center justify-between px-2 pb-0.5 pt-2.75 font-mono text-[10.5px] tracking-[0.08em] text-white/40">
+                className="flex items-center justify-between px-2 pb-0.5 pt-2.75 font-mono text-[10.5px] tracking-[0.08em] text-dim">
                 <span className="flex items-center gap-1.75"><HmiLed/>PWR</span>
                 <span>HMI PANEL</span>
             </div>

@@ -12,18 +12,20 @@ const WebCard = ({p}: { p: WebProject }) => {
 
     return (
         <div
-            className="relative flex flex-col rounded-xl border border-border bg-[#202020] p-5 shadow-[0_20px_44px_-28px_rgba(0,0,0,0.7)]
+            className="relative flex flex-col rounded-xl border border-border bg-background p-5 shadow-[0_20px_44px_-28px_rgba(0,0,0,0.7)]
             transition-[transform,border-color] duration-300 hover:z-10 hover:scale-[1.02] hover:border-primary/50
             motion-reduce:hover:scale-100">
             <div className="flex items-start justify-between gap-3">
                 <h3 className="text-[20px] font-bold text-foreground">{p.name}</h3>
                 <span
-                    className="flex-none whitespace-nowrap rounded-full border border-primary/50 px-2.5 py-1 font-mono text-[10px] tracking-widest text-primary">
+                    className="flex-none whitespace-nowrap rounded-full border border-primary/50 px-2.5
+                    py-1 font-mono text-[10px] tracking-widest text-primary"
+                >
                     {p.type}
                 </span>
             </div>
 
-            <p className="my-3 text-[13.5px] leading-relaxed text-foreground/75">{description}</p>
+            <p className="my-3 text-[13.5px] leading-relaxed text-foreground/90">{description}</p>
 
             <ProjectProcess label={stackLabel} steps={p.stack} arrows={false}/>
 
@@ -32,7 +34,9 @@ const WebCard = ({p}: { p: WebProject }) => {
                     href={p.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-lg border border-primary/50 bg-primary/8 p-2.5 text-[13.5px] font-medium text-[#f0b49c] transition-colors hover:border-primary/70 hover:bg-primary/15 hover:text-white"
+                    className="mt-4 flex w-full items-center justify-center gap-2.5 rounded-lg border border-primary/50
+                    bg-primary/8 p-2.5 text-[13.5px] font-medium text-[#f0b49c] transition-colors
+                    hover:border-primary/70 hover:bg-primary/15 hover:text-foreground"
                 >
                     <GithubIcon/>
                     {dict.projects.viewOnGithub}

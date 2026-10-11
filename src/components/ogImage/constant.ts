@@ -2,7 +2,7 @@ export const OG_COLORS = {
     background: "#1E1E1E",
     card: "#262626",
     border: "#3A3A3A",
-    foreground: "#F5F5F5",
+    foreground: "#D4D4D4",
     muted: "#B3B3B3",
     primary: "#E95420",
     promptUser: "#33d17a",

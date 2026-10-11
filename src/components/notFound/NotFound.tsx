@@ -38,7 +38,7 @@ const NotFound = () => {
                         </span>
                     </div>
 
-                    <div className="space-y-6 rounded-xl border border-border bg-card/40 p-4 sm:p-6">
+                    <div className="space-y-6 rounded-xl border border-border bg-background/40 p-4 sm:p-6">
                         <LadderNetwork label={t.network} index={1} title={t.lookup}>
                             <LadderWire on className="w-6 sm:w-16"/>
                             <LadderContact tag="PAGE_FOUND" address="%M0.0" closed={false}/>
@@ -65,7 +65,7 @@ const NotFound = () => {
                                     onFocus={arm}
                                     onBlur={disarm}
                                     className="rounded-md border border-primary bg-[#251c17] px-3 py-1.5 font-mono
-                                    text-xs text-[#f0d3c6] transition-colors hover:bg-primary hover:text-white"
+                                    text-xs text-[#f0d3c6] transition-colors hover:bg-primary hover:text-primary-foreground"
                                 >
                                     {t.goHome}
                                 </Link>

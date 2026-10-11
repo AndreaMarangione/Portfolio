@@ -1,4 +1,4 @@
-import TerminalWinCtrl from "@/components/skills/partials/terminal/TerminalWinCtrl";
+import WindowControl from "@/components/ui/WindowControl";
 import TerminalPrompt from "@/components/skills/partials/terminal/TerminalPrompt";
 import {Fragment} from "react";
 import {useDictionary} from "@/i18n/DictionaryProvider";
@@ -18,61 +18,61 @@ const Terminal = () => {
                 className="flex h-11.5 shrink-0 items-center justify-between gap-2 border-b border-black/30 bg-card px-2.5">
                 <span className="hidden w-22.5 md:block"/>
                 <span
-                    className="flex-1 text-left font-mono text-[13px] text-foreground/80 md:text-center">
+                    className="flex-1 text-left font-mono text-[13px] text-foreground/95 md:text-center">
                     andrea@portfolio: ~/web
                 </span>
                 <div className="flex items-center gap-2">
-                    <TerminalWinCtrl label="Minimize">
+                    <WindowControl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <line x1="2.5" y1="6" x2="9.5" y2="6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
-                    </TerminalWinCtrl>
-                    <TerminalWinCtrl label="Maximize">
+                    </WindowControl>
+                    <WindowControl>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <rect x="2.5" y="2.5" width="7" height="7" rx="1" fill="none" stroke="currentColor"
                                   strokeWidth="1.3"/>
                         </svg>
-                    </TerminalWinCtrl>
-                    <TerminalWinCtrl label="Close" close>
+                    </WindowControl>
+                    <WindowControl close>
                         <svg width="11" height="11" viewBox="0 0 12 12">
                             <path d="M3 3l6 6M9 3l-6 6" stroke="currentColor" strokeWidth="1.4"
                                   strokeLinecap="round"/>
                         </svg>
-                    </TerminalWinCtrl>
+                    </WindowControl>
                 </div>
             </div>
 
             <div className="flex-1 bg-[#300a24] px-4.5 py-4 font-mono text-[13.5px] leading-[1.75]">
-                <div className="whitespace-pre-wrap wrap-break-word text-foreground/85">
-                    <TerminalPrompt/><span className="text-foreground/95">cat package.json</span>
+                <div className="whitespace-pre-wrap wrap-break-word text-foreground">
+                    <TerminalPrompt/><span className="text-foreground">cat package.json</span>
                 </div>
-                <div className="whitespace-pre-wrap wrap-break-word text-[#6f6f6f]">{"{"}</div>
+                <div className="whitespace-pre-wrap wrap-break-word text-dim">{"{"}</div>
                 {terminalData.map((m) => (
                     <div key={m.key} className="whitespace-pre-wrap wrap-break-word">
                         {"  "}
                         <span className="text-primary">{`"${m.key}"`}</span>
-                        <span className="text-[#6f6f6f]">{": "}</span>
+                        <span className="text-dim">{": "}</span>
                         <span className="text-[#a5cf7e]">{`"${m.value}"`}</span>
-                        <span className="text-[#6f6f6f]">,</span>
+                        <span className="text-dim">,</span>
                     </div>
                 ))}
                 {terminalSkills.map((g, gi) => (
                     <div key={g.key} className="whitespace-pre-wrap wrap-break-word">
                         {"  "}
                         <span className="text-primary">{`"${g.key}"`}</span>
-                        <span className="text-[#6f6f6f]">{": ["}</span>
+                        <span className="text-dim">{": ["}</span>
                         {g.items.map((it, i) => (
                             <Fragment key={it}>
                                 <span className="text-[#a5cf7e]">{`"${it}"`}</span>
-                                {i < g.items.length - 1 && <span className="text-[#6f6f6f]">{", "}</span>}
+                                {i < g.items.length - 1 && <span className="text-dim">{", "}</span>}
                             </Fragment>
                         ))}
-                        <span className="text-[#6f6f6f]">{gi < terminalSkills.length - 1 ? "]," : "]"}</span>
+                        <span className="text-dim">{gi < terminalSkills.length - 1 ? "]," : "]"}</span>
                     </div>
                 ))}
-                <div className="whitespace-pre-wrap wrap-break-word text-[#6f6f6f]">{"}"}</div>
-                <div className="whitespace-pre-wrap wrap-break-word text-foreground/85">
+                <div className="whitespace-pre-wrap wrap-break-word text-dim">{"}"}</div>
+                <div className="whitespace-pre-wrap wrap-break-word text-foreground">
                     <TerminalPrompt/>
                     <span
                         className="ml-0.5 inline-block h-[1.05em] w-2 align-[-2px] bg-primary animate-[blink_1.1s_step-end_infinite]"/>
