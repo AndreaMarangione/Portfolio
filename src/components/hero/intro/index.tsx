@@ -9,11 +9,11 @@ const Intro = ({experienceYears}: IntroProps) => {
     return (
         <div className="relative z-10 self-start">
             <div className="overflow-hidden mb-5">
-                <p className="text-lg text-muted-foreground whitespace-nowrap w-fit overflow-hidden animate-typing">
+                <h1 className="text-lg text-muted-foreground whitespace-nowrap w-fit overflow-hidden animate-typing">
                     {dict.hero.name}
-                </p>
+                </h1>
             </div>
-            <h1 className="mb-7 text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-[1.18] max-w-162.5">
+            <div className="mb-7 text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-[1.18] max-w-162.5">
                 <span className="block overflow-hidden">
                     <span className="block animate-fade-up">
                             {dict.hero.titleLine1}
@@ -24,7 +24,7 @@ const Intro = ({experienceYears}: IntroProps) => {
                             {dict.hero.titleLine2}
                     </span>
                 </span>
-            </h1>
+            </div>
             <p className="text-muted-foreground max-w-md leading-relaxed animate-fade-up animate-fade-up-delay-description">
                 {dict.hero.description}
             </p>
