@@ -2,7 +2,7 @@
 
 # Portfolio
 
-**A portfolio for industrial automation work — built like the screens that work happens on.**
+**The personal portfolio of Andrea Marangione, industrial automation software developer.**
 
 Plants, sites and tools from years of commissioning around the world, in a
 bilingual Next.js site styled after an Ubuntu desktop.
@@ -14,7 +14,7 @@ bilingual Next.js site styled after an Ubuntu desktop.
 ![Node.js](https://img.shields.io/badge/Node.js%2024-339933?style=flat-square&logo=nodedotjs&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
-[**View Live Site**](https://andreamarangione.com)
+[**andreamarangione.com**](https://andreamarangione.com)
 
 </div>
 
@@ -44,22 +44,6 @@ panel, a live P&ID and, when something goes wrong, ladder logic.
 **Hero** — a live P&ID of a gas turbine test bench runs behind the introduction.
 
 ![Hero section with the live P&ID](assets/hero.png)
-
-**About** — the sites on a world map, the story in a Markdown editor.
-
-![World map of the sites and the about-me editor](assets/about.png)
-
-**Skills** — automation modules on an HMI panel, the software stack in a terminal.
-
-![HMI panel and terminal listing the skills](assets/skills.png)
-
-**Projects** — plants with their daily capacity and production flow, software with its stack.
-
-![Plant and software project cards](assets/projects.png)
-
-**404** — a missing page explained as a ladder network; hovering *Go home* energises the coil.
-
-![404 page drawn as ladder logic](assets/not-found.png)
 
 ---
 
@@ -94,62 +78,6 @@ panel, a live P&ID and, when something goes wrong, ladder logic.
   <source media="(prefers-color-scheme: dark)" srcset="assets/architecture.png">
   <img alt="Portfolio architecture" src="assets/architecture.png">
 </picture>
-
----
-
-## Requirements
-
-| | |
-| --- | --- |
-| **Runtime** | Node.js 24, pinned in `.nvmrc` |
-| **Package manager** | npm |
-
----
-
-## Running locally
-
-**1. Clone the repository**
-
-```bash
-git clone https://github.com/AndreaMarangione/Portfolio.git
-```
-
-**2. Install the dependencies**
-
-```bash
-cd Portfolio
-```
-
-```bash
-npm ci
-```
-
-**3. Start the development server**
-
-```bash
-npm run dev
-```
-
-The site is served at `http://localhost:3000` and opens on `/en`.
-
-| Script | What it does |
-| --- | --- |
-| `npm run dev` | Development server with hot reload |
-| `npm run build` | Production build, type-checked |
-| `npm run start` | Serves the production build |
-| `npm run lint` | Runs ESLint |
-
----
-
-## Notes
-
-- **Content lives in the dictionaries.** Every string on the page is in
-  `src/i18n/dictionaries/en.ts` and `it.ts`. The Italian file is typed against
-  the English one, so a missing key fails the build.
-- **Pages are static.** Both locales are generated at build time and
-  revalidated once a day. There is no database and no API.
-- **Deployment.** Every push to `main` is built and deployed by Vercel.
-- **No analytics.** The site does not track its visitors.
 
 ---
 
