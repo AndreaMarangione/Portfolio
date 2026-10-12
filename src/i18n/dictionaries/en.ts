@@ -5,7 +5,7 @@ const en = {
     meta: {
         title: "Andrea Marangione - Industrial Automation Software Developer",
         description:
-            "PLC programming and on-site commissioning of industrial plants and gas turbine test benches worldwide. Plus full-stack web development.",
+            "PLC programming, on-site commissioning of industrial plants and full-stack web development.",
         role: "Industrial Automation Software Developer"
     },
 

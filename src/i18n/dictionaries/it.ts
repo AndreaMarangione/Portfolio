@@ -5,7 +5,7 @@ const it: Dictionary = {
     meta: {
         title: "Andrea Marangione - Sviluppatore Automazione Industriale",
         description:
-            "Programmazione PLC e messa in servizio di impianti industriali e banchi prova per turbine a gas in tutto il mondo. Anche sviluppo web full-stack.",
+            "Programmazione PLC, messa in servizio di impianti industriali e sviluppo web full-stack.",
         role: "Sviluppatore Software per Automazione Industriale"
     },
 
