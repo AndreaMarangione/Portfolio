@@ -12,7 +12,6 @@ bilingual Next.js site styled after an Ubuntu desktop.
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS%204-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js%2024-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
 [**andreamarangione.com**](https://andreamarangione.com)
 
@@ -21,21 +20,6 @@ bilingual Next.js site styled after an Ubuntu desktop.
 > [!NOTE]
 > The site is bilingual. Every page exists in English (`/en`) and Italian
 > (`/it`), and any address without a language prefix redirects to `/en`.
-
----
-
-## What it is
-
-Industrial automation is hard to put in a portfolio. The code belongs to the
-customer, the plants sit behind a fence on the other side of the world, and a
-PLC program means little to anyone who has never stood next to the machine it
-drives.
-
-This site shows what can be shown: where the work happened, what the plants
-produce and how their lines are built, the tools used along the way, and how
-to get in touch. The interface borrows from the places that work actually
-happens in — an Ubuntu desktop with terminal and editor windows, an operator
-panel, a live P&ID and, when something goes wrong, ladder logic.
 
 ---
 
